@@ -1,0 +1,61 @@
+﻿@using zkdao.Web.Extensions
+@model zkdao.Web.ProductServiceReference.LaptopDataObjectList
+
+@{
+    ViewBag.Title = "Home - Byteart Retail";
+}
+
+<h2>Welcome to Byteart Retail Web Store!</h2>
+<p>
+Here you can view the details of most popular laptops simply by clicking the name of the laptop. For registered users,
+you can click the "Add to Cart" button to add the favorite products into your shopping cart, check out your purchase order,
+or review your purchase histories after successful login.
+</p>
+<table style="width: 100%;">
+    @foreach (var laptopDataObject in Model)
+    {
+        <tr>
+            <td class="TableCell_LaptopImage">
+                <img src="@Url.Content("~/Content/asserts/images/")@laptopDataObject.ImageUrl" alt="@laptopDataObject.ImageUrl"/>
+            </td>
+            <td style="text-align: left; vertical-align: top">
+                <table style="width: 100%">
+                    <thead class="TableCell_LaptopName">
+                        <tr>
+                            <td>
+                                @Html.ActionLink(laptopDataObject.Name, "Details", "Product", new {ID=laptopDataObject.ID}, null)
+                            </td>
+                            <td style="width: 70px">
+                                <a href="@Url.Action("AddToCart", "Product", new { productID=laptopDataObject.ID })"><img src="@Url.Content("~/Content/asserts/images/AddToCart.png")" alt="Add to Cart" style="border: 0" /></a>
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <table class="TableCell_LaptopDetails">
+                                    <tr>
+                                        <td>Brand: @laptopDataObject.Brand</td>
+                                        <td>Unit Price: <span class="UnitPrice">@string.Format("{0:c}", laptopDataObject.UnitPrice)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>CPU: @laptopDataObject.Configuration.CPU</td>
+                                        <td>Memory: @laptopDataObject.Configuration.Memory</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Main Board: @laptopDataObject.Configuration.Board</td>
+                                        <td>Hard Disk: @laptopDataObject.Configuration.HardDisk</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Video Adapter: @laptopDataObject.Configuration.VideoAdapter</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    }
+</table>
+

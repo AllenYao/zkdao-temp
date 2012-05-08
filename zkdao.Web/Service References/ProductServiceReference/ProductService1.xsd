@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.zkdao.com" elementFormDefault="qualified" targetNamespace="http://www.zkdao.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8558/ProductService.svc?xsd=xsd2" namespace="http://www.zkdao.com/CollectionDataObjectList.xsd" />
+  <xs:import schemaLocation="http://localhost:8558/ProductService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:8558/ProductService.svc?xsd=xsd3" namespace="http://www.zkdao.com/LaptopDataObject.xsd" />
+  <xs:element name="GetLaptops">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLaptopsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://www.zkdao.com/CollectionDataObjectList.xsd" minOccurs="0" name="GetLaptopsResult" nillable="true" type="q1:LaptopDataObjectList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLaptop">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="ID" type="q2:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLaptopResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://www.zkdao.com/LaptopDataObject.xsd" minOccurs="0" name="GetLaptopResult" nillable="true" type="q3:LaptopDataObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateLaptop">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://www.zkdao.com/LaptopDataObject.xsd" minOccurs="0" name="laptopDataObject" nillable="true" type="q4:LaptopDataObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateLaptopResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="CreateLaptopResult" type="q5:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateLaptops">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://www.zkdao.com/CollectionDataObjectList.xsd" minOccurs="0" name="laptopDataObjects" nillable="true" type="q6:LaptopDataObjectList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateLaptopsResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

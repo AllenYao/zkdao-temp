@@ -1,0 +1,15 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    ViewBag.Title = "Error - Byteart Retail";
+}
+
+<h3>
+    @Model.Exception.Message
+</h3>
+
+<fieldset>
+    <legend>Detailed Information</legend>
+    <div>@Model.Exception.StackTrace</div>
+</fieldset>
+

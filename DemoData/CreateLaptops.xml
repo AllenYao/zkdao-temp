@@ -1,0 +1,177 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:byt="http://www.ByteartRetail.com" xmlns:col="http://www.ByteartRetail.com/CollectionDataObjectList.xsd" xmlns:lap="http://www.ByteartRetail.com/LaptopDataObject.xsd" xmlns:lap1="http://www.ByteartRetail.com/LaptopConfigurationDataObject.xsd">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <byt:CreateLaptops>
+         <byt:laptopDataObjects>
+            <col:LaptopDataObject>
+               <lap:Brand>Hewlett-Packard</lap:Brand>
+               <lap:Description><![CDATA[Watch your favorite videos and DVDs at home and on the go using the HP Notebook PC. This laptop has a large high-definition LED-backlit display for easy viewing. Sync to mobile devices and print wirelessly using integrated Bluetooth? and browse the web using integrated Wi-Fi. Plus, share photos, play music and keep in touch using the webcam. The Pavilion g7 is an ENERGY STAR? qualified product, so you¡¯ll save power, too.]]></lap:Description>
+               <lap:Name>g4-1207TX QG341PA</lap:Name>
+               <lap:ImageUrl>ceKHgkuTuGA6k.jpg</lap:ImageUrl>
+               <lap:UnitPrice>385</lap:UnitPrice>
+               <lap:Configuration>
+                  <lap1:CPU>Intel i3 2330M</lap1:CPU>
+                  <lap1:Memory>2GB DDR3 1333MHz</lap1:Memory>
+                  <lap1:Board>Intel HM65</lap1:Board>
+                  <lap1:HardDisk>640GB 5400RPM SATA</lap1:HardDisk>
+                  <lap1:VideoAdapter>AMD Radeon HD 6470M+I</lap1:VideoAdapter>
+               </lap:Configuration>
+            </col:LaptopDataObject>
+            <col:LaptopDataObject>
+               <lap:Brand>Hewlett-Packard</lap:Brand>
+               <lap:Description><![CDATA[Watch your favorite videos and DVDs at home and on the go using the HP Notebook PC. This laptop has a large high-definition LED-backlit display for easy viewing. Sync to mobile devices and print wirelessly using integrated Bluetooth? and browse the web using integrated Wi-Fi. Plus, share photos, play music and keep in touch using the webcam. The Pavilion g7 is an ENERGY STAR? qualified product, so you¡¯ll save power, too.]]></lap:Description>
+               <lap:Name>g4-1208tx QG342PA</lap:Name>
+               <lap:ImageUrl>celivr9YMqrpY.jpg</lap:ImageUrl>
+               <lap:UnitPrice>460</lap:UnitPrice>
+               <lap:Configuration>
+                  <lap1:CPU>Intel i5 2430M</lap1:CPU>
+                  <lap1:Memory>2GB DDR3 1333MHz</lap1:Memory>
+                  <lap1:Board>Intel HM65</lap1:Board>
+                  <lap1:HardDisk>640GB 5400RPM SATA</lap1:HardDisk>
+                  <lap1:VideoAdapter>AMD Radeon HD 6470M+I</lap1:VideoAdapter>
+               </lap:Configuration>
+            </col:LaptopDataObject>
+            <col:LaptopDataObject>
+               <lap:Brand>Hewlett-Packard</lap:Brand>
+               <lap:Description><![CDATA[Watch your favorite videos and DVDs at home and on the go using the HP Notebook PC. This laptop has a large high-definition LED-backlit display for easy viewing. Sync to mobile devices and print wirelessly using integrated Bluetooth? and browse the web using integrated Wi-Fi. Plus, share photos, play music and keep in touch using the webcam. The Pavilion g7 is an ENERGY STAR? qualified product, so you¡¯ll save power, too.]]></lap:Description>
+               <lap:Name>g4-1058TX LZ774PA</lap:Name>
+               <lap:ImageUrl>cehAJn55tUcq.jpg</lap:ImageUrl>
+               <lap:UnitPrice>380</lap:UnitPrice>
+               <lap:Configuration>
+                  <lap1:CPU>Intel i3 2310M</lap1:CPU>
+                  <lap1:Memory>2GB DDR3 1333MHz</lap1:Memory>
+                  <lap1:Board>Intel HM65</lap1:Board>
+                  <lap1:HardDisk>640GB 5400RPM SATA</lap1:HardDisk>
+                  <lap1:VideoAdapter>AMD Radeon HD 6470M</lap1:VideoAdapter>
+               </lap:Configuration>
+            </col:LaptopDataObject>
+            <col:LaptopDataObject>
+               <lap:Brand>Hewlett-Packard</lap:Brand>
+               <lap:Description><![CDATA[Watch your favorite videos and DVDs at home and on the go using the HP Notebook PC. This laptop has a large high-definition LED-backlit display for easy viewing. Sync to mobile devices and print wirelessly using integrated Bluetooth? and browse the web using integrated Wi-Fi. Plus, share photos, play music and keep in touch using the webcam. The Pavilion g7 is an ENERGY STAR? qualified product, so you¡¯ll save power, too.]]></lap:Description>
+               <lap:Name>dv4-3126tx QG429PA</lap:Name>
+               <lap:ImageUrl>ceJb56sKz3Xh.jpg</lap:ImageUrl>
+               <lap:UnitPrice>530</lap:UnitPrice>
+               <lap:Configuration>
+                  <lap1:CPU>Intel i5 2430M</lap1:CPU>
+                  <lap1:Memory>4GB DDR3 1333MHz</lap1:Memory>
+                  <lap1:Board>Intel HM65</lap1:Board>
+                  <lap1:HardDisk>640GB 5400RPM SATA</lap1:HardDisk>
+                  <lap1:VideoAdapter>AMD Radeon HD 6750M+I</lap1:VideoAdapter>
+               </lap:Configuration>
+            </col:LaptopDataObject>
+            <col:LaptopDataObject>
+               <lap:Brand>Hewlett-Packard</lap:Brand>
+               <lap:Description><![CDATA[Watch your favorite videos and DVDs at home and on the go using the HP Notebook PC. This laptop has a large high-definition LED-backlit display for easy viewing. Sync to mobile devices and print wirelessly using integrated Bluetooth? and browse the web using integrated Wi-Fi. Plus, share photos, play music and keep in touch using the webcam. The Pavilion g7 is an ENERGY STAR? qualified product, so you¡¯ll save power, too.]]></lap:Description>
+               <lap:Name>Folio 13-1015tu A9M20PA</lap:Name>
+               <lap:ImageUrl>ceXlgmF7EoZlM.jpg</lap:ImageUrl>
+               <lap:UnitPrice>799</lap:UnitPrice>
+               <lap:Configuration>
+                  <lap1:CPU>Intel i5 2467M</lap1:CPU>
+                  <lap1:Memory>4GB DDR3 1333MHz</lap1:Memory>
+                  <lap1:Board>Intel HM65</lap1:Board>
+                  <lap1:HardDisk>128GB SSD</lap1:HardDisk>
+                  <lap1:VideoAdapter>Intel GMA HD 3000</lap1:VideoAdapter>
+               </lap:Configuration>
+            </col:LaptopDataObject>
+            <col:LaptopDataObject>
+               <lap:Brand>Hewlett-Packard</lap:Brand>
+               <lap:Description><![CDATA[Watch your favorite videos and DVDs at home and on the go using the HP Notebook PC. This laptop has a large high-definition LED-backlit display for easy viewing. Sync to mobile devices and print wirelessly using integrated Bluetooth? and browse the web using integrated Wi-Fi. Plus, share photos, play music and keep in touch using the webcam. The Pavilion g7 is an ENERGY STAR? qualified product, so you¡¯ll save power, too.]]></lap:Description>
+               <lap:Name>dv6-6151tx QG435PA</lap:Name>
+               <lap:ImageUrl>cebLLWLEm96eQ.jpg</lap:ImageUrl>
+               <lap:UnitPrice>770</lap:UnitPrice>
+               <lap:Configuration>
+                  <lap1:CPU>Intel i7 2670Q</lap1:CPU>
+                  <lap1:Memory>4GB DDR3 1333MHz</lap1:Memory>
+                  <lap1:Board>Intel HM65</lap1:Board>
+                  <lap1:HardDisk>750GB 5400RPM SATA</lap1:HardDisk>
+                  <lap1:VideoAdapter>AMD Radeon HD 6770M</lap1:VideoAdapter>
+               </lap:Configuration>
+            </col:LaptopDataObject>
+            <col:LaptopDataObject>
+               <lap:Brand>Hewlett-Packard</lap:Brand>
+               <lap:Description><![CDATA[Watch your favorite videos and DVDs at home and on the go using the HP Notebook PC. This laptop has a large high-definition LED-backlit display for easy viewing. Sync to mobile devices and print wirelessly using integrated Bluetooth? and browse the web using integrated Wi-Fi. Plus, share photos, play music and keep in touch using the webcam. The Pavilion g7 is an ENERGY STAR? qualified product, so you¡¯ll save power, too.]]></lap:Description>
+               <lap:Name>dv6-6c40tx A9R66PA</lap:Name>
+               <lap:ImageUrl>ce5BBP9AKgljE.jpg</lap:ImageUrl>
+               <lap:UnitPrice>770</lap:UnitPrice>
+               <lap:Configuration>
+                  <lap1:CPU>Intel i7 2670Q</lap1:CPU>
+                  <lap1:Memory>4GB DDR3 1333MHz</lap1:Memory>
+                  <lap1:Board>Intel HM65</lap1:Board>
+                  <lap1:HardDisk>750GB 5400RPM SATA</lap1:HardDisk>
+                  <lap1:VideoAdapter>AMD Radeon HD 7690M+I</lap1:VideoAdapter>
+               </lap:Configuration>
+            </col:LaptopDataObject>
+            <col:LaptopDataObject>
+               <lap:Brand>Hewlett-Packard</lap:Brand>
+               <lap:Description><![CDATA[Watch your favorite videos and DVDs at home and on the go using the HP Notebook PC. This laptop has a large high-definition LED-backlit display for easy viewing. Sync to mobile devices and print wirelessly using integrated Bluetooth? and browse the web using integrated Wi-Fi. Plus, share photos, play music and keep in touch using the webcam. The Pavilion g7 is an ENERGY STAR? qualified product, so you¡¯ll save power, too.]]></lap:Description>
+               <lap:Name>4431s QG641PA</lap:Name>
+               <lap:ImageUrl>ceonhAqFgztqY.jpg</lap:ImageUrl>
+               <lap:UnitPrice>550</lap:UnitPrice>
+               <lap:Configuration>
+                  <lap1:CPU>Intel i5 2430M</lap1:CPU>
+                  <lap1:Memory>4GB DDR3 1333MHz</lap1:Memory>
+                  <lap1:Board>Intel HM65</lap1:Board>
+                  <lap1:HardDisk>750GB 7200RPM SATA</lap1:HardDisk>
+                  <lap1:VideoAdapter>AMD Radeon HD 6490M</lap1:VideoAdapter>
+               </lap:Configuration>
+            </col:LaptopDataObject>
+            <col:LaptopDataObject>
+               <lap:Brand>Hewlett-Packard</lap:Brand>
+               <lap:Description><![CDATA[Watch your favorite videos and DVDs at home and on the go using the HP Notebook PC. This laptop has a large high-definition LED-backlit display for easy viewing. Sync to mobile devices and print wirelessly using integrated Bluetooth? and browse the web using integrated Wi-Fi. Plus, share photos, play music and keep in touch using the webcam. The Pavilion g7 is an ENERGY STAR? qualified product, so you¡¯ll save power, too.]]></lap:Description>
+               <lap:Name>431 B0M09PA</lap:Name>
+               <lap:ImageUrl>ce7Hx6L8MprU.jpg</lap:ImageUrl>
+               <lap:UnitPrice>419</lap:UnitPrice>
+               <lap:Configuration>
+                  <lap1:CPU>Intel i5 2450M</lap1:CPU>
+                  <lap1:Memory>2GB DDR3 1333MHz</lap1:Memory>
+                  <lap1:Board>Intel HM65</lap1:Board>
+                  <lap1:HardDisk>500GB 5400RPM SATA</lap1:HardDisk>
+                  <lap1:VideoAdapter>AMD Radeon HD 7450M</lap1:VideoAdapter>
+               </lap:Configuration>
+            </col:LaptopDataObject>
+            <col:LaptopDataObject>
+               <lap:Brand>Hewlett-Packard</lap:Brand>
+               <lap:Description><![CDATA[Watch your favorite videos and DVDs at home and on the go using the HP Notebook PC. This laptop has a large high-definition LED-backlit display for easy viewing. Sync to mobile devices and print wirelessly using integrated Bluetooth? and browse the web using integrated Wi-Fi. Plus, share photos, play music and keep in touch using the webcam. The Pavilion g7 is an ENERGY STAR? qualified product, so you¡¯ll save power, too.]]></lap:Description>
+               <lap:Name>g4-1236tx A3U44PA</lap:Name>
+               <lap:ImageUrl>cefkuMrH5Igiw.jpg</lap:ImageUrl>
+               <lap:UnitPrice>360</lap:UnitPrice>
+               <lap:Configuration>
+                  <lap1:CPU>Intel i3 2330M</lap1:CPU>
+                  <lap1:Memory>2GB DDR3 1333MHz</lap1:Memory>
+                  <lap1:Board>Intel HM65</lap1:Board>
+                  <lap1:HardDisk>500GB 5400RPM SATA</lap1:HardDisk>
+                  <lap1:VideoAdapter>AMD Radeon HD 6470M+I</lap1:VideoAdapter>
+               </lap:Configuration>
+            </col:LaptopDataObject>
+            <col:LaptopDataObject>
+               <lap:Brand>Hewlett-Packard</lap:Brand>
+               <lap:Description><![CDATA[Watch your favorite videos and DVDs at home and on the go using the HP Notebook PC. This laptop has a large high-definition LED-backlit display for easy viewing. Sync to mobile devices and print wirelessly using integrated Bluetooth? and browse the web using integrated Wi-Fi. Plus, share photos, play music and keep in touch using the webcam. The Pavilion g7 is an ENERGY STAR? qualified product, so you¡¯ll save power, too.]]></lap:Description>
+               <lap:Name>g4-1332TX A9R23PA</lap:Name>
+               <lap:ImageUrl>ce6Hi4hU4Csk.jpg</lap:ImageUrl>
+               <lap:UnitPrice>420</lap:UnitPrice>
+               <lap:Configuration>
+                  <lap1:CPU>Intel i5 2450M</lap1:CPU>
+                  <lap1:Memory>2GB DDR3 1333MHz</lap1:Memory>
+                  <lap1:Board>Intel HM65</lap1:Board>
+                  <lap1:HardDisk>500GB 5400RPM SATA</lap1:HardDisk>
+                  <lap1:VideoAdapter>AMD Radeon HD 7450M</lap1:VideoAdapter>
+               </lap:Configuration>
+            </col:LaptopDataObject>
+            <col:LaptopDataObject>
+               <lap:Brand>Hewlett-Packard</lap:Brand>
+               <lap:Description><![CDATA[Watch your favorite videos and DVDs at home and on the go using the HP Notebook PC. This laptop has a large high-definition LED-backlit display for easy viewing. Sync to mobile devices and print wirelessly using integrated Bluetooth? and browse the web using integrated Wi-Fi. Plus, share photos, play music and keep in touch using the webcam. The Pavilion g7 is an ENERGY STAR? qualified product, so you¡¯ll save power, too.]]></lap:Description>
+               <lap:Name>g6-1110TX LV833PA</lap:Name>
+               <lap:ImageUrl>ce0AoGIiphhE.jpg</lap:ImageUrl>
+               <lap:UnitPrice>395</lap:UnitPrice>
+               <lap:Configuration>
+                  <lap1:CPU>Intel i3 2310M</lap1:CPU>
+                  <lap1:Memory>2GB DDR3 1333MHz</lap1:Memory>
+                  <lap1:Board>Intel HM65</lap1:Board>
+                  <lap1:HardDisk>640GB 5400RPM SATA</lap1:HardDisk>
+                  <lap1:VideoAdapter>AMD Radeon HD 6470M</lap1:VideoAdapter>
+               </lap:Configuration>
+            </col:LaptopDataObject>
+         </byt:laptopDataObjects>
+      </byt:CreateLaptops>
+   </soapenv:Body>
+</soapenv:Envelope>

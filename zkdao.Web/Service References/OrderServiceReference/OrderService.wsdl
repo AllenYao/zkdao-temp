@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://www.zkdao.com" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.zkdao.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.zkdao.com/Imports">
+      <xsd:import schemaLocation="http://localhost:8558/OrderService.svc?xsd=xsd0" namespace="http://www.zkdao.com" />
+      <xsd:import schemaLocation="http://localhost:8558/OrderService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8558/OrderService.svc?xsd=xsd2" namespace="http://www.zkdao.com/ShoppingCartDataObject.xsd" />
+      <xsd:import schemaLocation="http://localhost:8558/OrderService.svc?xsd=xsd3" namespace="http://www.zkdao.com/CollectionDataObjectList.xsd" />
+      <xsd:import schemaLocation="http://localhost:8558/OrderService.svc?xsd=xsd4" namespace="http://www.zkdao.com/ShoppingCartItemDataObject.xsd" />
+      <xsd:import schemaLocation="http://localhost:8558/OrderService.svc?xsd=xsd5" namespace="http://www.zkdao.com/LaptopDataObject.xsd" />
+      <xsd:import schemaLocation="http://localhost:8558/OrderService.svc?xsd=xsd6" namespace="http://www.zkdao.com/LaptopConfigurationDataObject.xsd" />
+      <xsd:import schemaLocation="http://localhost:8558/OrderService.svc?xsd=xsd7" namespace="http://www.zkdao.com/SalesOrderDataObject.xsd" />
+      <xsd:import schemaLocation="http://localhost:8558/OrderService.svc?xsd=xsd8" namespace="http://www.zkdao.com/SalesLineDataObject.xsd" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IOrderService_AddProductToCart_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddProductToCart" />
+  </wsdl:message>
+  <wsdl:message name="IOrderService_AddProductToCart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddProductToCartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrderService_GetShoppingCart_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetShoppingCart" />
+  </wsdl:message>
+  <wsdl:message name="IOrderService_GetShoppingCart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetShoppingCartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrderService_UpdateShoppingCartItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateShoppingCartItem" />
+  </wsdl:message>
+  <wsdl:message name="IOrderService_UpdateShoppingCartItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateShoppingCartItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrderService_DeleteShoppingCartItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteShoppingCartItem" />
+  </wsdl:message>
+  <wsdl:message name="IOrderService_DeleteShoppingCartItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteShoppingCartItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrderService_Checkout_InputMessage">
+    <wsdl:part name="parameters" element="tns:Checkout" />
+  </wsdl:message>
+  <wsdl:message name="IOrderService_Checkout_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrderService_Confirm_InputMessage">
+    <wsdl:part name="parameters" element="tns:Confirm" />
+  </wsdl:message>
+  <wsdl:message name="IOrderService_Confirm_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrderService_GetSalesOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSalesOrder" />
+  </wsdl:message>
+  <wsdl:message name="IOrderService_GetSalesOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSalesOrderResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IOrderService">
+    <wsdl:operation name="AddProductToCart">
+      <wsdl:input wsaw:Action="http://www.zkdao.com/IOrderService/AddProductToCart" message="tns:IOrderService_AddProductToCart_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.zkdao.com/IOrderService/AddProductToCartResponse" message="tns:IOrderService_AddProductToCart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShoppingCart">
+      <wsdl:input wsaw:Action="http://www.zkdao.com/IOrderService/GetShoppingCart" message="tns:IOrderService_GetShoppingCart_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.zkdao.com/IOrderService/GetShoppingCartResponse" message="tns:IOrderService_GetShoppingCart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateShoppingCartItem">
+      <wsdl:input wsaw:Action="http://www.zkdao.com/IOrderService/UpdateShoppingCartItem" message="tns:IOrderService_UpdateShoppingCartItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.zkdao.com/IOrderService/UpdateShoppingCartItemResponse" message="tns:IOrderService_UpdateShoppingCartItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteShoppingCartItem">
+      <wsdl:input wsaw:Action="http://www.zkdao.com/IOrderService/DeleteShoppingCartItem" message="tns:IOrderService_DeleteShoppingCartItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.zkdao.com/IOrderService/DeleteShoppingCartItemResponse" message="tns:IOrderService_DeleteShoppingCartItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Checkout">
+      <wsdl:input wsaw:Action="http://www.zkdao.com/IOrderService/Checkout" message="tns:IOrderService_Checkout_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.zkdao.com/IOrderService/CheckoutResponse" message="tns:IOrderService_Checkout_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Confirm">
+      <wsdl:input wsaw:Action="http://www.zkdao.com/IOrderService/Confirm" message="tns:IOrderService_Confirm_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.zkdao.com/IOrderService/ConfirmResponse" message="tns:IOrderService_Confirm_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesOrder">
+      <wsdl:input wsaw:Action="http://www.zkdao.com/IOrderService/GetSalesOrder" message="tns:IOrderService_GetSalesOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.zkdao.com/IOrderService/GetSalesOrderResponse" message="tns:IOrderService_GetSalesOrder_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

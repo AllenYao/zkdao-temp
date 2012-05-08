@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.zkdao.com/LaptopDataObject.xsd" elementFormDefault="qualified" targetNamespace="http://www.zkdao.com/LaptopDataObject.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8558/CustomerService.svc?xsd=xsd8" namespace="http://www.zkdao.com/LaptopConfigurationDataObject.xsd" />
+  <xs:complexType name="LaptopDataObject">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Brand" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ImageUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UnitPrice" nillable="true" type="xs:decimal" />
+      <xs:element xmlns:q1="http://www.zkdao.com/LaptopConfigurationDataObject.xsd" minOccurs="0" name="Configuration" nillable="true" type="q1:LaptopConfigurationDataObject" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LaptopDataObject" nillable="true" type="tns:LaptopDataObject" />
+</xs:schema>

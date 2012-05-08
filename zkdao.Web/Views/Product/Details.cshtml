@@ -1,0 +1,64 @@
+﻿@model zkdao.WebExtensions.ProductServiceReference.LaptopDataObject
+@{
+    ViewBag.Title = Model.Name + " - Byteart Retail";
+}
+<table style="width: 100%">
+    <tr>
+        <td class="TableCell_LaptopName">
+            @Model.Name
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table style="width: 100%">
+                <tr>
+                    <td class="TableCell_LaptopImage">
+                        <img src="@Url.Content("~/Content/asserts/images/")@Model.ImageUrl" alt="@Model.ImageUrl"/>
+                    </td>
+                    <td>
+                        <table class="TableCell_LaptopDetails">
+                            <tr>
+                                <td>
+                                    Brand: @Model.Brand
+                                </td>
+                                <td>
+                                    CPU: @Model.Configuration.CPU
+                                </td>
+                                <td>
+                                    Memory: @Model.Configuration.Memory
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Main Board: @Model.Configuration.Board
+                                </td>
+                                <td>
+                                    Hard Disk: @Model.Configuration.HardDisk
+                                </td>
+                                <td>
+                                    Video Adapter: @Model.Configuration.VideoAdapter
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Unit Price: <span class="UnitPrice">@string.Format("{0:c}", Model.UnitPrice)</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h4>Description</h4>
+            @Model.Description
+        </td>
+    </tr>
+    <tr>
+        <td style="text-align: right">
+            <a href="@Url.Action("AddToCart", "Product", new { productID=Model.ID })"><img src="@Url.Content("~/Content/asserts/images/AddToCart.png")" alt="Add to Cart" style="border: 0" /></a>
+        </td>
+    </tr>
+</table>

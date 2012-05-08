@@ -1,0 +1,175 @@
+var uv = '210.22.158.132';
+var se = 'b18dfeb0e430075d11610e7032352442';
+var ip_ck = readck('ip_ck');
+var v_n = parseInt(readck('vn'));
+if(isNaN(v_n))v_n = 0;
+var vn = v_n;
+var l_v = parseInt(readck('lv'));
+if(isNaN(l_v))l_v = 0;
+var lv = l_v;
+if((+new Date()/1000)-l_v > 7200)
+{
+    lv = parseInt(+new Date()/1000);
+    vn++;
+    writeck('lv',lv,24*365);
+    writeck('vn',vn,24*365);
+}
+var flash = getflash();
+var cs;
+if (typeof(document.defaultCharset)=="string"){
+	cs=document.defaultCharset;
+} 
+else if (typeof(document.characterSet)=="string"){
+	cs=document.characterSet;
+}
+else{
+	cs="unknown";
+}
+var ti = gettitle();
+var sc = navigator.appName=="Netscape"?screen.pixelDepth:screen.colorDepth;
+var sr = screen.width+"x"+screen.height;
+if(typeof(zol_article_content_height)=="undefined"){
+	zol_article_content_height = 0;
+}
+if(typeof(pv_manuid)=="undefined"){
+	pv_manuid = 0;
+}
+
+function deleteck(name)
+{
+	var expire = "";
+	var dm = getDomain();
+	expire = new Date((new Date()).getTime() - 3600);
+	expire = "; expires=" + expire.toGMTString();
+	var cval = readck(name);
+	document.cookie = name + "=" + cval + expire + ";domain=" + dm + ";path=/; ";
+}
+
+
+var feClickHeat = {
+
+  initClickA : function () {
+    var _array = ['a','area'];
+    for (var n = 0; n < _array.length; n++) {
+      var _arr = document.getElementsByTagName(_array[n]);
+      if (document.addEventListener) {
+        for (var i = 0, len = _arr.length; i < len; i++) {
+          _arr[i].addEventListener("mousedown", this.clickInfo, false);
+        }
+      } else if (document.attachEvent) {
+        for (var i = 0, len = _arr.length; i < len; i++) {
+          _arr[i].attachEvent("onmousedown", this.clickInfo);
+        }
+      }
+      
+    }
+  },
+
+  clickInfo : function (l) {
+    var clickLeft = 0, _res = '';
+    var target = l.srcElement || l.target;
+    if (target.tagName.toLowerCase() == 'img'){
+	target = target.parentNode;
+    }
+
+    var _final_url = document.URL;
+    if(_final_url.indexOf('#')!=-1){
+       _final_url = _final_url.substr(0, _final_url.indexOf('#'));
+    }
+    var _flag = _final_url.indexOf("?");
+    if (_flag != -1) {
+      _final_url = _final_url.substr(0, _flag);
+    }
+    var _cw = document.documentElement.clientWidth;
+    var _ch = document.documentElement.clientHeight;
+    var _st = document.documentElement.scrollTop;
+    if(_st == 0){
+      _st = document.body.scrollTop;
+    }
+    _obj = feClickHeat.getPosition(target);
+    _res = feClickHeat.makeOutput([_obj.x, _obj.y, target.offsetWidth, target.offsetHeight, _cw, _ch, _st]);
+    writeck(_final_url, _res, 0.05);
+
+    var _target_url = target.href;
+    if(typeof(_target_url)=='undefined'){
+        return;
+    }
+    if(_target_url.indexOf("zol.com")==-1 && _target_url.indexOf("fengniao.com")==-1 && _target_url.indexOf("xiyuit.com")==-1 && _target_url.indexOf("cnmo.com")==-1 && _target_url.indexOf("xgo.com.cn")==-1 && _target_url.indexOf("pchome.net")==-1 && _target_url.indexOf("xiaoshuoku.com.cn")==-1 && _target_url.indexOf("wolun.com.cn")==-1 && _target_url.indexOf("ea3w.com")==-1 && _target_url.indexOf("2u.com.cn")==-1 && _target_url.indexOf("zdnet.com.tw")==-1 && _target_url.indexOf("3qit.com")==-1 && _target_url.indexOf("-img.com.cn")==-1 && _target_url.indexOf("-img.com")==-1 && _target_url.indexOf("55bbs.com")==-1 && _target_url.indexOf("kdslife.com")==-1 && _target_url.indexOf("http://")==0) {
+	var _text = target.innerText;
+	var now = new Date().getTime();
+	var datestr=escape(now*1000+Math.round(Math.random()*1000));
+	var _imgsrc_exit = 'http://linkout.zol.com.cn/images/pvhit0011.gif?t='+ datestr + '&'+ _target_url +'&ip_ck='+ ip_ck +'&lv='+ lv +'&vn='+ vn +'&sr='+ sr +'&sc='+ sc +'&fl='+ flash +'&ti='+ _text +'&se='+ se +'&uv='+ uv +'&cv='+ _res;
+	document.getElementById('dot_pvm').src = _imgsrc_exit;
+    }
+
+  },
+
+  getPosition : function (ele) {
+    var x = ele.offsetLeft + (ele.currentStyle ? feClickHeat.isInt(parseInt(ele.currentStyle.borderLeftWidth)) : 0);
+    var y = ele.offsetTop + (ele.currentStyle ? feClickHeat.isInt(parseInt(ele.currentStyle.borderTopWidth)) : 0);
+
+    while (ele.offsetParent) {
+      ele = ele.offsetParent;
+      x += ele.offsetLeft + (ele.currentStyle ? feClickHeat.isInt(parseInt(ele.currentStyle.borderLeftWidth)) : 0);
+      y += ele.offsetTop + (ele.currentStyle ? feClickHeat.isInt(parseInt(ele.currentStyle.borderTopWidth)) : 0);
+    }
+    return {x : x, y : y};
+  },
+
+  isInt : function (num) {
+    return isNaN(num) ? 0 : num;
+  },
+  
+  numFormat : function (num) {
+    var _result = num.toString(16);
+    _result = _result.slice(0, -1) + (parseInt(_result.slice(-1), 16) + 0x10).toString(36);
+    return _result;
+  },
+  
+  makeOutput : function (arr) {
+    var _result = '';
+    for (var i = 0, len = arr.length; i < len; i++) {
+      _result += feClickHeat.numFormat(arr[i]);
+    }
+    return _result;
+  }
+  
+}
+
+feClickHeat.initClickA();
+
+var _clickHeat_value = '';
+var _final_refer = document.referrer;
+if(_final_refer){
+	var _flag = _final_refer.indexOf("?");
+	if (_flag != -1) {
+		_final_refer = _final_refer.substr(0, _flag);
+	}
+	_clickHeat_value = readck(_final_refer);
+	deleteck(_final_refer);
+}
+
+var _load_time = '';
+if(window.performance!=undefined){
+	var now = new Date().getTime();
+	_navigationStart = window.performance.timing.navigationStart;
+	_load_time = now - _navigationStart;
+}
+
+imgsrc += '&ip_ck='+ ip_ck +'&lv='+ lv +'&vn='+ vn +'&sr='+ sr +'&sc='+ sc +'&fl='+ flash +'&ti='+ ti +'&se='+ se +'&uv='+ uv +'&cv='+ _clickHeat_value +'&zmac='+ zol_article_content_height +'&manuid='+ pv_manuid +'&ldt='+ _load_time;
+document.write('<img id="dot_pvm" border=0 width=1 height=1 src="http://pic.zol-img.com.cn/dot.gif">');
+document.write('<img border=0 width=1 height=1 src="'+imgsrc+'">');
+
+function mouse_move(event){
+	document.body.onmousemove = '';
+	if (imgsrc.match('http://pv.zol')){
+		var imgm = imgsrc.replace('http://pv.zol','http://pvm.zol');
+		document.getElementById('dot_pvm').src = imgm;
+	}
+	else if (imgsrc.match('http://pvsite.zol')){
+		var imgm = imgsrc.replace('http://pvsite.zol','http://pvmsite.zol');
+		document.getElementById('dot_pvm').src = imgm;
+	}
+}
+
+document.body.onmousemove = function(event){mouse_move(event);};

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.zkdao.com/ShoppingCartItemDataObject.xsd" elementFormDefault="qualified" targetNamespace="http://www.zkdao.com/ShoppingCartItemDataObject.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8558/OrderService.svc?xsd=xsd5" namespace="http://www.zkdao.com/LaptopDataObject.xsd" />
+  <xs:complexType name="ShoppingCartItemDataObject">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Quantity" nillable="true" type="xs:int" />
+      <xs:element xmlns:q1="http://www.zkdao.com/LaptopDataObject.xsd" minOccurs="0" name="Laptop" nillable="true" type="q1:LaptopDataObject" />
+      <xs:element minOccurs="0" name="LineAmount" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ShoppingCartID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ShoppingCartItemDataObject" nillable="true" type="tns:ShoppingCartItemDataObject" />
+</xs:schema>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.zkdao.com/CollectionDataObjectList.xsd" elementFormDefault="qualified" targetNamespace="http://www.zkdao.com/CollectionDataObjectList.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8558/OrderService.svc?xsd=xsd4" namespace="http://www.zkdao.com/ShoppingCartItemDataObject.xsd" />
+  <xs:import schemaLocation="http://localhost:8558/OrderService.svc?xsd=xsd8" namespace="http://www.zkdao.com/SalesLineDataObject.xsd" />
+  <xs:complexType name="ShoppingCartItemDataObjectList">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://www.zkdao.com/ShoppingCartItemDataObject.xsd" minOccurs="0" maxOccurs="unbounded" name="ShoppingCartItemDataObject" nillable="true" type="q1:ShoppingCartItemDataObject" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ShoppingCartItemDataObjectList" nillable="true" type="tns:ShoppingCartItemDataObjectList" />
+  <xs:complexType name="SalesLineDataObjectList">
+    <xs:sequence>
+      <xs:element xmlns:q2="http://www.zkdao.com/SalesLineDataObject.xsd" minOccurs="0" maxOccurs="unbounded" name="SalesLineDataObject" nillable="true" type="q2:SalesLineDataObject" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SalesLineDataObjectList" nillable="true" type="tns:SalesLineDataObjectList" />
+</xs:schema>

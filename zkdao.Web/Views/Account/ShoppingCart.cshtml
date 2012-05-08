@@ -1,0 +1,129 @@
+﻿@model zkdao.Web.OrderServiceReference.ShoppingCartDataObject
+
+@{
+    ViewBag.Title = "Shopping Cart - Byteart Retail";
+}
+
+<h2>My Shopping Cart Items</h2>
+
+<h4>Total Items: <span class="ShoppingCartItemCount">@Model.Items.Sum(p => p.Quantity)</span></h4>
+
+<script type="text/javascript">
+    function IsNumeric(input) {
+        return (input - 0) == input && input.length > 0;
+    }
+
+    $(document).ready(function () {
+        $('.UpdateShoppingCartItemButton').click(function () {
+            var buttonID = $(this).attr('id');
+            var qid = buttonID.replace('Update_', 'q_');
+            var itemID = buttonID.replace('Update_', '');
+            var quantity = $('#' + qid).val();
+            var postUrl = '@Url.Action("UpdateShoppingCartItem", "Account")';
+            var redirectUrl = '@Url.Action("ShoppingCart", "Account")';
+
+            if (!IsNumeric(quantity)) {
+                alert('Quantity must be specified as a numeric value.');
+                return;
+            }
+
+            var intQuantity = parseInt(quantity);
+            if (intQuantity <= 0) {
+                alert('Quantity must be larger than or equal to 1.');
+                window.location.href = redirectUrl;
+                return;
+            }
+
+            $.ajax({
+                type: "POST",
+                url: postUrl,
+                data: { itemID: itemID, quantity: intQuantity },
+                success: function (msg) {
+                    window.location.href = redirectUrl;
+                }
+            });
+        });
+
+        $('.DeleteShoppingCartItemButton').click(function () {
+            if (confirm('Are you sure to delete the item?')) {
+                var buttonID = $(this).attr('id');
+                var itemID = buttonID.replace('Delete_', '');
+                var postUrl = '@Url.Action("DeleteShoppingCartItem", "Account")';
+                var redirectUrl = '@Url.Action("ShoppingCart", "Account")';
+
+                $.ajax({
+                    type: "POST",
+                    url: postUrl,
+                    data: { itemID: itemID },
+                    success: function (msg) {
+                        window.location.href = redirectUrl;
+                    }
+                });
+            }
+        });
+
+        $('#imgCheckout').click(function () {
+            if (confirm('Checkout the shopping cart will place a sales order into system. Are you sure?')) {
+                var postUrl = '@Url.Action("Checkout", "Account")';
+                var redirectUrl = '@Url.Action("OrderHistory", "Account")';
+                $.ajax({
+                    type: "POST",
+                    url: postUrl,
+                    data: {},
+                    success: function (msg) {
+                        alert('Sales Order was created successfully.');
+                        window.location.href = redirectUrl;
+                    }
+                });
+            }
+        });
+    });
+</script>
+@if (Model.Items.Sum(p => p.Quantity) > 0)
+{ 
+    <table style="width: 100%">
+        <tr>
+            <td>
+                <table style="width: 100%; vertical-align: top; border: solid 1px #CBCBCB">
+                    <tr>
+                        <th></th>
+                        <th>Product</th>
+                        <th>Unit Price</th>
+                        <th>Quantity</th>
+                        <th>Line Amount</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </tr>
+                    <tbody>
+                        @foreach (var item in Model.Items)
+                        {
+                            <tr>
+                                <td style="width: 32px;"><img src="@Url.Content("~/Content/asserts/images/")@item.Laptop.ImageUrl" alt="@item.Laptop.ImageUrl" width="90%" height="20%"/></td>
+                                <td style="font-weight: bold;">@Html.ActionLink(item.Laptop.Name, "Details", "Product", new { ID = item.Laptop.ID }, null)</td>
+                                <td>@string.Format("{0:c}", item.Laptop.UnitPrice)</td>
+                                <td>@Html.TextBoxFor(model => item.Quantity, new { id = "q_" + item.ID })</td>
+                                <td>@string.Format("{0:c}", item.LineAmount)</td>
+                                <td><input type="image" alt="Update" src="@Url.Content("~/Content/asserts/images/Update.png")" value="Update" id='@string.Format("Update_{0}", item.ID)' class="UpdateShoppingCartItemButton" /></td>
+                                <td><input type="image" alt="Delete" src="@Url.Content("~/Content/asserts/images/Delete.png")" value="Delete" id='@string.Format("Delete_{0}", item.ID)' class="DeleteShoppingCartItemButton" /></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: right; font-weight: bold;">
+                Sub total: <span style="color: Maroon; font-weight: bold; text-align: right;">@string.Format("{0:c}", Model.Subtotal)</span>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: right;">
+                <input type="image" src="@Url.Content("~/Content/asserts/images/CheckOut.png")" id="imgCheckout" alt="Check Out" />
+            </td>
+        </tr>
+    </table>
+}
+else
+{
+    <span>No item(s) found.</span>
+}

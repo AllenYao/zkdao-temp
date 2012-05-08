@@ -1,0 +1,101 @@
+﻿@model IEnumerable<zkdao.Web.CustomerServiceReference.SalesOrderDataObject>
+@using zkdao.Web.Extensions;
+@{
+    ViewBag.Title = "Order History - Byteart Retail";
+}
+
+<h2>My Orders</h2>
+
+<h4>Total Orders: <span class="ShoppingCartItemCount">@Model.Count()</span></h4>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.ConfirmSalesOrderButton').click(function () {
+            var buttonID = $(this).attr('id');
+            var orderID = buttonID.replace('Confirm_', '');
+            if (confirm('Are you sure to confirm the sales order ' + orderID + ' ?')) {
+   
+                var postUrl = '@Url.Action("Confirm", "Order")';
+                var redirectUrl = '@Url.Action("OrderHistory", "Account")';
+
+                $.ajax({
+                    type: "POST",
+                    url: postUrl,
+                    data: { orderID: orderID },
+                    success: function (msg) {
+                        window.location.href = redirectUrl;
+                    }
+                });
+            }
+        });
+    });
+</script>
+
+@if (Model.Count() > 0)
+{ 
+    <table style="width:100%;">
+        <tr>
+            <th>
+                Order ID
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
+                Date Created
+            </th>
+            <th>
+                Date Dispatched
+            </th>
+            <th>
+                Date Delivered
+            </th>
+            <th>
+                Sales Lines
+            </th>
+            <th>
+                Sales Amount
+            </th>
+            <th>
+                Confirm
+            </th>
+        </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td style="font-weight: bold">
+                @Html.ActionLink(item.ID, "Details", "Order", new { orderID = item.ID }, null)
+            </td>
+            <td>
+                @Html.SalesOrderStatusText(item.Status)
+            </td>
+            <td>
+                @item.DateCreated
+            </td>
+            <td>
+                @item.DateDispatched
+            </td>
+            <td>
+                @item.DateDelivered
+            </td>
+            <td>
+                @item.SalesLines.Count
+            </td>
+            <td>
+                @string.Format("{0:c}", item.Subtotal)
+            </td>
+            <td>
+                @if (item.Status != 4)
+                { 
+                    <input type="image" id='@string.Format("Confirm_{0}", item.ID)' alt="Confirm" src="@Url.Content("~/Content/asserts/images/Confirm.png")" class="ConfirmSalesOrderButton" />
+                }
+            </td>
+        </tr>
+    }
+    </table>
+}
+else
+{ 
+    <span>No item(s) found.</span>
+}

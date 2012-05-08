@@ -1,0 +1,133 @@
+﻿@model zkdao.Web.OrderServiceReference.SalesOrderDataObject
+@using zkdao.Web.Extensions;
+
+@{
+    ViewBag.Title = "Order Details - Byteart Retail";
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.ConfirmSalesOrderButton').click(function () {
+            var buttonID = $(this).attr('id');
+            var orderID = buttonID.replace('Confirm_', '');
+            if (confirm('Are you sure to confirm the sales order ' + orderID + ' ?')) {
+
+                var postUrl = '@Url.Action("Confirm", "Order")';
+                var redirectUrl = '@Url.Action("Details", "Order", new { orderID = Model.ID })';
+
+                $.ajax({
+                    type: "POST",
+                    url: postUrl,
+                    data: { orderID: orderID },
+                    success: function (msg) {
+                        window.location.href = redirectUrl;
+                    }
+                });
+            }
+        });
+    });
+</script>
+
+<table border="1px" width="100%">
+    <tr>
+        <td>
+            <table id="OrderHeader" width="85%">
+                <tr>
+                    <td style="width: 290px">
+                        <div style="font-size: xx-large; color: Black; font-weight: bold;">Sales Order</div>
+                    </td>
+                    <td style="vertical-align: top">
+                        <div style="font-weight: bold; text-align: right;">CUSTOMER:</div>
+                    </td>
+                    <td style="vertical-align: top">
+                        @Model.CustomerContact
+                    </td>
+                    <td style="vertical-align: top">
+                        <div style="font-weight: bold; text-align: right;">ADDRESS:</div>
+                    </td>
+                    <td style="vertical-align: top">
+                        <div>@Model.CustomerAddressZip</div>
+                        <div>@Model.CustomerAddressStreet, @Model.CustomerAddressCity</div>
+                        <div>@Model.CustomerAddressState, @Model.CustomerAddressCountry</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="OrderDetailsColumnTitle">ORDER NUMBER</div>
+                        <span>@Model.ID.ToString().ToUpper()</span>
+                    </td>
+                    <td>
+                        <div class="OrderDetailsColumnTitle">STATUS</div>
+                        <span>@Html.SalesOrderStatusText(Model.Status)</span>
+                    </td>
+                    <td>
+                        <div class="OrderDetailsColumnTitle">DATE CREATED</div>
+                        <span>@Model.DateCreated</span>
+                    </td>
+                    <td>
+                        <div class="OrderDetailsColumnTitle">DATE DISPATCHED</div>
+                        <span>@Model.DateDispatched</span>
+                    </td>
+                    <td>
+                        <div class="OrderDetailsColumnTitle">DATE DELIVERED</div>
+                        @if (Model.DateDelivered != null)
+                        {
+                            <span>
+                                @Model.DateDelivered
+                            </span>
+                        }
+                        else
+                        {
+                            <span>N/A</span>
+                        }
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table style="width: 100%">
+                <tr>
+                    <th></th>
+                    <th>
+                        Product
+                    </th>
+                    <th>
+                        Unit Price
+                    </th>
+                    <th>
+                        Quantity
+                    </th>
+                    <th>
+                        Line Amount
+                    </th>
+                </tr>
+                @foreach (var i in Model.SalesLines)
+                { 
+                    <tr>
+                        <td style="width: 32px;"><img src="@Url.Content("~/Content/asserts/images/")@i.Laptop.ImageUrl" alt="@i.Laptop.ImageUrl" width="90%" height="20%"/></td>
+                        <td style="font-weight: bold;">@Html.ActionLink(i.Laptop.Name, "Details", "Product", new { ID = i.Laptop.ID }, null)</td>
+                        <td>@string.Format("{0:c}", i.Laptop.UnitPrice)</td>
+                        <td>@i.Quantity</td>
+                        <td>@string.Format("{0:c}", i.LineAmount)</td>
+                    </tr>
+                }
+            </table>
+            <div style="text-align: right;">
+                <span style="font-weight: bold;">Total Sales Amount:&nbsp;</span>
+                <span style="color: Maroon; font-weight: bold;">@string.Format("{0:c}", Model.Subtotal)</span>
+            </div>
+            <div style="text-align: right;">
+            @if (Model.Status != 4)
+            { 
+                <input type="image" id='@string.Format("Confirm_{0}", Model.ID)' alt="Confirm" src="@Url.Content("~/Content/asserts/images/Confirm.png")" class="ConfirmSalesOrderButton" />
+            }
+            <a href="javascript:window.print()"><image src="@Url.Content("~/Content/asserts/images/PrintThisPage.png")" alt="Print This Page" style="border: 0"/></a>
+            </div>
+        </td>
+    </tr>
+    <tr>
+    
+    </tr>
+</table>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.zkdao.com/CustomerDataObject.xsd" elementFormDefault="qualified" targetNamespace="http://www.zkdao.com/CustomerDataObject.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8558/CustomerService.svc?xsd=xsd3" namespace="http://www.zkdao.com/AddressDataObject.xsd" />
+  <xs:complexType name="CustomerDataObject">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Contact" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://www.zkdao.com/AddressDataObject.xsd" minOccurs="0" name="Address" nillable="true" type="q1:AddressDataObject" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CustomerDataObject" nillable="true" type="tns:CustomerDataObject" />
+  <xs:complexType name="ArrayOfCustomerDataObject">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CustomerDataObject" nillable="true" type="tns:CustomerDataObject" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCustomerDataObject" nillable="true" type="tns:ArrayOfCustomerDataObject" />
+</xs:schema>
