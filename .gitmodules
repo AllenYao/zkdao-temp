@@ -1,0 +1,3 @@
+[submodule "zic-dotnet"]
+	path = zic-dotnet
+	url = git@github.com:zicjin/zic-dotnet.git
