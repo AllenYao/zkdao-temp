@@ -14,11 +14,11 @@ using zkdao.Domain;
 using zic_dotnet;
 
 namespace zkdao.Wcf {
-	public class UserService : IUserApplication {
-		private readonly IUserApplication userServiceImpl = IocLocator.Instance.GetService<IUserApplication>();
+	public class UserService : IUserService {
+		private readonly IUserService userService = IocLocator.Instance.GetService<IUserService>();
 				public UserData UserGetByID(Guid ID) {
 			try {
-				return userServiceImpl.UserGetByID(ID);
+				return userService.UserGetByID(ID);
 			}
 			catch(Exception ex) {
 				throw new FaultException<FaultData>(FaultData.CreateFromException(ex), FaultData.CreateFaultReason(ex));
@@ -26,7 +26,7 @@ namespace zkdao.Wcf {
 		}
 		public UserData UserGetByEmail(String email) {
 			try {
-				return userServiceImpl.UserGetByEmail(email);
+				return userService.UserGetByEmail(email);
 			}
 			catch(Exception ex) {
 				throw new FaultException<FaultData>(FaultData.CreateFromException(ex), FaultData.CreateFaultReason(ex));
@@ -34,7 +34,7 @@ namespace zkdao.Wcf {
 		}
 		public Pager<UserData> UserGetPager(Int32 pageNumber, Int32 pageSize) {
 			try {
-				return userServiceImpl.UserGetPager(pageNumber, pageSize);
+				return userService.UserGetPager(pageNumber, pageSize);
 			}
 			catch(Exception ex) {
 				throw new FaultException<FaultData>(FaultData.CreateFromException(ex), FaultData.CreateFaultReason(ex));
@@ -42,7 +42,7 @@ namespace zkdao.Wcf {
 		}
 		public Guid UserCreat(UserData dataObject) {
 			try {
-				return userServiceImpl.UserCreat(dataObject);
+				return userService.UserCreat(dataObject);
 			}
 			catch(Exception ex) {
 				throw new FaultException<FaultData>(FaultData.CreateFromException(ex), FaultData.CreateFaultReason(ex));
@@ -50,7 +50,7 @@ namespace zkdao.Wcf {
 		}
 		public Boolean UserValidate(String email, String password) {
 			try {
-				return userServiceImpl.UserValidate(email, password);
+				return userService.UserValidate(email, password);
 			}
 			catch(Exception ex) {
 				throw new FaultException<FaultData>(FaultData.CreateFromException(ex), FaultData.CreateFaultReason(ex));
@@ -58,7 +58,7 @@ namespace zkdao.Wcf {
 		}
 		public void UpdateCustomer(String email, UserData dataObject) {
 			try {
-				 userServiceImpl.UpdateCustomer(email, dataObject);
+				 userService.UpdateCustomer(email, dataObject);
 			}
 			catch(Exception ex) {
 				throw new FaultException<FaultData>(FaultData.CreateFromException(ex), FaultData.CreateFaultReason(ex));

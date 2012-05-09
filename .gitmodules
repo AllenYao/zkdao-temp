@@ -1,3 +1,9 @@
 [submodule "zic-dotnet"]
 	path = zic-dotnet
 	url = git@github.com:zicjin/zic-dotnet.git
+[submodule "zkdao.Web/Content/zic-css"]
+	path = zkdao.Web/Content/zic-css
+	url = git@github.com:zicjin/zic-css.git
+[submodule "zkdao.Web/Scripts/zic-js"]
+	path = zkdao.Web/Scripts/zic-js
+	url = git@github.com:zicjin/zic-js.git

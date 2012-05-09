@@ -3,18 +3,14 @@ using System.Web.Mvc;
 using System.Web.Security;
 using zkdao.Web.Models;
 using zkdao.Web.Extensions;
-using zkdao.Web.OrderServiceReference;
-using zkdao.Web.CustomerServiceReference;
+using zkdao.Web.UserServiceReference;
 
-namespace zkdao.Web.Controllers
-{
-    public class AccountController : ControllerBase
-    {
+namespace zkdao.Web.Controllers {
+    public class AccountController : ControllerBase {
         //
         // GET: /Account/LogOn
 
-        public ActionResult LogOn()
-        {
+        public ActionResult LogOn() {
             return View();
         }
 
@@ -22,29 +18,21 @@ namespace zkdao.Web.Controllers
         // POST: /Account/LogOn
 
         [HttpPost]
-        public ActionResult LogOn(LogOnModel model, string returnUrl)
-        {
-            if (ModelState.IsValid)
-            {
-                if (Membership.ValidateUser(model.UserName, model.Password))
-                {
+        public ActionResult LogOn(LogOnModel model, string returnUrl) {
+            if (ModelState.IsValid) {
+                if (Membership.ValidateUser(model.UserName, model.Password)) {
                     FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
                     //using (CustomerServiceClient customerServiceClient = new CustomerServiceClient())
                     //{
                     //    Session["CustomerID"] = new Guid(customerServiceClient.GetCustomerByUserName(model.UserName).ID);
                     //}
                     if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
-                        && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
-                    {
+                        && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\")) {
                         return Redirect(returnUrl);
-                    }
-                    else
-                    {
+                    } else {
                         return RedirectToAction("Index", "Home");
                     }
-                }
-                else
-                {
+                } else {
                     ModelState.AddModelError("", "The user name or password provided is incorrect.");
                 }
             }
@@ -56,8 +44,7 @@ namespace zkdao.Web.Controllers
         //
         // GET: /Account/LogOff
 
-        public ActionResult LogOff()
-        {
+        public ActionResult LogOff() {
             FormsAuthentication.SignOut();
 
             CustomerID = null;
@@ -68,8 +55,7 @@ namespace zkdao.Web.Controllers
         //
         // GET: /Account/Register
 
-        public ActionResult Register()
-        {
+        public ActionResult Register() {
             return View();
         }
 
@@ -77,29 +63,16 @@ namespace zkdao.Web.Controllers
         // POST: /Account/Register
 
         [HttpPost]
-        public ActionResult Register(RegisterModel model)
-        {
-            if (ModelState.IsValid)
-            {
+        public ActionResult Register(RegisterModel model) {
+            if (ModelState.IsValid) {
                 // Attempt to register the user
                 MembershipCreateStatus createStatus;
-                Membership.CreateUser(model.UserName, model.Password, model.Email, null, null, true, new RegisterModelAdditionalData
-                    {
-                        AddressCity = model.AddressCity,
-                        AddressCountry = model.AddressCountry,
-                        AddressState = model.AddressState,
-                        AddressStreet = model.AddressStreet,
-                        AddressZip = model.AddressZip,
-                        Contact = model.Contact
-                    }, out createStatus);
+                Membership.CreateUser(model.Email, model.Password, model.Email, null, null, true, null, out createStatus);
 
-                if (createStatus == MembershipCreateStatus.Success)
-                {
-                    FormsAuthentication.SetAuthCookie(model.UserName, false /* createPersistentCookie */);
+                if (createStatus == MembershipCreateStatus.Success) {
+                    FormsAuthentication.SetAuthCookie(model.Email, false /* createPersistentCookie */);
                     return RedirectToAction("Index", "Home");
-                }
-                else
-                {
+                } else {
                     ModelState.AddModelError("", ErrorCodeToString(createStatus));
                 }
             }
@@ -112,8 +85,7 @@ namespace zkdao.Web.Controllers
         // GET: /Account/ChangePassword
 
         [Authorize]
-        public ActionResult ChangePassword()
-        {
+        public ActionResult ChangePassword() {
             return View();
         }
 
@@ -122,30 +94,22 @@ namespace zkdao.Web.Controllers
 
         [Authorize]
         [HttpPost]
-        public ActionResult ChangePassword(ChangePasswordModel model)
-        {
-            if (ModelState.IsValid)
-            {
+        public ActionResult ChangePassword(ChangePasswordModel model) {
+            if (ModelState.IsValid) {
 
                 // ChangePassword will throw an exception rather
                 // than return false in certain failure scenarios.
                 bool changePasswordSucceeded;
-                try
-                {
+                try {
                     MembershipUser currentUser = Membership.GetUser(User.Identity.Name, true /* userIsOnline */);
                     changePasswordSucceeded = currentUser.ChangePassword(model.OldPassword, model.NewPassword);
-                }
-                catch (Exception)
-                {
+                } catch (Exception) {
                     changePasswordSucceeded = false;
                 }
 
-                if (changePasswordSucceeded)
-                {
+                if (changePasswordSucceeded) {
                     return RedirectToAction("ChangePasswordSuccess");
-                }
-                else
-                {
+                } else {
                     ModelState.AddModelError("", "The current password is incorrect or the new password is invalid.");
                 }
             }
@@ -157,92 +121,15 @@ namespace zkdao.Web.Controllers
         //
         // GET: /Account/ChangePasswordSuccess
 
-        public ActionResult ChangePasswordSuccess()
-        {
+        public ActionResult ChangePasswordSuccess() {
             return View();
         }
 
-        [Authorize]
-        public ActionResult ShoppingCart()
-        {
-            using (OrderServiceClient orderServiceClient = new OrderServiceClient())
-            {
-                var shoppingCartDataObject = orderServiceClient.GetShoppingCart(CustomerID.Value);
-                return View(shoppingCartDataObject);
-            }
-        }
-
-        [Authorize]
-        public ActionResult UpdateShoppingCartItem(string itemID, int quantity)
-        {
-            var itemGUID = new Guid(itemID);
-            using (OrderServiceClient orderServiceClient = new OrderServiceClient())
-            {
-                orderServiceClient.UpdateShoppingCartItem(itemGUID, quantity);
-            }
-            return Json(null);
-        }
-
-        [Authorize]
-        public ActionResult DeleteShoppingCartItem(string itemID)
-        {
-            var itemGUID = new Guid(itemID);
-            using (OrderServiceClient orderServiceClient = new OrderServiceClient())
-            {
-                orderServiceClient.DeleteShoppingCartItem(itemGUID);
-            }
-            return Json(null);
-        }
-
-        [Authorize]
-        public ActionResult Checkout()
-        {
-            using (OrderServiceClient orderServiceClient = new OrderServiceClient())
-            {
-                orderServiceClient.Checkout(CustomerID.Value);
-            }
-            return Json(null);
-        }
-
-        [Authorize]
-        public ActionResult Index()
-        {
-            using (CustomerServiceClient customerServiceClient = new CustomerServiceClient())
-            {
-                var dataObject = customerServiceClient.GetCustomerByKey(CustomerID.Value);
-                return View(dataObject);
-            }
-            
-        }
-
-        [Authorize]
-        [HttpPost]
-        public ActionResult Index(CustomerDataObject dataObject)
-        {
-            using (CustomerServiceClient customerServiceClient = new CustomerServiceClient())
-            {
-                customerServiceClient.UpdateCustomer(User.Identity.Name, dataObject);
-                return RedirectToAction("Index", "Account");
-            }
-        }
-
-        [Authorize]
-        public ActionResult OrderHistory()
-        {
-            using (CustomerServiceClient customerServiceClient = new CustomerServiceClient())
-            {
-                var salesOrders = customerServiceClient.GetSalesOrders(CustomerID.Value);
-                return View(salesOrders);
-            }
-        }
-
         #region Status Codes
-        private static string ErrorCodeToString(MembershipCreateStatus createStatus)
-        {
+        private static string ErrorCodeToString(MembershipCreateStatus createStatus) {
             // See http://go.microsoft.com/fwlink/?LinkID=177550 for
             // a full list of status codes.
-            switch (createStatus)
-            {
+            switch (createStatus) {
                 case MembershipCreateStatus.DuplicateUserName:
                     return "User name already exists. Please enter a different user name.";
 

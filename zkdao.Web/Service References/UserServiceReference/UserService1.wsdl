@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://www.zkdao.com" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.zkdao.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.zkdao.com/Imports">
+      <xsd:import schemaLocation="http://localhost:8668/UserService.svc?xsd=xsd0" namespace="http://www.zkdao.com" />
+      <xsd:import schemaLocation="http://localhost:8668/UserService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8668/UserService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/zkdao.Domain" />
+      <xsd:import schemaLocation="http://localhost:8668/UserService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/zic_dotnet" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IUserService_UserGetByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UserGetByID" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UserGetByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UserGetByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UserGetByEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:UserGetByEmail" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UserGetByEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UserGetByEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UserGetPager_InputMessage">
+    <wsdl:part name="parameters" element="tns:UserGetPager" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UserGetPager_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UserGetPagerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UserCreat_InputMessage">
+    <wsdl:part name="parameters" element="tns:UserCreat" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UserCreat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UserCreatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UserValidate_InputMessage">
+    <wsdl:part name="parameters" element="tns:UserValidate" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UserValidate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UserValidateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdateCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCustomer" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdateCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCustomerResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IUserService">
+    <wsdl:operation name="UserGetByID">
+      <wsdl:input wsaw:Action="http://www.zkdao.com/IUserService/UserGetByID" message="tns:IUserService_UserGetByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.zkdao.com/IUserService/UserGetByIDResponse" message="tns:IUserService_UserGetByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UserGetByEmail">
+      <wsdl:input wsaw:Action="http://www.zkdao.com/IUserService/UserGetByEmail" message="tns:IUserService_UserGetByEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.zkdao.com/IUserService/UserGetByEmailResponse" message="tns:IUserService_UserGetByEmail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UserGetPager">
+      <wsdl:input wsaw:Action="http://www.zkdao.com/IUserService/UserGetPager" message="tns:IUserService_UserGetPager_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.zkdao.com/IUserService/UserGetPagerResponse" message="tns:IUserService_UserGetPager_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UserCreat">
+      <wsdl:input wsaw:Action="http://www.zkdao.com/IUserService/UserCreat" message="tns:IUserService_UserCreat_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.zkdao.com/IUserService/UserCreatResponse" message="tns:IUserService_UserCreat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UserValidate">
+      <wsdl:input wsaw:Action="http://www.zkdao.com/IUserService/UserValidate" message="tns:IUserService_UserValidate_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.zkdao.com/IUserService/UserValidateResponse" message="tns:IUserService_UserValidate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomer">
+      <wsdl:input wsaw:Action="http://www.zkdao.com/IUserService/UpdateCustomer" message="tns:IUserService_UpdateCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.zkdao.com/IUserService/UpdateCustomerResponse" message="tns:IUserService_UpdateCustomer_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

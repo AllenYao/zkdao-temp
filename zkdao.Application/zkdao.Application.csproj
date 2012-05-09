@@ -67,7 +67,7 @@
     <Compile Include="BaseApplication.cs" />
     <Compile Include="UserApplication.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="IUserApplication.cs" />
+    <Compile Include="IUserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

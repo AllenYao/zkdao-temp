@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using zkdao.Web.Extensions;
-using zkdao.Web.CustomerServiceReference;
+using zkdao.Web.UserServiceReference;
 
 namespace zkdao.Web.Controllers
 {
@@ -15,15 +15,16 @@ namespace zkdao.Web.Controllers
         {
             get
             {
-                if (Session["CustomerID"] != null)
-                    return (Guid)Session["CustomerID"];
-                using (CustomerServiceClient client = new CustomerServiceClient())
-                {
-                    var customer = client.GetCustomerByUserName(User.Identity.Name);
-                    var customerID = new Guid(customer.ID);
-                    Session["CustomerID"] = customerID;
-                    return customerID;
-                }
+                //if (Session["CustomerID"] != null)
+                //    return (Guid)Session["CustomerID"];
+                //using (CustomerServiceClient client = new CustomerServiceClient())
+                //{
+                //    var customer = client.GetCustomerByUserName(User.Identity.Name);
+                //    var customerID = new Guid(customer.ID);
+                //    Session["CustomerID"] = customerID;
+                //    return customerID;
+                //}
+                return new Guid();
             }
             set
             {

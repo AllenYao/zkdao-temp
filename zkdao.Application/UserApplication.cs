@@ -10,7 +10,7 @@ using zic_dotnet.Specifications;
 
 namespace zkdao.Application
 {
-    public class UserApplication : BaseApplication, IUserApplication
+    public class UserApplication : BaseApplication, IUserService
     {
         public UserData UserGetByID(Guid ID) {
             using (IRepositoryContext context = IocLocator.Instance.GetService<IRepositoryContext>()) {
@@ -34,10 +34,10 @@ namespace zkdao.Application
             }
         }
 
-        public Pager<UserData> UserGetPager(int pageNumber, int pageSize) {
+        public Pager<UserData> UserGetPager(int pageIndex, int pageSize) {
             using (IRepositoryContext context = IocLocator.Instance.GetService<IRepositoryContext>()) {
                 var customerRepository = context.GetRepository<User>();
-                var users = customerRepository.FindAll(pageNumber, pageSize);
+                var users = customerRepository.FindAll(pageIndex, pageSize);
                 if (users == null)
                     return null;
                 var userDatas = new List<UserData>();

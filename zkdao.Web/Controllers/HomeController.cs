@@ -1,6 +1,5 @@
 ﻿using System.Web.Mvc;
 using zkdao.Web.Extensions;
-using zkdao.Web.ProductServiceReference;
 
 namespace zkdao.Web.Controllers
 {
@@ -8,11 +7,7 @@ namespace zkdao.Web.Controllers
     {
         public ActionResult Index()
         {
-            using (ProductServiceClient productServiceClient = new ProductServiceClient())
-            {
-                var products = productServiceClient.GetLaptops();
-                return View(products);
-            }
+            return View();
         }
 
         public ActionResult About()

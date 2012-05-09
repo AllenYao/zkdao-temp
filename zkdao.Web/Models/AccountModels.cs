@@ -41,10 +41,6 @@ namespace zkdao.Web.Models
     public class RegisterModel
     {
         [Required]
-        [Display(Name = "User name")]
-        public string UserName { get; set; }
-
-        [Required]
         [DataType(DataType.EmailAddress)]
         [Display(Name = "Email address")]
         public string Email { get; set; }
@@ -59,29 +55,5 @@ namespace zkdao.Web.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
-
-        [Required]
-        [Display(Name = "Contact name")]
-        public string Contact { get; set; }
-
-        [Required]
-        [Display(Name = "Address - Country")]
-        public string AddressCountry { get; set; }
-
-        [Required]
-        [Display(Name = "Address - State")]
-        public string AddressState { get; set; }
-
-        [Required]
-        [Display(Name = "Address - City")]
-        public string AddressCity { get; set; }
-
-        [Required]
-        [Display(Name = "Address - Street")]
-        public string AddressStreet { get; set; }
-
-        [Required]
-        [Display(Name = "Address - Zip code")]
-        public string AddressZip { get; set; }
     }
 }

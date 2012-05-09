@@ -28,12 +28,12 @@ using zkdao.Domain;
 using zic_dotnet;
 
 namespace zkdao.Wcf {
-	public class UserService : IUserApplication {
-		private readonly IUserApplication userServiceImpl = IocLocator.Instance.GetService<IUserApplication>();
-		<#foreach (MethodInfo method in typeof(IUserApplication).GetMethods()) {#>
+	public class UserService : IUserService {
+		private readonly IUserService userService = IocLocator.Instance.GetService<IUserService>();
+		<#foreach (MethodInfo method in typeof(IUserService).GetMethods()) {#>
 		public <#=GetMethodReturnType(method)#> <#=method.Name#>(<#=GetMethodParameterList(method)#>) {
 			try {
-				<#if(method.ReturnType != typeof(void)){#>return<#}#> userServiceImpl.<#=method.Name#>(<#=GetMethodParameterValueList(method)#>);
+				<#if(method.ReturnType != typeof(void)){#>return<#}#> userService.<#=method.Name#>(<#=GetMethodParameterValueList(method)#>);
 			}
 			catch(Exception ex) {
 				throw new FaultException<FaultData>(FaultData.CreateFromException(ex), FaultData.CreateFaultReason(ex));
