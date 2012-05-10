@@ -89,9 +89,6 @@ namespace zkdao.Web.Controllers {
             return View();
         }
 
-        //
-        // POST: /Account/ChangePassword
-
         [Authorize]
         [HttpPost]
         public ActionResult ChangePassword(ChangePasswordModel model) {
@@ -108,7 +105,7 @@ namespace zkdao.Web.Controllers {
                 }
 
                 if (changePasswordSucceeded) {
-                    return RedirectToAction("ChangePasswordSuccess");
+                    return RedirectToAction("LogOn");
                 } else {
                     ModelState.AddModelError("", "The current password is incorrect or the new password is invalid.");
                 }
@@ -116,13 +113,6 @@ namespace zkdao.Web.Controllers {
 
             // If we got this far, something failed, redisplay form
             return View(model);
-        }
-
-        //
-        // GET: /Account/ChangePasswordSuccess
-
-        public ActionResult ChangePasswordSuccess() {
-            return View();
         }
 
         #region Status Codes
