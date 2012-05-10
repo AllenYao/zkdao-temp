@@ -32,9 +32,9 @@ namespace zkdao.Wcf {
 				throw new FaultException<FaultData>(FaultData.CreateFromException(ex), FaultData.CreateFaultReason(ex));
 			}
 		}
-		public Pager<UserData> UserGetPager(Int32 pageNumber, Int32 pageSize) {
+		public Pager<UserData> UserGetPager(Int32 pageIndex, Int32 pageSize) {
 			try {
-				return userService.UserGetPager(pageNumber, pageSize);
+				return userService.UserGetPager(pageIndex, pageSize);
 			}
 			catch(Exception ex) {
 				throw new FaultException<FaultData>(FaultData.CreateFromException(ex), FaultData.CreateFaultReason(ex));
