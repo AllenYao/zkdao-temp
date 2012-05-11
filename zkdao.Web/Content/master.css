@@ -2000,17 +2000,17 @@ input[type="submit"].btn {
     top: 5px;
     cursor: pointer;
     display: block;
-    background: url(/css/zic-css/mod_addones/images/delete.png) no-repeat scroll 0 0;
+    background: url(/Content/zic-css/mod_addones/images/delete.png) no-repeat scroll 0 0;
     width: 10px;
     height: 10px; }
   .notifi.attention {
-    background: #fffbcc url(/css/zic-css/mod_addones/images/exclamation.png) no-repeat scroll 10px 8px;
+    background: #fffbcc url(/Content/zic-css/mod_addones/images/exclamation.png) no-repeat scroll 10px 8px;
     border-color: #E6DB55; }
   .notifi.success {
-    background: #d5ffce url(/css/zic-css/mod_addones/images/tick_circle.png) no-repeat scroll 10px 8px;
+    background: #d5ffce url(/Content/zic-css/mod_addones/images/tick_circle.png) no-repeat scroll 10px 8px;
     border-color: #9ADF8F; }
   .notifi.error {
-    background: #ffcece url(/css/zic-css/mod_addones/images/cross_circle.png) no-repeat scroll 10px 8px;
+    background: #ffcece url(/Content/zic-css/mod_addones/images/cross_circle.png) no-repeat scroll 10px 8px;
     border-color: #DF8F8F;
     color: #C6040D; }
     .notifi.error ul {
@@ -2183,11 +2183,6 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-align: left; }
 
-H2 {
-  font-size: 18px;
-  color: #777;
-  margin-bottom: 15px; }
-
 #notifi-box {
   margin-bottom: 10px; }
 
@@ -2282,115 +2277,6 @@ a.qq {
   cursor: pointer; }
 
 /*#endregion Link */
-/*#region btn */
-span.btn {
-  background: url(images/btn/btn.png) no-repeat scroll left center;
-  display: inline-block;
-  zoom: 1;
-  *display: inline;
-  position: relative; }
-  span.btn .inn {
-    background: url(images/btn/btnr.png) no-repeat scroll right center;
-    padding: 0 32px;
-    cursor: pointer;
-    line-height: 36px;
-    height: 36px;
-    font-size: 16px;
-    color: #333;
-    display: inline-block;
-    zoom: 1;
-    *display: inline;
-    position: relative;
-    vertical-align: middle; }
-  span.btn input.inn {
-    border: none 0;
-    *padding: 0 16px; }
-  span.btn.btnico .inn {
-    padding: 0 40px 0 55px; }
-  span.btn.btnico input.inn {
-    *padding: 0 20px 0 35px; }
-  span.btn.btnico span.ico1 {
-    position: absolute;
-    top: 5px;
-    left: 21px;
-    width: 25px;
-    height: 25px;
-    background: url(/images/btn/ico1.png) no-repeat scroll 0 0; }
-  span.btn.btnico span.ico2 {
-    position: absolute;
-    top: 5px;
-    left: 21px;
-    width: 25px;
-    height: 25px;
-    background: url(/images/btn/ico2.png) no-repeat scroll 0 0; }
-
-a.abtn {
-  border-radius: 3px;
-  cursor: pointer;
-  padding: 3px 10px;
-  text-align: center;
-  border-image: initial;
-  background: #d8d8d8 url(images/btn/abtn_a.gif) repeat-x top left;
-  border: 1px solid #bbb;
-  border-bottom: 1px solid #999;
-  color: #333;
-  text-shadow: 0 1px #F0F0F0; }
-  a.abtn:hover, a.abtn:active {
-    text-decoration: none; }
-  a.abtn:hover {
-    border-color: #666 #666 #444;
-    border-bottom: 1px solid #444; }
-  a.abtn:active {
-    border-color: #999;
-    background: #e0e0e0;
-    text-shadow: none; }
-  a.abtn.styfol {
-    background: #c3dd82 url(images/btn/abtn_f.gif) repeat-x top left;
-    border: 1px solid #bbb;
-    border-color: #8CB332 #8CB332 #648517;
-    border-bottom: 1px solid #648517;
-    color: #406A24;
-    text-shadow: 0 1px #D4ED95; }
-    a.abtn.styfol:hover {
-      border-color: #648517;
-      border-bottom: 1px solid #405a04; }
-    a.abtn.styfol:active {
-      border-color: #8cb332;
-      background: #c3dd82; }
-  a.abtn.stysub {
-    background: #19558d url(images/btn/abtn_s.gif) repeat-x top left;
-    border: 1px solid #bbb;
-    border-color: #19558D #19558D #062C50;
-    border-bottom: 1px solid #062C50;
-    color: #fff;
-    text-shadow: 0 -1px #19558d; }
-    a.abtn.stysub:hover {
-      border-color: #062c50;
-      border-bottom: 1px solid #003; }
-    a.abtn.stysub:active {
-      border-color: #062c50;
-      background: #19558d; }
-  a.abtn.ico {
-    padding-left: 3px; }
-    a.abtn.ico span.ico1 {
-      padding: 0 0 0 16px;
-      background: url(images/tips/ico1.png) no-repeat scroll left center; }
-    a.abtn.ico span.ico2 {
-      padding: 0 0 0 16px;
-      background: url(images/tips/ico2.png) no-repeat scroll left center; }
-  a.abtn.icor {
-    padding-right: 3px; }
-    a.abtn.icor span.ico3 {
-      padding: 0 16px 0 0;
-      background: url(images/tips/ico3.png) no-repeat scroll right center; }
-  a.abtn.disabled {
-    background: none repeat scroll 0 0 #E0E0E0;
-    border-color: #999;
-    text-shadow: none; }
-    a.abtn.disabled.asub {
-      color: #999; }
-
-/*#endregion btn */
 /*#region AtagBtn */
 a {
   color: #0069d6; }

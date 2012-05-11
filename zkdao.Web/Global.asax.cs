@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using zic_dotnet;
 
 namespace zkdao.Web
 {
@@ -35,6 +36,14 @@ namespace zkdao.Web
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+
+            UrlBuild.JsHead = "/Scripts/";
+            UrlBuild.JsHead = "/Scripts/__build/";
+            UrlBuild.CssHead = "/Content/";
+            UrlBuild.CssHeadDeploy = "/Content/__build/";
+            UrlBuild.ImgHead = "/Content/images/";
+            UrlBuild.ImgHeadDeploy = "/Content/images/";
+            UrlBuild.ControlDeploy = UrlBuild.eControlDeploy.NoDeploy;
         }
     }
 }

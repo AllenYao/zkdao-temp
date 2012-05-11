@@ -91,13 +91,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\master.css">
-      <DependentUpon>master.scss</DependentUpon>
+    <Content Include="Content\zic-css\bootstrap\bootstrap.css">
+      <DependentUpon>bootstrap.scss</DependentUpon>
     </Content>
-    <Content Include="Content\zic-css\bootstrap\bootstrap.css" />
     <Content Include="Content\zic-css\bootstrap\img\glyphicons-halflings-white.png" />
     <Content Include="Content\zic-css\bootstrap\img\glyphicons-halflings.png" />
-    <Content Include="Content\zic-css\bootstrap\responsive.css" />
+    <Content Include="Content\zic-css\bootstrap\responsive.css">
+      <DependentUpon>responsive.scss</DependentUpon>
+    </Content>
     <Content Include="Content\zic-css\mod_addones\images\cross_circle.png" />
     <Content Include="Content\zic-css\mod_addones\images\delete.png" />
     <Content Include="Content\zic-css\mod_addones\images\exclamation.png" />
@@ -211,7 +212,7 @@
     <Content Include="Content\zic-css\solutions\vertical-horizoncal\vertical-horizoncal.html" />
     <Content Include="Global.asax" />
     <None Include="Content\master.scss">
-      <Compile>True</Compile>
+      <Compile>False</Compile>
       <Minify>True</Minify>
       <CompileStyle>Nested</CompileStyle>
       <DebugInfo>False</DebugInfo>
@@ -220,6 +221,7 @@
     <None Include="Content\zic-css\bootstrap\responsive.scss" />
     <None Include="Content\zic-css\bootstrap\_accordion.scss" />
     <None Include="Content\zic-css\bootstrap\_alerts.scss" />
+    <None Include="Content\zic-css\bootstrap\_badges.scss" />
     <None Include="Content\zic-css\bootstrap\_breadcrumbs.scss" />
     <None Include="Content\zic-css\bootstrap\_button-groups.scss" />
     <None Include="Content\zic-css\bootstrap\_buttons.scss" />
@@ -283,7 +285,7 @@
     <None Include="Content\zic-css\solutions\_select-mask.scss" />
     <None Include="Content\zic-css\solutions\_vertical-horizoncal.scss" />
     <None Include="Content\zic-css\_com.scss" />
-    <None Include="Content\zic-css\_zic_grids.scss" />
+    <None Include="Content\zic-css\mod_addones\_grids.scss" />
     <None Include="Content\zic-css\_zic_mixin.scss" />
     <None Include="Content\zic-css\_zic_rest.scss" />
     <None Include="Content\_cus_mixin.scss" />
