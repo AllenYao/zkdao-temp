@@ -18,7 +18,11 @@
 @import "zic-css/mod_addones/overlabel";
 
 .navbar{
-	.brand{color:#E6E6E6;}
+	.container{height:58px;}
+	.brand{background:transparent url(/Content/images/logoDark_48.png) no-repeat scroll right center;
+		display:block;height:48px;width:104px;@include hide-text();padding:4px 0;
+		&:hover{background-image:url(/Content/images/logoDark_act_48.png);}
+	}
 	a{color:$navbarLinkColor;}
 	a:hover{color:$navbarLinkColorHover;}
 }
