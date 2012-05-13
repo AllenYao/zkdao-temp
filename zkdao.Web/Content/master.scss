@@ -9,22 +9,25 @@
 @import "zic-css/bootstrap/layouts";
 @import "zic-css/bootstrap/navs";
 @import "zic-css/bootstrap/navbar";
+@import "zic-css/bootstrap/forms";
 @import "zic-css/bootstrap/dropdowns";
+//@import "zic-css/bootstrap/responsive";
 @import "zic-css/mod_addones/formerror";
 @import "zic-css/mod_addones/notifi";
 @import "zic-css/mod_addones/text";
 @import "zic-css/mod_addones/overlabel";
 
-body { color: $c-txt; line-height: 18px; @include font-family-sans-serif;text-align:left;}
-#notifi-box{margin-bottom:10px;}
-.navbar .container { width:auto; padding:0 20px;}
-#head{height: 62px;padding: 2px 0 1px;line-height:59px;color:#383838;
-	text-align:left;background:url(images/top-bg.png) repeat-x scroll 0 0;position:relative;
-    #logo{width:300px;font-size:22px;padding-left:20px;}
-    #chief{position:absolute;top:0;right:0;padding:0 10px;line-height:45px;font-size:14px;}
+.navbar{
+	.brand{color:#E6E6E6;}
+	a{color:$navbarLinkColor;}
+	a:hover{color:$navbarLinkColorHover;}
 }
-#foot{border-top:1px solid #ddd;height:32px;line-height:32px;color:#666;}
-#main{min-height:500px; _height:500px; overflow:visible;text-align:left;padding:50px 20px 10px;position:relative;}
+#main{margin-top:60px;
+	.container{@include grid-core-span($gridColumns);}
+}
+footer{border-top:1px solid #ddd;height:32px;line-height:32px;color:#666;
+	.container{@include grid-core-span($gridColumns);}
+}
 #ajaxload_box{position:absolute;top:0;left:0;text-align:center;padding-left:200px;}
 
 /*#region ABtn */

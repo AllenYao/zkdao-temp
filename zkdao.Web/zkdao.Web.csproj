@@ -91,6 +91,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\master.css" />
     <Content Include="Content\zic-css\bootstrap\bootstrap.css">
       <DependentUpon>bootstrap.scss</DependentUpon>
     </Content>

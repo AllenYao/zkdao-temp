@@ -24,6 +24,9 @@
                         <li>@Html.ActionLink("About", "About", "Home")</li>
                     </ul>
                 </nav>
+                <form class="navbar-search pull-left">
+                    <input type="text" class="search-query" placeholder="搜索">
+                </form>
                 <ul class="nav pull-right">
                     @Html.Partial("_LogOnPartial")
                 </ul>
@@ -31,17 +34,21 @@
         </div>
     </header>
 
-    <div id="main" class="row-fluid">
-        <section id="main" class="span9">
+    <div id="main" class="row">
+        <div class="container">
+        <section class="span9">
             @RenderBody()
         </section>
         <section class="span3">
             @RenderSection("sidebar")
         </section>
+        </div>
     </div>
 
     <footer>
+        <div class="container">
         <span class="SiteFooter">Copyright &copy; 2009-2012, Apworks Project. All rights reserved.</span>
+        </div>
     </footer>
 </body>
 </html>
