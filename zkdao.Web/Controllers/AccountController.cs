@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Web.Mvc;
 using System.Web.Security;
-using zkdao.Web.Models;
 using zkdao.Web.Extensions;
+using zkdao.Web.Models;
 using zkdao.Web.UserServiceReference;
 
 namespace zkdao.Web.Controllers {
+
     public class AccountController : ControllerBase {
         //
         // GET: /Account/LogOn
@@ -20,8 +21,8 @@ namespace zkdao.Web.Controllers {
         [HttpPost]
         public ActionResult LogOn(LogOnModel model, string returnUrl) {
             if (ModelState.IsValid) {
-                if (Membership.ValidateUser(model.UserName, model.Password)) {
-                    FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
+                if (Membership.ValidateUser(model.Email, model.Password)) {
+                    FormsAuthentication.SetAuthCookie(model.Email, model.RememberMe);
                     //using (CustomerServiceClient customerServiceClient = new CustomerServiceClient())
                     //{
                     //    Session["CustomerID"] = new Guid(customerServiceClient.GetCustomerByUserName(model.UserName).ID);
@@ -93,7 +94,6 @@ namespace zkdao.Web.Controllers {
         [HttpPost]
         public ActionResult ChangePassword(ChangePasswordModel model) {
             if (ModelState.IsValid) {
-
                 // ChangePassword will throw an exception rather
                 // than return false in certain failure scenarios.
                 bool changePasswordSucceeded;
@@ -116,6 +116,7 @@ namespace zkdao.Web.Controllers {
         }
 
         #region Status Codes
+
         private static string ErrorCodeToString(MembershipCreateStatus createStatus) {
             // See http://go.microsoft.com/fwlink/?LinkID=177550 for
             // a full list of status codes.
@@ -151,6 +152,7 @@ namespace zkdao.Web.Controllers {
                     return "An unknown error occurred. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
             }
         }
-        #endregion
+
+        #endregion Status Codes
     }
 }

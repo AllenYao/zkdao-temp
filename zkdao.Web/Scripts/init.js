@@ -83,12 +83,20 @@ define(function (require, exports, module) {
     //Loader
     $(function () {
         var body = $("body")
-        //$("body").addClass(window.bow);
+        exports.ld_logo();
         exports.ld_navact();
-        exports.ld_dialog(body);
-        exports.fix_ajaxload(body);
+        //exports.ld_dialog(body);
+        //exports.fix_ajaxload(body);
         exports.fix_vail(body);
     });
+    exports.ld_logo = function () {
+        var logos = $("a.brand-light, a.brand-dark");
+        logos.hover(function () {
+            logos.addClass("hover", 1000);
+        }, function () {
+            logos.removeClass("hover", 1000);
+        });
+    }
     exports.ld_navact = function () {
         var lis = $("ul.nav>li");
         if (!lis.length) return;

@@ -2,37 +2,65 @@
 @import "cus_mixin";
 @import "zic-css/com";
 
-@import "zic-css/bootstrap/reset.scss";
+@import "zic-css/bootstrap/reset";
 @import "zic-css/bootstrap/scaffolding";
+@import "zic-css/bootstrap/grid";
+@import "zic-css/bootstrap/layouts";
+@import "zic-css/bootstrap/type";
+@import "zic-css/bootstrap/forms";
+@import "zic-css/bootstrap/tables";
+@import "zic-css/bootstrap/dropdowns";
+@import "zic-css/bootstrap/sprites";
 @import "zic-css/bootstrap/buttons";
 @import "zic-css/bootstrap/button-groups";
-@import "zic-css/bootstrap/layouts";
+@import "zic-css/bootstrap/alerts";
 @import "zic-css/bootstrap/navs";
 @import "zic-css/bootstrap/navbar";
-@import "zic-css/bootstrap/forms";
-@import "zic-css/bootstrap/dropdowns";
+@import "zic-css/bootstrap/breadcrumbs";
+@import "zic-css/bootstrap/pagination";
+@import "zic-css/bootstrap/pager";
+@import "zic-css/bootstrap/modals";
+@import "zic-css/bootstrap/tooltip";
+@import "zic-css/bootstrap/popovers";
+@import "zic-css/bootstrap/thumbnails";
+@import "zic-css/bootstrap/labels";
+@import "zic-css/bootstrap/badges";
+@import "zic-css/bootstrap/utilities";
 //@import "zic-css/bootstrap/responsive";
+
 @import "zic-css/mod_addones/formerror";
 @import "zic-css/mod_addones/notifi";
 @import "zic-css/mod_addones/text";
 @import "zic-css/mod_addones/overlabel";
 
-.navbar{
-	.container{height:58px;}
-	.brand{background:transparent url(/Content/images/logoDark_48.png) no-repeat scroll right center;
-		display:block;height:48px;width:104px;@include hide-text();padding:4px 0;
-		&:hover{background-image:url(/Content/images/logoDark_act_48.png);}
+.navbar{z-index:1031;
+	.container{height:40px;overflow:hidden;}
+	.brand-dark{background:transparent url(/Content/images/logoDark_48.png) no-repeat scroll right center;
+		@include in_bk;height:48px;width:235px;@include hide-text();padding:4px 0;float:left;margin-right:100px;
+		&.hover{background-image:url(/Content/images/logoDark_act_48.png);}
 	}
+	.navbar-search{float:right;margin-left:20px;}
 	a{color:$navbarLinkColor;}
 	a:hover{color:$navbarLinkColorHover;}
+}
+.logohack{@include grid-core-span($gridColumns);
+	.brand-light{background:transparent url(/Content/images/logo_48.png) no-repeat scroll right center;
+		@include in_bk;height:48px;width:235px;@include hide-text();padding:4px 0;
+		&.hover{background-image:url(/Content/images/logo_act_48.png);}
+	}
 }
 #main{margin-top:60px;
 	.container{@include grid-core-span($gridColumns);}
 }
-footer{border-top:1px solid #ddd;height:32px;line-height:32px;color:#666;
+footer{border-top:1px solid #ddd;height:32px;line-height:32px;color:#666;margin-top:30px;
 	.container{@include grid-core-span($gridColumns);}
 }
 #ajaxload_box{position:absolute;top:0;left:0;text-align:center;padding-left:200px;}
+
+h1, h2, h3, h4, h5, h6{color:lighten($textColor, 30);font-weight: normal;}
+span.input-ico{margin-bottom: 9px;margin-right:-5px!important;
+	i{vertical-align:baseline;}
+}
 
 /*#region ABtn */
 a.abtn-more{background:#fff url(images/tips/botharrow.gif) no-repeat scroll right -20px;

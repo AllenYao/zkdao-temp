@@ -14,16 +14,15 @@
     <header class="navbar navbar-fixed-top">
         <div class="navbar-inner">
             <div class="container">
-                <a class="brand" href="#">ZKDAO</a>
-                <nav>
-                    <ul class="nav">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("My Account", "Index", "Account")</li>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                    </ul>
-                </nav>
-                <form class="navbar-search pull-left">
-                    <input type="text" class="search-query" placeholder="搜索">
+                <a class="brand-dark" href="#">ZKdao</a>
+                <ul class="nav">
+                    <li>@Html.ActionLink("首页", "Index", "Home")</li>
+                    <li>@Html.ActionLink("商品库", "Index", "Account")</li>
+                    <li>@Html.ActionLink("客户端", "Index", "Account")</li>
+                    <li>@Html.ActionLink("关于我们", "About", "Home")</li>
+                </ul>
+                <form class="navbar-search pull-right">
+                <input type="text" class="search-query" placeholder="搜索">
                 </form>
                 <ul class="nav pull-right">
                     @Html.Partial("_LogOnPartial")
@@ -31,21 +30,23 @@
             </div>
         </div>
     </header>
-
+    <div class="navbar-fixed-top container logohack">
+        <a class="brand-light" href="#">ZKdao</a>
+    </div>
     <div id="main" class="row">
         <div class="container">
-        <section class="span9">
-            @RenderBody()
-        </section>
-        <section class="span3">
-            @RenderSection("sidebar")
-        </section>
+            <section class="span9">
+                @RenderBody()
+            </section>
+            <section class="span3">
+                @RenderSection("sidebar")
+            </section>
         </div>
     </div>
-
     <footer>
         <div class="container">
-        <span class="SiteFooter">Copyright &copy; 2009-2012, Apworks Project. All rights reserved.</span>
+            <span class="SiteFooter">Copyright &copy; 2009-2012, Apworks Project. All rights reserved.
+            </span>
         </div>
     </footer>
 </body>
