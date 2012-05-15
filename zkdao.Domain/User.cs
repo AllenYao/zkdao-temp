@@ -68,5 +68,13 @@ namespace zkdao.Domain {
         public DateTime DateCreated { get; set; }
         public DateTime? DateLastLogin { get; set; }
         public DateTime? DateLastPasswordChange { get; set; }
+
+        public virtual ICollection<InfoData> PostInfos { get; set; }
+        public virtual ICollection<InfoReplyData> PostInfoReplys { get; set; }
+        public virtual ICollection<ProductReplyData> PostProductReplys { get; set; }
+        public virtual ICollection<ReplyChildData> PostReplyChilds { get; set; }
+        public virtual ICollection<UserRelaInfoData> UserRelaInfos { get; set; }
+        public virtual ICollection<UserRelaProductData> UserRelaProducts { get; set; }
+        public virtual ICollection<UserRelaReplyData> UserRelaReplys { get; set; }
     }
 }

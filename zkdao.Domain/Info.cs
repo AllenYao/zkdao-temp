@@ -16,7 +16,6 @@ namespace zkdao.Domain {
         }
 
         public Guid PosterID { get; set; }
-        public User Poster { get; set; }
 
         [Required]
         [MaxLength(200)]
@@ -33,10 +32,9 @@ namespace zkdao.Domain {
         public int GradeAverage { get; set; }
 
         public Guid ProductID { get; set; }
-        public Product Product { get; set; }
 
         public virtual ICollection<InfoReply> Replys { get; set; }
-        public virtual ICollection<Tag> Tags { get; set; }
+        public virtual ICollection<InfoRelaTag> Tags { get; set; }
     }
 
     public class InfoData {
@@ -51,7 +49,7 @@ namespace zkdao.Domain {
         public DateTime? EndTime { get; set; }
         public int GradeAverage { get; set; }
         public ProductData Product { get; set; }
-        public virtual ICollection<InfoReply> Replys { get; set; }
-        public virtual ICollection<TagData> Tags { get; set; }
+        public virtual ICollection<InfoReplyData> Replys { get; set; }
+        public virtual ICollection<InfoRelaTagData> Tags { get; set; }
     }
 }

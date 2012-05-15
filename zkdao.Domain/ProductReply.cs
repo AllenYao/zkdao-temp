@@ -16,9 +16,7 @@ namespace zkdao.Domain {
         }
 
         public Guid PosterID { get; set; }
-        public User Poster { get; set; }
         public Guid ProductID { get; set; }
-        public Product Product { get; set; }
 
         public string AdvContentRich { get; set; } //受限制的Rich，参考知呼
         public string ShortContentRich { get; set; }

@@ -1,39 +1,37 @@
 ﻿@model zkdao.Web.Models.LogOnModel
 @using zic_dotnet;
 @{
-    ViewBag.Title = "登录 - ZKdao";
+    ViewBag.Title = "ZKdao - 登录";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @section head{}
-@section sidebar{}
-<h2>欢迎登录！</h2>
-<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
-<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
-<div class="mt40">
-    @Html.ValidationSummary(true, "创建属性失败，请更正以下错误：")
+@section sidebar{
+test
+}
+<h2>
+    欢迎登录！</h2>
+
+<div class="mt20">
     @using (Html.BeginForm()) {
-        <div>
-            <fieldset>
-                @Html.LabelFor(m => m.Email)
-                <div class="input-prepend">
-                    <span class="add-on input-ico"><i class="icon-envelope"></i></span>
-                    @Html.TextBoxFor(m => m.Email)
-                    @Html.ValidationMessageFor(m => m.Email)
-                </div>
-                @Html.LabelFor(m => m.Password)
-                <div class="input-prepend">
-                    <span class="add-on input-ico"><i class="icon-lock"></i></span>
-                    @Html.PasswordFor(m => m.Password)
-                    @Html.ValidationMessageFor(m => m.Password)
-                </div>
-                <label class="checkbox" for="RememberMe">
-                    @Html.CheckBoxFor(m => m.RememberMe)
-                    记住我？
-                </label>
-                <p>
-                    <input type="submit" value="登录" class="btn" />
-                </p>
-            </fieldset>
+        @Html.ValidationSummary(true, "登录失败，请更正以下错误：")
+        @Html.LabelFor(m => m.Email)
+        <div class="input-prepend">
+            <span class="add-on input-ico"><i class="icon-envelope"></i></span>
+            @Html.TextBoxFor(m => m.Email)
+            @Html.ValidationMessageFor(m => m.Email)
         </div>
+        @Html.LabelFor(m => m.Password)
+        <div class="input-prepend">
+            <span class="add-on input-ico"><i class="icon-lock"></i></span>
+            @Html.PasswordFor(m => m.Password)
+            @Html.ValidationMessageFor(m => m.Password)
+        </div>
+        <label class="checkbox" for="RememberMe">
+            @Html.CheckBoxFor(m => m.RememberMe)
+            记住我？
+        </label>
+        <p>
+            <a class="btn submit"><i class="icon-ok"></i> 登录</a>
+        </p>
     }
 </div>

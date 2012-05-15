@@ -15,6 +15,7 @@ namespace zkdao.Application {
         }
 
         public static void Initialize() {
+            IocLocator.Container.RegisterType<IUserService, UserApplication>();
             IocLocator.Container.RegisterType<IRepositoryContext, EFRepositoryContext>();
             IocLocator.Container.RegisterType<IRepository<User>, EntityFrameworkRepository<User>>();
             IocLocator.Container.RegisterType<IRepository<Info>, EntityFrameworkRepository<Info>>();

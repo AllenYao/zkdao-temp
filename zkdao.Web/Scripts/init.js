@@ -5,9 +5,11 @@
 });
 
 define(function (require, exports, module) {
-    
+
+    require('./zic-js/modules/modernizr');
     exports._ = require("./zic-js/underscore");
-    if (exports._.isUndefined(glo_path)) glo_path = "";
+    var _ = exports._;
+    if (_.isUndefined(glo_path)) glo_path = "";
     exports.mc = require('./zic-js/mustache');
     exports.JSON = require("./zic-js/json");
     exports.jsonHelp = require("./zic-js/plus/jsonhelp");
@@ -20,12 +22,11 @@ define(function (require, exports, module) {
         contentType: "application/x-www-form-urlencoded; charset=utf-8", //请求参数类型
         timeout: 5000
     });
-    require('plus-jq/jq_ui_19')($);
+    require('__build/plus-jq/jq_ui_19_cus')($);
     require('./zic-js/plus-jq/jq_ui_zh')($);
-    $.fx.speeds._default = 1000;
 
-    //require('./plus-jq/jq_initbow')($);
     require('./zic-js/plus-jq/jq_mttext')($);
+    require('./zic-js/plus-jq/jq_bracket')($);
     require('./zic-js/plus-jq/jq_overlabel')($);
     require('./zic-js/plus-jq/jq_countable')($);
     require('./zic-js/plus-jq/jq_focusaft')($);
@@ -36,6 +37,7 @@ define(function (require, exports, module) {
     require('./zic-js/plus-jq/jq_timers')($);
     require('./zic-js/plus-jq/jq_selection')($);
     require('./zic-js/plus-jq/jq_paginate')($);
+
     require('./zic-js/plus-jq/ms/jq_validate')($);
     require('./zic-js/plus-jq/ms/jq_validate_unobtrusive')($);
     require('./zic-js/plus-jq/ms/jq_ajax_unobtrusive')($);
@@ -45,50 +47,7 @@ define(function (require, exports, module) {
 
     exports.aspx = require('./zic-js/plus/aspx');
 
-    //Function
-    var g_notifi = {};
-    exports.shownotifi = function (txt, type, key) {
-        var o = $('<div class="notifi"><span class="txt"></span><span class="close" title="关闭"></span></div>');
-        if (key) {
-            if (g_notifi[key]) return;
-            g_notifi[key] = o;
-        }
-        o.addClass(type);
-        $('span.txt', o).text(txt);
-        $('span.close', o).click(function () { o.fadeOut("slow"); });
-        $("#notifi-box").html(o);
-    }
-    exports.clearnotifi = function (key) {
-        if (key) {
-            if (!g_notifi[key]) return;
-            g_notifi[key].remove();
-            g_notifi = exports._.without(g_notifi, key);
-        }
-        else
-            $("#notifi-box").empty();
-    }
-    exports.checkreturn = function (m) {
-        if (m.result == false) {
-            exports.shownotifi('操作失败！' + m.msg, 'error');
-            return false;
-        }
-        if (m.attention == true) {
-            exports.shownotifi('警告！' + m.msg, 'attention');
-            return true;
-        }
-        exports.clearnotifi();
-        return true;
-    }
-
     //Loader
-    $(function () {
-        var body = $("body")
-        exports.ld_logo();
-        exports.ld_navact();
-        //exports.ld_dialog(body);
-        //exports.fix_ajaxload(body);
-        exports.fix_vail(body);
-    });
     exports.ld_logo = function () {
         var logos = $("a.brand-light, a.brand-dark");
         logos.hover(function () {
@@ -239,29 +198,21 @@ define(function (require, exports, module) {
             window.location.href = $(this).attr('url') + type;
         });
     }
-    exports.fix_ajaxload = function (box) {
-        $('img#ajaxload', box).ajaxStart(function () {
-            $(this).show();
-        });
-        $('img#ajaxload', box).ajaxStop(function () {
-            $(this).hide();
-        });
-    }
     exports.fix_vail = function (box) {
         $("form:first", box).validationEngine();
-    }
-    exports.fix_accesskey = function (box) {
-        $("input[accesskey]", box).bind("keydown", function (e) {
-            var code = (e.keyCode ? e.keyCode : e.which);
-            if (code == 13) {
-                var btnid = $(this).attr('accesskey');
-                $(".access_" + btnid).click();
-            }
-        });
     }
     exports.fix_mttext = function (box) {
         $("input.text, textarea.text", box).zictext();
         $("input.selall", box).click(function () { $(this).select() });
+    }
+    exports.fix_bsico = function (box) {
+        $("a[class*='ico[']", box).each(function () {
+            var o = $(this);
+            if (o.children("i").length != 0) return;
+            o.bracket({ space: 'ico' });
+            o.prepend("<i class='" + o.data('ico')[0] + "'></i>");
+            o.attr("class", o.attr("class").replace(/ico\[[\w-\s]+\]/g, ""));
+        });
     }
     exports.fix_overlabel = function (box) {
         $('.overlabel', box).find('label').overlabel();
@@ -332,4 +283,14 @@ define(function (require, exports, module) {
         });
     }
 
+    $(function () {
+        var body = $("body")
+        exports.ld_logo();
+        exports.ld_navact();
+        //exports.ld_dialog(body);
+        //exports.fix_ajaxload(body);
+        exports.fix_vail(body);
+        exports.fix_bsico(body);
+        exports.fix_submit(body);
+    });
 });

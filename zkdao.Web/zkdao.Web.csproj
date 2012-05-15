@@ -155,8 +155,11 @@
     <Content Include="Content\zic-css\mod_resource\images\ui-icons_cd0a0a_256x240.png" />
     <Content Include="Content\zic-css\mod_resource\images\ui-icons_f6cf3b_256x240.png" />
     <Content Include="Content\zic-css\mod_resource\jquery-ui-Bootstrap.css" />
-    <Content Include="Content\zic-css\mod_resource\keyboard.css" />
-    <Content Include="Content\zic-css\mod_resource\ms.css" />
+    <Content Include="Content\zic-css\mod_resource\jquery-ui-keyboard.css" />
+    <None Include="Content\zic-css\mod_resource\ms.scss" />
+    <Content Include="Content\zic-css\mod_resource\ms.css">
+      <DependentUpon>ms.scss</DependentUpon>
+    </Content>
     <Content Include="Content\zic-css\mod_resource\wordwrap.xml" />
     <Content Include="Content\zic-css\mod_resource\zTreeStyle\img\diy\1_close.png" />
     <Content Include="Content\zic-css\mod_resource\zTreeStyle\img\diy\1_open.png" />

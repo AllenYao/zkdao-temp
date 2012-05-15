@@ -32,6 +32,7 @@
 @import "zic-css/mod_addones/notifi";
 @import "zic-css/mod_addones/text";
 @import "zic-css/mod_addones/overlabel";
+@import "zic-css/mod_resource/ms";
 
 .navbar{z-index:1031;
 	.container{height:40px;overflow:hidden;}
@@ -42,6 +43,7 @@
 	.navbar-search{float:right;margin-left:20px;}
 	a{color:$navbarLinkColor;}
 	a:hover{color:$navbarLinkColorHover;}
+	a>i{margin-right:2px;vertical-align: -2px;}
 }
 .logohack{@include grid-core-span($gridColumns);
 	.brand-light{background:transparent url(/Content/images/logo_48.png) no-repeat scroll right center;
@@ -52,7 +54,7 @@
 #main{margin-top:60px;
 	.container{@include grid-core-span($gridColumns);}
 }
-footer{border-top:1px solid #ddd;height:32px;line-height:32px;color:#666;margin-top:30px;
+#footer{border-top:1px solid #ddd;height:32px;line-height:32px;color:#666;margin-top:30px;
 	.container{@include grid-core-span($gridColumns);}
 }
 #ajaxload_box{position:absolute;top:0;left:0;text-align:center;padding-left:200px;}

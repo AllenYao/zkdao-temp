@@ -26,7 +26,7 @@ namespace zkdao.Domain {
 
         public bool IsNecessary { get; set; }
 
-        public virtual ICollection<Info> Infos { get; set; }
+        public virtual ICollection<InfoRelaTag> Infos { get; set; }
     }
 
     public class TagData {
@@ -35,6 +35,6 @@ namespace zkdao.Domain {
         public string Name { get; set; }
         public int GroupEnum { get; set; }
         public bool IsNecessary { get; set; }
-        public virtual ICollection<InfoData> Infos { get; set; }
+        public virtual ICollection<InfoRelaTagData> Infos { get; set; }
     }
 }

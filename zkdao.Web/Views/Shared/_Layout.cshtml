@@ -11,10 +11,10 @@
     @RenderSection("head")
 </head>
 <body>
-    <header class="navbar navbar-fixed-top">
+    <div class="navbar navbar-fixed-top">
         <div class="navbar-inner">
             <div class="container">
-                <a class="brand-dark" href="#">ZKdao</a>
+                <a class="brand-dark" href="/">ZKdao</a>
                 <ul class="nav">
                     <li>@Html.ActionLink("首页", "Index", "Home")</li>
                     <li>@Html.ActionLink("商品库", "Index", "Account")</li>
@@ -29,25 +29,25 @@
                 </ul>
             </div>
         </div>
-    </header>
+    </div>
     <div class="navbar-fixed-top container logohack">
-        <a class="brand-light" href="#">ZKdao</a>
+        <a class="brand-light" href="/">ZKdao</a>
     </div>
     <div id="main" class="row">
         <div class="container">
-            <section class="span9">
+            <div class="span9">
                 @RenderBody()
-            </section>
-            <section class="span3">
+            </div>
+            <div class="span3">
                 @RenderSection("sidebar")
-            </section>
+            </div>
         </div>
     </div>
-    <footer>
+    <div id="footer">
         <div class="container">
-            <span class="SiteFooter">Copyright &copy; 2009-2012, Apworks Project. All rights reserved.
+            <span class="SiteFooter">Copyright &copy; 2012-2012, Apworks Project. All rights reserved.
             </span>
         </div>
-    </footer>
+    </div>
 </body>
 </html>

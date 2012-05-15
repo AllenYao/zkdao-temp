@@ -16,7 +16,6 @@ namespace zkdao.Domain {
         }
 
         public Guid PosterID { get; set; }
-        public User Poster { get; set; }
         public Guid TargetID { get; set; }
 
         public string Content { get; set; }
