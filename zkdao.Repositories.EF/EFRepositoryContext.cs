@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Validation;
+using System.Text;
+using Microsoft.Practices.EnterpriseLibrary.ExceptionHandling;
 using zic_dotnet.Repositories;
 
 namespace zkdao.Repositories.EF {
+
     public class EFRepositoryContext : RepositoryContext {
         private readonly EFDbContext ctx = new EFDbContext();
         private readonly object sync = new object();
@@ -29,16 +33,21 @@ namespace zkdao.Repositories.EF {
                     try {
                         ctx.SaveChanges();
                         Committed = true;
-                    } catch (DbEntityValidationException e) {
-                        foreach (var eve in e.EntityValidationErrors) {
-                            Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
-                                eve.Entry.Entity.GetType().Name, eve.Entry.State);
-                            foreach (var ve in eve.ValidationErrors) {
-                                Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
-                                    ve.PropertyName, ve.ErrorMessage);
-                            }
-                        }
-                        throw;
+                    } catch (DbEntityValidationException ex) {
+                        //StringBuilder EFvaliError = new StringBuilder();
+                        //foreach (var eve in ex.EntityValidationErrors) {
+                        //    EFvaliError.AppendFormat("Entity of type \"{0}\" in state \"{1}\" has the following validation errors: \n", eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                        //    foreach (var ve in eve.ValidationErrors) {
+                        //        EFvaliError.AppendFormat("- Property: \"{0}\", Error: \"{1}\" \n", ve.PropertyName, ve.ErrorMessage);
+                        //    }
+                        //}
+
+                        //if (ExceptionPolicy.HandleException(ex, "Policy")) throw;
+                        throw ex;
+                    } catch (DbUpdateException ex) {
+                        throw ex.InnerException;
+                    } catch (Exception ex) {
+                        throw ex;
                     }
                 }
             }
@@ -48,7 +57,7 @@ namespace zkdao.Repositories.EF {
             Committed = false;
         }
 
-        protected override void DisposeDeHostobj() {
+        protected override void DisposeCustom() {
             if (!Committed)
                 Commit();
             ctx.Dispose();
@@ -60,6 +69,6 @@ namespace zkdao.Repositories.EF {
             get { return ctx; }
         }
 
-        #endregion
+        #endregion IEntityFrameworkRepositoryContext Members
     }
 }

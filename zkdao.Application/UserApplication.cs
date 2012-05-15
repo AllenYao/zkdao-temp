@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using AutoMapper;
-using zkdao.Domain;
-using zkdao.Repositories.EF;
 using zic_dotnet;
 using zic_dotnet.Domain;
 using zic_dotnet.Repositories;
 using zic_dotnet.Specifications;
+using zkdao.Domain;
+using zkdao.Repositories.EF;
 
-namespace zkdao.Application
-{
-    public class UserApplication : BaseApplication, IUserService
-    {
+namespace zkdao.Application {
+
+    public class UserApplication : BaseApplication, IUserService {
+
         public UserData UserGetByID(Guid ID) {
             using (IRepositoryContext context = IocLocator.Instance.GetService<IRepositoryContext>()) {
                 var userRepository = context.GetRepository<User>();
@@ -59,6 +59,7 @@ namespace zkdao.Application
                 IRepository<User> userRepository = context.GetRepository<User>();
                 if (userRepository.Exists(Specification<User>.Eval(c => c.Email == dataObject.Email)))
                     throw new DomainException("Customer with the Email of '{0}' already exists.", dataObject.Email);
+                //dataObject.DateCreated = DateTime.Now;
                 User user = Mapper.Map<UserData, User>(dataObject);
                 userRepository.Add(user);
                 context.Commit();
@@ -107,6 +108,5 @@ namespace zkdao.Application
                 userRepository.Update(user);
             }
         }
-
     }
 }

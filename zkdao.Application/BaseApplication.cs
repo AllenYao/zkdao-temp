@@ -1,14 +1,16 @@
 ﻿using System.Linq;
 using AutoMapper;
 using Microsoft.Practices.Unity;
-using zkdao.Domain;
-using zkdao.Repositories.EF;
 using zic_dotnet;
 using zic_dotnet.Domain;
 using zic_dotnet.Repositories;
+using zkdao.Domain;
+using zkdao.Repositories.EF;
 
 namespace zkdao.Application {
+
     public abstract class BaseApplication {
+
         protected virtual void DispatchDomainEvent<TEvent>(TEvent evnt)
             where TEvent : IDomainEvent {
             // TODO: Implement the domain event dispatching logic here.
@@ -23,14 +25,23 @@ namespace zkdao.Application {
             IocLocator.Container.RegisterType<IRepository<ReplyChild>, EntityFrameworkRepository<ReplyChild>>();
 
             Mapper.CreateMap<UserData, User>();
+            Mapper.CreateMap<User, UserData>();
             Mapper.CreateMap<InfoData, Info>();
+            Mapper.CreateMap<Info, InfoData>();
             Mapper.CreateMap<InfoReplyData, InfoReply>();
+            Mapper.CreateMap<InfoReply, InfoReplyData>();
             Mapper.CreateMap<ProductData, Product>();
+            Mapper.CreateMap<Product, ProductData>();
             Mapper.CreateMap<ProductReplyData, ProductReply>();
+            Mapper.CreateMap<ProductReply, ProductReplyData>();
             Mapper.CreateMap<ReplyChildData, ReplyChild>();
+            Mapper.CreateMap<ReplyChild, ReplyChildData>();
             Mapper.CreateMap<UserRelaInfoData, UserRelaInfo>();
+            Mapper.CreateMap<UserRelaInfo, UserRelaInfoData>();
             Mapper.CreateMap<UserRelaProductData, UserRelaProduct>();
+            Mapper.CreateMap<UserRelaProduct, UserRelaProductData>();
             Mapper.CreateMap<UserRelaReplyData, UserRelaReply>();
+            Mapper.CreateMap<UserRelaReply, UserRelaReplyData>();
         }
     }
 }
