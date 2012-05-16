@@ -199,9 +199,9 @@ ins, a {
 	@ 描述: 去除作为焦点的按钮的虚线框
 	@ 用法: 把css引入到
 	@ 例子: IE 需要在标签中添加 hidefocus 属性，值可以为空，如:
-	
+
 		<input href="#" hidefocus value="alipay WD"  type="button" />
-		
+
 		<a /> 标签同理。
 */
 /* hack for Firefox */
@@ -263,12 +263,12 @@ html, html body {
 
 /*
 	@ 名称: 强制换行
-	@ 用法: 
+	@ 用法:
 			* 一般块级元素用：.sl-wrap
 			* table标签中需添加：.sl-wrap-table
-    @ 例子: 
+    @ 例子:
             <p class="sl-wrap">…</p>
-            
+
             <table class="sl-wrap sl-wrap-table"></table>
 */
 /* 一般 block-level 元素 */
@@ -281,11 +281,11 @@ html, html body {
   table-layout: fixed; }
 
     /*
-	@名称: float center 
+	@名称: float center
 	@用法：
-	
+
 	 1. 外框加上 .sl-floatcenter, 子元素加上 .sl-floatcenter-item，元素就可以自动根据父元素的宽度水平居中
-      
+
 	 2. 结构(例:3栏)：别忘记给每个栏加宽度
 		<ul class="sl-floatcenter clearfix">
 			<li class="sl-floatcenter-item">item1</li>

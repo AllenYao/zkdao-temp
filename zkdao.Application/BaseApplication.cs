@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using AutoMapper;
+﻿using AutoMapper;
 using Microsoft.Practices.Unity;
 using zic_dotnet;
 using zic_dotnet.Domain;

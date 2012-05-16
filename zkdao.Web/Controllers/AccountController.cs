@@ -1,9 +1,6 @@
-﻿using System;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Security;
-using zkdao.Web.Extensions;
 using zkdao.Web.Models;
-using zkdao.Web.UserServiceReference;
 
 namespace zkdao.Web.Controllers {
 
@@ -55,6 +52,7 @@ namespace zkdao.Web.Controllers {
             }
             return View(model);
         }
+
         private static string ErrorCodeToString(MembershipCreateStatus createStatus) {
             switch (createStatus) {
                 case MembershipCreateStatus.DuplicateUserName:
@@ -114,6 +112,5 @@ namespace zkdao.Web.Controllers {
             }
             return View(model);
         }
-
     }
 }

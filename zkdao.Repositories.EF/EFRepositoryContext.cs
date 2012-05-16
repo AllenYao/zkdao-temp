@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Validation;
+using System.Reflection;
 using System.Text;
 using log4net;
 using zic_dotnet.Repositories;
-using System.Reflection;
 
 namespace zkdao.Repositories.EF {
 
@@ -42,12 +41,10 @@ namespace zkdao.Repositories.EF {
                                 EFvaliError.AppendFormat("- Property: \"{0}\", Error: \"{1}\" \n", ve.PropertyName, ve.ErrorMessage);
                             }
                         }
-                        ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
-                        log.Error("EF-SaveChanges-DbEntityValidationException:\n" + EFvaliError);
+                        EFLogProvider.Log.Error(MethodBase.GetCurrentMethod().DeclaringType, ex);
                         throw ex;
                     } catch (Exception ex) {
-                        ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
-                        log.Error("EF-SaveChanges-Exception", ex);
+                        EFLogProvider.Log.Error(MethodBase.GetCurrentMethod().DeclaringType, ex);
                         throw ex;
                     }
                 }

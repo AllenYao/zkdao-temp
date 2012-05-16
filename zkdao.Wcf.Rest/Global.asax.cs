@@ -4,8 +4,10 @@ using System.Web;
 using System.Web.Routing;
 
 namespace zkdao.Wcf.Rest {
+
     public class Global : HttpApplication {
-        void Application_Start(object sender, EventArgs e) {
+
+        private void Application_Start(object sender, EventArgs e) {
             RegisterRoutes();
         }
 

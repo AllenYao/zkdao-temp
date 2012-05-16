@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Web.Security;
-using zkdao.Web.UserServiceReference;
 using zic_dotnet;
+using zkdao.Web.UserServiceReference;
 
 namespace zkdao.Web.Extensions {
+
     public class zkdaoMembershipProvider : MembershipProvider {
         private string applicationName;
         private bool enablePasswordReset;
@@ -23,10 +24,11 @@ namespace zkdao.Web.Extensions {
             MembershipUser user = new MembershipUser("zkdaoMembershipProvider",
                 userObj.Email, userObj.ID, userObj.Email, "", "",
                 userObj.ActEnum != (int)eAct.unApproved, userObj.ActEnum == (int)eAct.Freeze,
-                userObj.DateCreated, userObj.DateLastLogin?? DateTime.MinValue, DateTime.MinValue,
-                userObj.DateLastPasswordChange?? DateTime.MinValue, DateTime.Now);
+                userObj.DateCreated, userObj.DateLastLogin ?? DateTime.MinValue, DateTime.MinValue,
+                userObj.DateLastPasswordChange ?? DateTime.MinValue, DateTime.Now);
             return user;
         }
+
         private UserData ConvertToData(MembershipUser memUser) {
             if (memUser == null)
                 return null;
@@ -263,6 +265,5 @@ namespace zkdao.Web.Extensions {
                 return client.UserValidate(username, UserData.GetHashPassword(password));
             }
         }
-
     }
 }

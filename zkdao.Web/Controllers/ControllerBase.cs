@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using zkdao.Web.Extensions;
 using zkdao.Web.UserServiceReference;
 
 namespace zkdao.Web.Controllers {
+
     [HandleError]
     public class ControllerBase : Controller {
+
         protected Guid? CustomerID {
             get {
                 if (Session["UserID"] != null)

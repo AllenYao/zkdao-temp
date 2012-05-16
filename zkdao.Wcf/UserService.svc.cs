@@ -24,9 +24,9 @@ namespace zkdao.Wcf {
 				throw new FaultException<FaultData>(FaultData.CreateFromException(ex), FaultData.CreateFaultReason(ex));
 			}
 		}
-		public UserData UserGetByKey(String email) {
+		public UserData UserGetByKey(String userkey) {
 			try {
-				return userService.UserGetByKey(email);
+				return userService.UserGetByKey(userkey);
 			}
 			catch(Exception ex) {
 				throw new FaultException<FaultData>(FaultData.CreateFromException(ex), FaultData.CreateFaultReason(ex));
@@ -48,17 +48,17 @@ namespace zkdao.Wcf {
 				throw new FaultException<FaultData>(FaultData.CreateFromException(ex), FaultData.CreateFaultReason(ex));
 			}
 		}
-		public Boolean UserValidate(String email, String password) {
+		public Boolean UserValidate(String userkey, String password) {
 			try {
-				return userService.UserValidate(email, password);
+				return userService.UserValidate(userkey, password);
 			}
 			catch(Exception ex) {
 				throw new FaultException<FaultData>(FaultData.CreateFromException(ex), FaultData.CreateFaultReason(ex));
 			}
 		}
-		public void UserUpdate(String email, UserData dataObject) {
+		public void UserUpdate(String userkey, UserData dataObject) {
 			try {
-				 userService.UserUpdate(email, dataObject);
+				 userService.UserUpdate(userkey, dataObject);
 			}
 			catch(Exception ex) {
 				throw new FaultException<FaultData>(FaultData.CreateFromException(ex), FaultData.CreateFaultReason(ex));

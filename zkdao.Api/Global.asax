@@ -1,1 +1,1 @@
-<%@ Application Codebehind="Global.asax.cs" Inherits="zkdao.Api.Global" Language="C#" %>
+<%@ Application CodeBehind="Global.asax.cs" Inherits="zkdao.Api.Global" Language="C#" %>

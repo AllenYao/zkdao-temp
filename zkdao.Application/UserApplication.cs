@@ -6,7 +6,6 @@ using zic_dotnet.Domain;
 using zic_dotnet.Repositories;
 using zic_dotnet.Specifications;
 using zkdao.Domain;
-using zkdao.Repositories.EF;
 
 namespace zkdao.Application {
 

@@ -1,13 +1,10 @@
 ﻿@model zkdao.Web.OrderServiceReference.ShoppingCartDataObject
-
 @{
     ViewBag.Title = "Shopping Cart - Byteart Retail";
 }
-
 <h2>My Shopping Cart Items</h2>
-
-<h4>Total Items: <span class="ShoppingCartItemCount">@Model.Items.Sum(p => p.Quantity)</span></h4>
-
+<h4>Total Items: <span class="ShoppingCartItemCount">@Model.Items.Sum(p => p.Quantity)
+</span></h4>
 <script type="text/javascript">
     function IsNumeric(input) {
         return (input - 0) == input && input.length > 0;
@@ -79,8 +76,7 @@
         });
     });
 </script>
-@if (Model.Items.Sum(p => p.Quantity) > 0)
-{ 
+@if (Model.Items.Sum(p => p.Quantity) > 0) {
     <table style="width: 100%">
         <tr>
             <td>
@@ -95,16 +91,22 @@
                         <th>Delete</th>
                     </tr>
                     <tbody>
-                        @foreach (var item in Model.Items)
-                        {
+                        @foreach (var item in Model.Items) {
                             <tr>
-                                <td style="width: 32px;"><img src="@Url.Content("~/Content/asserts/images/")@item.Laptop.ImageUrl" alt="@item.Laptop.ImageUrl" width="90%" height="20%"/></td>
-                                <td style="font-weight: bold;">@Html.ActionLink(item.Laptop.Name, "Details", "Product", new { ID = item.Laptop.ID }, null)</td>
+                                <td style="width: 32px;">
+                                    <img src="@Url.Content("~/Content/asserts/images/")@item.Laptop.ImageUrl" alt="@item.Laptop.ImageUrl" width="90%" height="20%"/>
+                                </td>
+                                <td style="font-weight: bold;">@Html.ActionLink(item.Laptop.Name, "Details", "Product", new { ID = item.Laptop.ID }, null)
+                                </td>
                                 <td>@string.Format("{0:c}", item.Laptop.UnitPrice)</td>
                                 <td>@Html.TextBoxFor(model => item.Quantity, new { id = "q_" + item.ID })</td>
                                 <td>@string.Format("{0:c}", item.LineAmount)</td>
-                                <td><input type="image" alt="Update" src="@Url.Content("~/Content/asserts/images/Update.png")" value="Update" id='@string.Format("Update_{0}", item.ID)' class="UpdateShoppingCartItemButton" /></td>
-                                <td><input type="image" alt="Delete" src="@Url.Content("~/Content/asserts/images/Delete.png")" value="Delete" id='@string.Format("Delete_{0}", item.ID)' class="DeleteShoppingCartItemButton" /></td>
+                                <td>
+                                    <input type="image" alt="Update" src="@Url.Content("~/Content/asserts/images/Update.png")" value="Update" id='@string.Format("Update_{0}", item.ID)' class="UpdateShoppingCartItemButton" />
+                                </td>
+                                <td>
+                                    <input type="image" alt="Delete" src="@Url.Content("~/Content/asserts/images/Delete.png")" value="Delete" id='@string.Format("Delete_{0}", item.ID)' class="DeleteShoppingCartItemButton" />
+                                </td>
                             </tr>
                         }
                     </tbody>
@@ -112,8 +114,8 @@
             </td>
         </tr>
         <tr>
-            <td style="text-align: right; font-weight: bold;">
-                Sub total: <span style="color: Maroon; font-weight: bold; text-align: right;">@string.Format("{0:c}", Model.Subtotal)</span>
+            <td style="text-align: right; font-weight: bold;">Sub total: <span style="color: Maroon;
+                font-weight: bold; text-align: right;">@string.Format("{0:c}", Model.Subtotal)</span>
             </td>
         </tr>
         <tr>
@@ -122,8 +124,6 @@
             </td>
         </tr>
     </table>
-}
-else
-{
+} else {
     <span>No item(s) found.</span>
 }

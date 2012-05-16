@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿namespace zkdao.Domain {
 
-namespace zkdao.Domain {
     public enum eUserToGoods {
         Normal = 1,
         Watch = 2,

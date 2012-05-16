@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using System.Web.Routing;
 using System.Web.Security;
 using zkdao.Api.Web.Models;
 
 namespace zkdao.Api.Web.Controllers {
-    public class AccountController : Controller {
 
+    public class AccountController : Controller {
         //
         // GET: /Account/LogOn
 
@@ -93,7 +89,6 @@ namespace zkdao.Api.Web.Controllers {
         [HttpPost]
         public ActionResult ChangePassword(ChangePasswordModel model) {
             if (ModelState.IsValid) {
-
                 // 在某些出错情况下，ChangePassword 将引发异常，
                 // 而不是返回 false。
                 bool changePasswordSucceeded;
@@ -123,6 +118,7 @@ namespace zkdao.Api.Web.Controllers {
         }
 
         #region Status Codes
+
         private static string ErrorCodeToString(MembershipCreateStatus createStatus) {
             // 请参见 http://go.microsoft.com/fwlink/?LinkID=177550 以查看
             // 状态代码的完整列表。
@@ -158,6 +154,7 @@ namespace zkdao.Api.Web.Controllers {
                     return "发生未知错误。请验证您的输入并重试。如果问题仍然存在，请与系统管理员联系。";
             }
         }
-        #endregion
+
+        #endregion Status Codes
     }
 }

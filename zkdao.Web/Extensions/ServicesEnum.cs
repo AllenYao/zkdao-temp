@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿namespace zkdao.Web.Extensions {
 
-namespace zkdao.Web.Extensions {
     public enum eAct {
         Normal = 1,
         Delete = 2,

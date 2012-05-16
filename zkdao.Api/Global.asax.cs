@@ -1,11 +1,11 @@
 ﻿using System;
-using System.ServiceModel.Activation;
 using System.Web;
-using System.Web.Routing;
 
 namespace zkdao.Api {
+
     public class Global : HttpApplication {
-        void Application_Start(object sender, EventArgs e) {
+
+        private void Application_Start(object sender, EventArgs e) {
             RegisterRoutes();
         }
 

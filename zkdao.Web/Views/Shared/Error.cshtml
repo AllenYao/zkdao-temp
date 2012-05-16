@@ -6,28 +6,26 @@
 @section head{}
 @section sidebar{}
 @if (@HttpContext.Current.IsDebuggingEnabled) {
-    
+
     <h3>
         @Model.Exception.Message
     </h3>
     <fieldset>
         <legend>详细信息</legend>
-        <textarea rows="30" style="width:100%;" >@Model.Exception.StackTrace</textarea>
+        <textarea rows="30" style="width: 100%;">@Model.Exception.StackTrace</textarea>
     </fieldset>
-    
+
     if (Model.Exception.InnerException != null) {
-    <h3>
-        InnerException: @Model.Exception.InnerException.Message
+    <h3>InnerException: @Model.Exception.InnerException.Message
     </h3>
     <fieldset>
         <legend>详细信息</legend>
-        <textarea rows="30" style="width:100%;" >@Model.Exception.InnerException.StackTrace</textarea>
+        <textarea rows="30" style="width: 100%;">@Model.Exception.InnerException.StackTrace</textarea>
     </fieldset>
     }
 
-} else { 
-    
-    <h2>
-        悟空~~ 你又不乖了~~</h2>
-    
+} else {
+
+    <h2>悟空~~ 你又不乖了~~</h2>
+
 }

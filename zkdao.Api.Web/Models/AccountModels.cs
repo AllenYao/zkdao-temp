@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Globalization;
+﻿using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
-using System.Web.Security;
 
 namespace zkdao.Api.Web.Models {
 
     public class ChangePasswordModel {
+
         [Required]
         [DataType(DataType.Password)]
         [Display(Name = "当前密码")]
@@ -26,6 +23,7 @@ namespace zkdao.Api.Web.Models {
     }
 
     public class LogOnModel {
+
         [Required]
         [Display(Name = "用户名")]
         public string UserName { get; set; }
@@ -40,6 +38,7 @@ namespace zkdao.Api.Web.Models {
     }
 
     public class RegisterModel {
+
         [Required]
         [Display(Name = "用户名")]
         public string UserName { get; set; }
