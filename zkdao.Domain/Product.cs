@@ -14,6 +14,8 @@ namespace zkdao.Domain {
         public eAct Act {
             get { return (eAct)ActEnum; }
         }
+        [Timestamp]
+        public Byte[] Timestamp { get; set; }
 
         [Required]
         [MaxLength(200)]

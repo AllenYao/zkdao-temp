@@ -11,12 +11,175 @@
       <xs:element minOccurs="0" name="Link" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="PasswordHash" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PostInfoReplys" nillable="true" type="tns:ArrayOfInfoReplyData" />
+      <xs:element minOccurs="0" name="PostInfos" nillable="true" type="tns:ArrayOfInfoData" />
+      <xs:element minOccurs="0" name="PostProductReplys" nillable="true" type="tns:ArrayOfProductReplyData" />
+      <xs:element minOccurs="0" name="PostReplyChilds" nillable="true" type="tns:ArrayOfReplyChildData" />
       <xs:element minOccurs="0" name="QQ" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="RoleEnum" type="xs:int" />
+      <xs:element minOccurs="0" name="UserRelaInfos" nillable="true" type="tns:ArrayOfUserRelaInfoData" />
+      <xs:element minOccurs="0" name="UserRelaProducts" nillable="true" type="tns:ArrayOfUserRelaProductData" />
+      <xs:element minOccurs="0" name="UserRelaReplys" nillable="true" type="tns:ArrayOfUserRelaReplyData" />
       <xs:element minOccurs="0" name="Weibo" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="UserData" nillable="true" type="tns:UserData" />
+  <xs:complexType name="ArrayOfInfoReplyData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InfoReplyData" nillable="true" type="tns:InfoReplyData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInfoReplyData" nillable="true" type="tns:ArrayOfInfoReplyData" />
+  <xs:complexType name="InfoReplyData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActEnum" type="xs:int" />
+      <xs:element minOccurs="0" name="ContentRich" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Info" nillable="true" type="tns:InfoData" />
+      <xs:element minOccurs="0" name="MinusAmount" type="xs:int" />
+      <xs:element minOccurs="0" name="PlusAmount" type="xs:int" />
+      <xs:element minOccurs="0" name="Poster" nillable="true" type="tns:UserData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InfoReplyData" nillable="true" type="tns:InfoReplyData" />
+  <xs:complexType name="InfoData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActEnum" type="xs:int" />
+      <xs:element minOccurs="0" name="ContentRich" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EndTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="GradeAverage" type="xs:int" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LinkImage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LinkUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Poster" nillable="true" type="tns:UserData" />
+      <xs:element minOccurs="0" name="Product" nillable="true" type="tns:ProductData" />
+      <xs:element minOccurs="0" name="Replys" nillable="true" type="tns:ArrayOfInfoReplyData" />
+      <xs:element minOccurs="0" name="StartTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Tags" nillable="true" type="tns:ArrayOfInfoRelaTagData" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InfoData" nillable="true" type="tns:InfoData" />
+  <xs:complexType name="ProductData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActEnum" type="xs:int" />
+      <xs:element minOccurs="0" name="EagerAmount" type="xs:int" />
+      <xs:element minOccurs="0" name="EagerHistory" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GradeAverage" type="xs:int" />
+      <xs:element minOccurs="0" name="GradeHistory" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Image" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Link" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PriceHistoryLink" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Replys" nillable="true" type="tns:ArrayOfProductReplyData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProductData" nillable="true" type="tns:ProductData" />
+  <xs:complexType name="ArrayOfProductReplyData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProductReplyData" nillable="true" type="tns:ProductReplyData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProductReplyData" nillable="true" type="tns:ArrayOfProductReplyData" />
+  <xs:complexType name="ProductReplyData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActEnum" type="xs:int" />
+      <xs:element minOccurs="0" name="AdvContentRicj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MinusAmount" type="xs:int" />
+      <xs:element minOccurs="0" name="PlusAmount" type="xs:int" />
+      <xs:element minOccurs="0" name="Poster" nillable="true" type="tns:UserData" />
+      <xs:element minOccurs="0" name="Product" nillable="true" type="tns:ProductData" />
+      <xs:element minOccurs="0" name="ShortContentRich" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProductReplyData" nillable="true" type="tns:ProductReplyData" />
+  <xs:complexType name="ArrayOfInfoRelaTagData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InfoRelaTagData" nillable="true" type="tns:InfoRelaTagData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInfoRelaTagData" nillable="true" type="tns:ArrayOfInfoRelaTagData" />
+  <xs:complexType name="InfoRelaTagData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="InfoID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TagID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InfoRelaTagData" nillable="true" type="tns:InfoRelaTagData" />
+  <xs:complexType name="ArrayOfInfoData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InfoData" nillable="true" type="tns:InfoData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInfoData" nillable="true" type="tns:ArrayOfInfoData" />
+  <xs:complexType name="ArrayOfReplyChildData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReplyChildData" nillable="true" type="tns:ReplyChildData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReplyChildData" nillable="true" type="tns:ArrayOfReplyChildData" />
+  <xs:complexType name="ReplyChildData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActEnum" type="xs:int" />
+      <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Poster" nillable="true" type="tns:UserData" />
+      <xs:element minOccurs="0" name="TargetID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReplyChildData" nillable="true" type="tns:ReplyChildData" />
+  <xs:complexType name="ArrayOfUserRelaInfoData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserRelaInfoData" nillable="true" type="tns:UserRelaInfoData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserRelaInfoData" nillable="true" type="tns:ArrayOfUserRelaInfoData" />
+  <xs:complexType name="UserRelaInfoData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GiveGrade" type="xs:int" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InfoID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="User" nillable="true" type="tns:UserData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserRelaInfoData" nillable="true" type="tns:UserRelaInfoData" />
+  <xs:complexType name="ArrayOfUserRelaProductData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserRelaProductData" nillable="true" type="tns:UserRelaProductData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserRelaProductData" nillable="true" type="tns:ArrayOfUserRelaProductData" />
+  <xs:complexType name="UserRelaProductData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GiveGrade" type="xs:int" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsEager" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ProductID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="User" nillable="true" type="tns:UserData" />
+      <xs:element minOccurs="0" name="UserToGoodsEnum" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserRelaProductData" nillable="true" type="tns:UserRelaProductData" />
+  <xs:complexType name="ArrayOfUserRelaReplyData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserRelaReplyData" nillable="true" type="tns:UserRelaReplyData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserRelaReplyData" nillable="true" type="tns:ArrayOfUserRelaReplyData" />
+  <xs:complexType name="UserRelaReplyData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PlusOrMinus" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TargetID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="User" nillable="true" type="tns:UserData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserRelaReplyData" nillable="true" type="tns:UserRelaReplyData" />
   <xs:complexType name="ArrayOfUserData">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="UserData" nillable="true" type="tns:UserData" />

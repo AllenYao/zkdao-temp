@@ -13,8 +13,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="UserGetByEmail">
-      <soap:operation soapAction="http://www.zkdao.com/IUserService/UserGetByEmail" style="document" />
+    <wsdl:operation name="UserGetByKey">
+      <soap:operation soapAction="http://www.zkdao.com/IUserService/UserGetByKey" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -49,8 +49,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="UpdateCustomer">
-      <soap:operation soapAction="http://www.zkdao.com/IUserService/UpdateCustomer" style="document" />
+    <wsdl:operation name="UserUpdate">
+      <soap:operation soapAction="http://www.zkdao.com/IUserService/UserUpdate" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

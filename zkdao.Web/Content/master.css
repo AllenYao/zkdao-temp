@@ -73,7 +73,7 @@
 
 html {
   color: #000;
-  background: #fff;
+  background: #f6f6f6;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%; }
 
@@ -658,7 +658,7 @@ body {
   font-size: 13px;
   line-height: 18px;
   color: #333333;
-  background-color: white; }
+  background-color: #f6f6f6; }
 
 a {
   color: #0088cc;
@@ -4113,25 +4113,22 @@ a:hover {
 
 .navbar {
   z-index: 1031; }
-  .navbar .container {
+  .navbar span.brand {
     height: 40px;
-    overflow: hidden; }
-  .navbar .brand-dark {
-    background: transparent url(/Content/images/logoDark_48.png) no-repeat scroll right center;
-    display: inline-block;
-    zoom: 1;
-    *display: inline;
-    position: relative;
-    height: 48px;
-    width: 235px;
     overflow: hidden;
-    text-indent: 100%;
-    white-space: nowrap;
-    padding: 4px 0;
-    float: left;
-    margin-right: 100px; }
-    .navbar .brand-dark.hover {
-      background-image: url(/Content/images/logoDark_act_48.png); }
+    margin: 0 100px 0 0;
+    padding: 0; }
+    .navbar span.brand a.brand-dark {
+      background: transparent url(/Content/images/logoDark_48.png) no-repeat scroll right center;
+      display: block;
+      height: 48px;
+      width: 235px;
+      overflow: hidden;
+      text-indent: 100%;
+      white-space: nowrap;
+      padding: 4px 0; }
+      .navbar span.brand a.brand-dark.hover {
+        background-image: url(/Content/images/logoDark_act_48.png); }
   .navbar .navbar-search {
     float: right;
     margin-left: 20px; }
@@ -4145,7 +4142,7 @@ a:hover {
 
 .logohack {
   width: 1180px; }
-  .logohack .brand-light {
+  .logohack a.brand-light {
     background: transparent url(/Content/images/logo_48.png) no-repeat scroll right center;
     display: inline-block;
     zoom: 1;
@@ -4157,11 +4154,12 @@ a:hover {
     text-indent: 100%;
     white-space: nowrap;
     padding: 4px 0; }
-    .logohack .brand-light.hover {
+    .logohack a.brand-light.hover {
       background-image: url(/Content/images/logo_act_48.png); }
 
 #main {
-  margin-top: 60px; }
+  margin-top: 60px;
+  min-height: 400px; }
   #main .container {
     width: 1180px; }
 

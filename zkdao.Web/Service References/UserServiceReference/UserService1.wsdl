@@ -14,11 +14,11 @@
   <wsdl:message name="IUserService_UserGetByID_OutputMessage">
     <wsdl:part name="parameters" element="tns:UserGetByIDResponse" />
   </wsdl:message>
-  <wsdl:message name="IUserService_UserGetByEmail_InputMessage">
-    <wsdl:part name="parameters" element="tns:UserGetByEmail" />
+  <wsdl:message name="IUserService_UserGetByKey_InputMessage">
+    <wsdl:part name="parameters" element="tns:UserGetByKey" />
   </wsdl:message>
-  <wsdl:message name="IUserService_UserGetByEmail_OutputMessage">
-    <wsdl:part name="parameters" element="tns:UserGetByEmailResponse" />
+  <wsdl:message name="IUserService_UserGetByKey_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UserGetByKeyResponse" />
   </wsdl:message>
   <wsdl:message name="IUserService_UserGetPager_InputMessage">
     <wsdl:part name="parameters" element="tns:UserGetPager" />
@@ -38,20 +38,20 @@
   <wsdl:message name="IUserService_UserValidate_OutputMessage">
     <wsdl:part name="parameters" element="tns:UserValidateResponse" />
   </wsdl:message>
-  <wsdl:message name="IUserService_UpdateCustomer_InputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateCustomer" />
+  <wsdl:message name="IUserService_UserUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:UserUpdate" />
   </wsdl:message>
-  <wsdl:message name="IUserService_UpdateCustomer_OutputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateCustomerResponse" />
+  <wsdl:message name="IUserService_UserUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UserUpdateResponse" />
   </wsdl:message>
   <wsdl:portType name="IUserService">
     <wsdl:operation name="UserGetByID">
       <wsdl:input wsaw:Action="http://www.zkdao.com/IUserService/UserGetByID" message="tns:IUserService_UserGetByID_InputMessage" />
       <wsdl:output wsaw:Action="http://www.zkdao.com/IUserService/UserGetByIDResponse" message="tns:IUserService_UserGetByID_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="UserGetByEmail">
-      <wsdl:input wsaw:Action="http://www.zkdao.com/IUserService/UserGetByEmail" message="tns:IUserService_UserGetByEmail_InputMessage" />
-      <wsdl:output wsaw:Action="http://www.zkdao.com/IUserService/UserGetByEmailResponse" message="tns:IUserService_UserGetByEmail_OutputMessage" />
+    <wsdl:operation name="UserGetByKey">
+      <wsdl:input wsaw:Action="http://www.zkdao.com/IUserService/UserGetByKey" message="tns:IUserService_UserGetByKey_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.zkdao.com/IUserService/UserGetByKeyResponse" message="tns:IUserService_UserGetByKey_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="UserGetPager">
       <wsdl:input wsaw:Action="http://www.zkdao.com/IUserService/UserGetPager" message="tns:IUserService_UserGetPager_InputMessage" />
@@ -65,9 +65,9 @@
       <wsdl:input wsaw:Action="http://www.zkdao.com/IUserService/UserValidate" message="tns:IUserService_UserValidate_InputMessage" />
       <wsdl:output wsaw:Action="http://www.zkdao.com/IUserService/UserValidateResponse" message="tns:IUserService_UserValidate_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="UpdateCustomer">
-      <wsdl:input wsaw:Action="http://www.zkdao.com/IUserService/UpdateCustomer" message="tns:IUserService_UpdateCustomer_InputMessage" />
-      <wsdl:output wsaw:Action="http://www.zkdao.com/IUserService/UpdateCustomerResponse" message="tns:IUserService_UpdateCustomer_OutputMessage" />
+    <wsdl:operation name="UserUpdate">
+      <wsdl:input wsaw:Action="http://www.zkdao.com/IUserService/UserUpdate" message="tns:IUserService_UserUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.zkdao.com/IUserService/UserUpdateResponse" message="tns:IUserService_UserUpdate_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
 </wsdl:definitions>

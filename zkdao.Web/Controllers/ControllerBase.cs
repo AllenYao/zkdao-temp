@@ -11,19 +11,17 @@ namespace zkdao.Web.Controllers {
     public class ControllerBase : Controller {
         protected Guid? CustomerID {
             get {
-                //if (Session["CustomerID"] != null)
-                //    return (Guid)Session["CustomerID"];
-                //using (CustomerServiceClient client = new CustomerServiceClient())
-                //{
-                //    var customer = client.GetCustomerByUserName(User.Identity.Name);
-                //    var customerID = new Guid(customer.ID);
-                //    Session["CustomerID"] = customerID;
-                //    return customerID;
-                //}
-                return new Guid();
+                if (Session["UserID"] != null)
+                    return (Guid)Session["UserID"];
+                using (UserServiceClient client = new UserServiceClient()) {
+                    var user = client.UserGetByKey(User.Identity.Name);
+                    var customerID = new Guid(user.ID);
+                    Session["CustomerID"] = customerID;
+                    return customerID;
+                }
             }
             set {
-                Session["CustomerID"] = value;
+                Session["UserID"] = value;
             }
         }
     }

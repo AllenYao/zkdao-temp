@@ -21,7 +21,7 @@ test
         @Html.LabelFor(m => m.Password)
         <div class="input-prepend">
             <span class="add-on input-ico"><i class="icon-lock"></i></span>
-            @Html.PasswordFor(m => m.Password)
+            @Html.PasswordFor(m => m.Password, new { @class = "submit" })
             @Html.ValidationMessageFor(m => m.Password)
         </div>
         <label class="checkbox" for="RememberMe">
@@ -29,7 +29,7 @@ test
             记住我？
         </label>
         <p>
-            <a class="btn submit"><i class="icon-ok"></i>登录</a>
+            <a class="btn submit"><i class="icon-ok"></i> 登录</a>
         </p>
     }
 </div>

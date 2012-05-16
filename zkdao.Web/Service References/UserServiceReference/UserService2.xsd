@@ -17,24 +17,24 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="UserGetByEmail">
+  <xs:element name="UserGetByKey">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userkey" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="UserGetByEmailResponse">
+  <xs:element name="UserGetByKeyResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/zkdao.Domain" minOccurs="0" name="UserGetByEmailResult" nillable="true" type="q3:UserData" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/zkdao.Domain" minOccurs="0" name="UserGetByKeyResult" nillable="true" type="q3:UserData" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UserGetPager">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="pageNumber" type="xs:int" />
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
         <xs:element minOccurs="0" name="pageSize" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -63,7 +63,7 @@
   <xs:element name="UserValidate">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userkey" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -75,15 +75,15 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="UpdateCustomer">
+  <xs:element name="UserUpdate">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userkey" nillable="true" type="xs:string" />
         <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/zkdao.Domain" minOccurs="0" name="dataObject" nillable="true" type="q7:UserData" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="UpdateCustomerResponse">
+  <xs:element name="UserUpdateResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>

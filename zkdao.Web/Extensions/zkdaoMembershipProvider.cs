@@ -17,20 +17,32 @@ namespace zkdao.Web.Extensions {
         private string passwordStrengthRegularExpression;
         private MembershipPasswordFormat passwordFormat = MembershipPasswordFormat.Clear;
 
-        private MembershipUser ConvertFrom(UserData userObj) {
+        private MembershipUser ConvertToMem(UserData userObj) {
             if (userObj == null)
                 return null;
             MembershipUser user = new MembershipUser("zkdaoMembershipProvider",
-                userObj.Email, userObj.ID, userObj.Email, "", "", true, false,
-                DateTime.MinValue, DateTime.MinValue, DateTime.MinValue,
-                DateTime.Now, DateTime.Now);
+                userObj.Email, userObj.ID, userObj.Email, "", "",
+                userObj.ActEnum != (int)eAct.unApproved, userObj.ActEnum == (int)eAct.Freeze,
+                userObj.DateCreated, userObj.DateLastLogin?? DateTime.MinValue, DateTime.MinValue,
+                userObj.DateLastPasswordChange?? DateTime.MinValue, DateTime.Now);
+            return user;
+        }
+        private UserData ConvertToData(MembershipUser memUser) {
+            if (memUser == null)
+                return null;
+            UserData user = new UserData {
+                DateCreated = memUser.CreationDate,
+                DateLastLogin = memUser.LastLoginDate,
+                DateLastPasswordChange = memUser.LastPasswordChangedDate,
+                Email = memUser.Email,
+                Name = memUser.UserName
+            };
             return user;
         }
 
         private string GetConfigValue(string configValue, string defaultValue) {
             if (string.IsNullOrEmpty(configValue))
                 return defaultValue;
-
             return configValue;
         }
 
@@ -66,12 +78,23 @@ namespace zkdao.Web.Extensions {
             passwordStrengthRegularExpression = Convert.ToString(GetConfigValue(config["passwordStrengthRegularExpression"], ""));
         }
 
-        public override bool ChangePassword(string username, string oldPassword, string newPassword) {
-            throw new NotSupportedException();
+        public override bool ChangePassword(string userKey, string oldPassword, string newPassword) {
+            if (ValidateUser(userKey, oldPassword)) {
+                UserData userData = new UserData {
+                    PasswordHash = UserData.GetHashPassword(newPassword),
+                    Email = userKey
+                };
+                using (UserServiceClient client = new UserServiceClient()) {
+                    client.UserUpdate(userData.Email, userData);
+                }
+                return true;
+            } else {
+                return false;
+            }
         }
 
         public override bool ChangePasswordQuestionAndAnswer(string username, string password, string newPasswordQuestion, string newPasswordAnswer) {
-            return false;
+            throw new NotSupportedException();
         }
 
         public override MembershipUser CreateUser(string username, string password, string email, string passwordQuestion, string passwordAnswer, bool isApproved, object providerUserKey, out MembershipCreateStatus status) {
@@ -118,9 +141,9 @@ namespace zkdao.Web.Extensions {
         public override MembershipUserCollection FindUsersByEmail(string emailToMatch, int pageIndex, int pageSize, out int totalRecords) {
             MembershipUserCollection col = new MembershipUserCollection();
             using (UserServiceClient client = new UserServiceClient()) {
-                var dataObject = client.UserGetByEmail(emailToMatch);
+                var dataObject = client.UserGetByKey(emailToMatch);
                 totalRecords = 1;
-                col.Add(this.ConvertFrom(dataObject));
+                col.Add(this.ConvertToMem(dataObject));
                 client.Close();
                 return col;
             }
@@ -129,9 +152,9 @@ namespace zkdao.Web.Extensions {
         public override MembershipUserCollection FindUsersByName(string usernameToMatch, int pageIndex, int pageSize, out int totalRecords) {
             MembershipUserCollection col = new MembershipUserCollection();
             using (UserServiceClient client = new UserServiceClient()) {
-                var dataObject = client.UserGetByEmail(usernameToMatch);
+                var dataObject = client.UserGetByKey(usernameToMatch);
                 totalRecords = 1;
-                col.Add(this.ConvertFrom(dataObject));
+                col.Add(this.ConvertToMem(dataObject));
                 client.Close();
                 return col;
             }
@@ -144,7 +167,7 @@ namespace zkdao.Web.Extensions {
                 if (dataObjects != null) {
                     totalRecords = dataObjects.Count;
                     foreach (var dataObject in dataObjects.Result)
-                        col.Add(this.ConvertFrom(dataObject));
+                        col.Add(this.ConvertToMem(dataObject));
                 } else {
                     totalRecords = 0;
                 }
@@ -163,11 +186,11 @@ namespace zkdao.Web.Extensions {
 
         public override MembershipUser GetUser(string username, bool userIsOnline) {
             using (UserServiceClient client = new UserServiceClient()) {
-                var dataObject = client.UserGetByEmail(username);
+                var dataObject = client.UserGetByKey(username);
                 client.Close();
                 if (dataObject == null)
                     return null;
-                return ConvertFrom(dataObject);
+                return ConvertToMem(dataObject);
             }
         }
 
@@ -177,13 +200,13 @@ namespace zkdao.Web.Extensions {
                 client.Close();
                 if (dataObject == null)
                     return null;
-                return ConvertFrom(dataObject);
+                return ConvertToMem(dataObject);
             }
         }
 
         public override string GetUserNameByEmail(string email) {
             using (UserServiceClient client = new UserServiceClient()) {
-                var dataObject = client.UserGetByEmail(email);
+                var dataObject = client.UserGetByKey(email);
                 client.Close();
                 if (dataObject == null)
                     return null;
@@ -231,14 +254,15 @@ namespace zkdao.Web.Extensions {
             throw new NotSupportedException();
         }
 
-        public override void UpdateUser(MembershipUser user) {
+        public override void UpdateUser(MembershipUser userData) {
             throw new NotSupportedException();
         }
 
         public override bool ValidateUser(string username, string password) {
             using (UserServiceClient client = new UserServiceClient()) {
-                return client.UserValidate(username, password);
+                return client.UserValidate(username, UserData.GetHashPassword(password));
             }
         }
+
     }
 }

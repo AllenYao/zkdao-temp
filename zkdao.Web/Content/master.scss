@@ -35,10 +35,11 @@
 @import "zic-css/mod_resource/ms";
 
 .navbar{z-index:1031;
-	.container{height:40px;overflow:hidden;}
-	.brand-dark{background:transparent url(/Content/images/logoDark_48.png) no-repeat scroll right center;
-		@include in_bk;height:48px;width:235px;@include hide-text();padding:4px 0;float:left;margin-right:100px;
-		&.hover{background-image:url(/Content/images/logoDark_act_48.png);}
+	span.brand{height:40px;overflow:hidden;margin:0 100px 0 0;padding:0;
+		a.brand-dark{background:transparent url(/Content/images/logoDark_48.png) no-repeat scroll right center;
+			display:block;height:48px;width:235px;@include hide-text();padding:4px 0;
+			&.hover{background-image:url(/Content/images/logoDark_act_48.png);}
+		}
 	}
 	.navbar-search{float:right;margin-left:20px;}
 	a{color:$navbarLinkColor;}
@@ -46,12 +47,12 @@
 	a>i{margin-right:2px;vertical-align: -2px;}
 }
 .logohack{@include grid-core-span($gridColumns);
-	.brand-light{background:transparent url(/Content/images/logo_48.png) no-repeat scroll right center;
+	a.brand-light{background:transparent url(/Content/images/logo_48.png) no-repeat scroll right center;
 		@include in_bk;height:48px;width:235px;@include hide-text();padding:4px 0;
 		&.hover{background-image:url(/Content/images/logo_act_48.png);}
 	}
 }
-#main{margin-top:60px;
+#main{margin-top:60px;min-height:400px;
 	.container{@include grid-core-span($gridColumns);}
 }
 #footer{border-top:1px solid #ddd;height:32px;line-height:32px;color:#666;margin-top:30px;

@@ -1,15 +1,33 @@
 ﻿@model System.Web.Mvc.HandleErrorInfo
-
 @{
-    ViewBag.Title = "Error - Byteart Retail";
+    ViewBag.Title = "ZKdao - 抱歉，刚刚开小差了！";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@section head{}
+@section sidebar{}
+@if (@HttpContext.Current.IsDebuggingEnabled) {
+    
+    <h3>
+        @Model.Exception.Message
+    </h3>
+    <fieldset>
+        <legend>详细信息</legend>
+        <textarea rows="30" style="width:100%;" >@Model.Exception.StackTrace</textarea>
+    </fieldset>
+    
+    if (Model.Exception.InnerException != null) {
+    <h3>
+        InnerException: @Model.Exception.InnerException.Message
+    </h3>
+    <fieldset>
+        <legend>详细信息</legend>
+        <textarea rows="30" style="width:100%;" >@Model.Exception.InnerException.StackTrace</textarea>
+    </fieldset>
+    }
 
-<h3>
-    @Model.Exception.Message
-</h3>
-
-<fieldset>
-    <legend>Detailed Information</legend>
-    <div>@Model.Exception.StackTrace</div>
-</fieldset>
-
+} else { 
+    
+    <h2>
+        悟空~~ 你又不乖了~~</h2>
+    
+}

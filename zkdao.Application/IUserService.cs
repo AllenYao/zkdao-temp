@@ -16,14 +16,14 @@ namespace zkdao.Application {
         [OperationContract]
         UserData UserGetByID(Guid ID);
         [OperationContract]
-        UserData UserGetByEmail(string email);
+        UserData UserGetByKey(string userkey);
         [OperationContract]
         Pager<UserData> UserGetPager(int pageIndex, int pageSize);
         [OperationContract]
         Guid UserCreat(UserData dataObject);
         [OperationContract]
-        bool UserValidate(string email, string password);
+        bool UserValidate(string userkey, string password);
         [OperationContract]
-        void UpdateCustomer(string email, UserData dataObject);
+        void UserUpdate(string userkey, UserData dataObject);
     }
 }

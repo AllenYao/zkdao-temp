@@ -23,10 +23,10 @@ namespace zkdao.Application {
             }
         }
 
-        public UserData UserGetByEmail(string email) {
+        public UserData UserGetByKey(string userkey) {
             using (IRepositoryContext context = IocLocator.Instance.GetService<IRepositoryContext>()) {
                 var userRepository = context.GetRepository<User>();
-                var customer = userRepository.Find(Specification<User>.Eval(c => c.Email == email));
+                var customer = userRepository.Find(Specification<User>.Eval(c => c.Email == userkey));
                 if (customer == null)
                     return null;
                 var userData = Mapper.Map<User, UserData>(customer);
@@ -67,26 +67,26 @@ namespace zkdao.Application {
             }
         }
 
-        public bool UserValidate(string email, string password) {
-            if (string.IsNullOrEmpty(email))
+        public bool UserValidate(string userkey, string password) {
+            if (string.IsNullOrEmpty(userkey))
                 throw new ArgumentNullException("email");
             if (string.IsNullOrEmpty(password))
                 throw new ArgumentNullException("password");
             using (IRepositoryContext context = IocLocator.Instance.GetService<IRepositoryContext>()) {
                 var userRepository = context.GetRepository<User>();
-                return userRepository.Exists(Specification<User>.Eval(c => c.Email == email && c.PasswordHash == User.GetHashPassword(password)));
+                return userRepository.Exists(Specification<User>.Eval(c => c.Email == userkey && c.PasswordHash == password));
             }
         }
 
-        public void UpdateCustomer(string email, UserData dataObject) {
-            if (string.IsNullOrEmpty(email))
+        public void UserUpdate(string userkey, UserData dataObject) {
+            if (string.IsNullOrEmpty(userkey))
                 throw new ArgumentNullException("email");
             if (dataObject == null)
                 throw new ArgumentNullException("dataObject");
 
             using (IRepositoryContext context = IocLocator.Instance.GetService<IRepositoryContext>()) {
                 var userRepository = context.GetRepository<User>();
-                var user = userRepository.Get(Specification<User>.Eval(c => c.Email == email));
+                var user = userRepository.Get(Specification<User>.Eval(c => c.Email == userkey));
                 if (!string.IsNullOrEmpty(dataObject.PasswordHash))
                     user.PasswordHash = dataObject.PasswordHash;
                 if (!string.IsNullOrEmpty(dataObject.Name))

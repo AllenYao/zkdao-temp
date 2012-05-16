@@ -3,8 +3,9 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Validation;
 using System.Text;
-using Microsoft.Practices.EnterpriseLibrary.ExceptionHandling;
+using log4net;
 using zic_dotnet.Repositories;
+using System.Reflection;
 
 namespace zkdao.Repositories.EF {
 
@@ -34,19 +35,19 @@ namespace zkdao.Repositories.EF {
                         ctx.SaveChanges();
                         Committed = true;
                     } catch (DbEntityValidationException ex) {
-                        //StringBuilder EFvaliError = new StringBuilder();
-                        //foreach (var eve in ex.EntityValidationErrors) {
-                        //    EFvaliError.AppendFormat("Entity of type \"{0}\" in state \"{1}\" has the following validation errors: \n", eve.Entry.Entity.GetType().Name, eve.Entry.State);
-                        //    foreach (var ve in eve.ValidationErrors) {
-                        //        EFvaliError.AppendFormat("- Property: \"{0}\", Error: \"{1}\" \n", ve.PropertyName, ve.ErrorMessage);
-                        //    }
-                        //}
-
-                        //if (ExceptionPolicy.HandleException(ex, "Policy")) throw;
+                        StringBuilder EFvaliError = new StringBuilder();
+                        foreach (var eve in ex.EntityValidationErrors) {
+                            EFvaliError.AppendFormat("Entity of type \"{0}\" in state \"{1}\" has the following validation errors: \n", eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                            foreach (var ve in eve.ValidationErrors) {
+                                EFvaliError.AppendFormat("- Property: \"{0}\", Error: \"{1}\" \n", ve.PropertyName, ve.ErrorMessage);
+                            }
+                        }
+                        ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+                        log.Error("EF-SaveChanges-DbEntityValidationException:\n" + EFvaliError);
                         throw ex;
-                    } catch (DbUpdateException ex) {
-                        throw ex.InnerException;
                     } catch (Exception ex) {
+                        ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+                        log.Error("EF-SaveChanges-Exception", ex);
                         throw ex;
                     }
                 }

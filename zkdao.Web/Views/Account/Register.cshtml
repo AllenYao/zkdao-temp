@@ -26,7 +26,7 @@
         @Html.LabelFor(m => m.ConfirmPassword)
         <div class="input-prepend">
             <span class="add-on input-ico"><i class="icon-lock"></i></span>
-            @Html.PasswordFor(m => m.ConfirmPassword)
+            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "submit" })
             @Html.ValidationMessageFor(m => m.ConfirmPassword)
         </div>
         <p>

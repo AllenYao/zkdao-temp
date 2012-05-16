@@ -8,25 +8,16 @@ using zkdao.Web.UserServiceReference;
 namespace zkdao.Web.Controllers {
 
     public class AccountController : ControllerBase {
-        //
-        // GET: /Account/LogOn
 
         public ActionResult LogOn() {
             return View();
         }
-
-        //
-        // POST: /Account/LogOn
 
         [HttpPost]
         public ActionResult LogOn(LogOnModel model, string returnUrl) {
             if (ModelState.IsValid) {
                 if (Membership.ValidateUser(model.Email, model.Password)) {
                     FormsAuthentication.SetAuthCookie(model.Email, model.RememberMe);
-                    //using (CustomerServiceClient customerServiceClient = new CustomerServiceClient())
-                    //{
-                    //    Session["CustomerID"] = new Guid(customerServiceClient.GetCustomerByUserName(model.UserName).ID);
-                    //}
                     if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
                         && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\")) {
                         return Redirect(returnUrl);
@@ -34,42 +25,27 @@ namespace zkdao.Web.Controllers {
                         return RedirectToAction("Index", "Home");
                     }
                 } else {
-                    ModelState.AddModelError("", "The user name or password provided is incorrect.");
+                    ModelState.AddModelError(string.Empty, "用户名或密码错误。");
                 }
             }
-
-            // If we got this far, something failed, redisplay form
             return View(model);
         }
 
-        //
-        // GET: /Account/LogOff
-
         public ActionResult LogOff() {
             FormsAuthentication.SignOut();
-
             CustomerID = null;
-
             return RedirectToAction("Index", "Home");
         }
-
-        //
-        // GET: /Account/Register
 
         public ActionResult Register() {
             return View();
         }
 
-        //
-        // POST: /Account/Register
-
         [HttpPost]
         public ActionResult Register(RegisterModel model) {
             if (ModelState.IsValid) {
-                // Attempt to register the user
-                MembershipCreateStatus createStatus;
+                MembershipCreateStatus createStatus = MembershipCreateStatus.ProviderError;
                 Membership.CreateUser(model.Email, model.Password, model.Email, null, null, true, null, out createStatus);
-
                 if (createStatus == MembershipCreateStatus.Success) {
                     FormsAuthentication.SetAuthCookie(model.Email, false /* createPersistentCookie */);
                     return RedirectToAction("Index", "Home");
@@ -77,13 +53,41 @@ namespace zkdao.Web.Controllers {
                     ModelState.AddModelError("", ErrorCodeToString(createStatus));
                 }
             }
-
-            // If we got this far, something failed, redisplay form
             return View(model);
         }
+        private static string ErrorCodeToString(MembershipCreateStatus createStatus) {
+            switch (createStatus) {
+                case MembershipCreateStatus.DuplicateUserName:
+                    return "用户名已被他人使用。";
 
-        //
-        // GET: /Account/ChangePassword
+                case MembershipCreateStatus.DuplicateEmail:
+                    return "Email地址已被他人使用。";
+
+                case MembershipCreateStatus.InvalidPassword:
+                    return "密码错误。";
+
+                case MembershipCreateStatus.InvalidEmail:
+                    return "Email地址错误。";
+
+                case MembershipCreateStatus.InvalidAnswer:
+                    return "安全验证的答案错误。";
+
+                case MembershipCreateStatus.InvalidQuestion:
+                    return "安全验证的问题是无效的。";
+
+                case MembershipCreateStatus.InvalidUserName:
+                    return "用户名错误。";
+
+                case MembershipCreateStatus.ProviderError:
+                    return "系统错误，请在页脚联系管理员。";
+
+                case MembershipCreateStatus.UserRejected:
+                    return "新建用户请求被驳回，详细原因请在页脚联系管理员。";
+
+                default:
+                    return "未知错误，详细原因请在页脚联系管理员。";
+            }
+        }
 
         [Authorize]
         public ActionResult ChangePassword() {
@@ -94,65 +98,22 @@ namespace zkdao.Web.Controllers {
         [HttpPost]
         public ActionResult ChangePassword(ChangePasswordModel model) {
             if (ModelState.IsValid) {
-                // ChangePassword will throw an exception rather
-                // than return false in certain failure scenarios.
-                bool changePasswordSucceeded;
-                try {
-                    MembershipUser currentUser = Membership.GetUser(User.Identity.Name, true /* userIsOnline */);
-                    changePasswordSucceeded = currentUser.ChangePassword(model.OldPassword, model.NewPassword);
-                } catch (Exception) {
-                    changePasswordSucceeded = false;
+                bool succeeded = false;
+                MembershipUser currentUser = Membership.GetUser(User.Identity.Name, true /* userIsOnline */);
+                if (currentUser == null) {
+                    ModelState.AddModelError("", "用户验证失败。");
+                    return View(model);
                 }
-
-                if (changePasswordSucceeded) {
-                    return RedirectToAction("LogOn");
+                succeeded = currentUser.ChangePassword(model.OldPassword, model.NewPassword);
+                if (!succeeded) {
+                    ModelState.AddModelError("", "更改密码失败。");
                 } else {
-                    ModelState.AddModelError("", "The current password is incorrect or the new password is invalid.");
+                    //ToDo:构建独立的提示页面和错误页面
+                    return RedirectToAction("Index", "Home");
                 }
             }
-
-            // If we got this far, something failed, redisplay form
             return View(model);
         }
 
-        #region Status Codes
-
-        private static string ErrorCodeToString(MembershipCreateStatus createStatus) {
-            // See http://go.microsoft.com/fwlink/?LinkID=177550 for
-            // a full list of status codes.
-            switch (createStatus) {
-                case MembershipCreateStatus.DuplicateUserName:
-                    return "User name already exists. Please enter a different user name.";
-
-                case MembershipCreateStatus.DuplicateEmail:
-                    return "A user name for that e-mail address already exists. Please enter a different e-mail address.";
-
-                case MembershipCreateStatus.InvalidPassword:
-                    return "The password provided is invalid. Please enter a valid password value.";
-
-                case MembershipCreateStatus.InvalidEmail:
-                    return "The e-mail address provided is invalid. Please check the value and try again.";
-
-                case MembershipCreateStatus.InvalidAnswer:
-                    return "The password retrieval answer provided is invalid. Please check the value and try again.";
-
-                case MembershipCreateStatus.InvalidQuestion:
-                    return "The password retrieval question provided is invalid. Please check the value and try again.";
-
-                case MembershipCreateStatus.InvalidUserName:
-                    return "The user name provided is invalid. Please check the value and try again.";
-
-                case MembershipCreateStatus.ProviderError:
-                    return "The authentication provider returned an error. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
-
-                case MembershipCreateStatus.UserRejected:
-                    return "The user creation request has been canceled. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
-
-                default:
-                    return "An unknown error occurred. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
-            }
-        }
-
-        #endregion Status Codes
     }
 }
