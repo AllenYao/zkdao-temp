@@ -4,6 +4,7 @@ using System.Data.Entity.Validation;
 using System.Reflection;
 using System.Text;
 using log4net;
+using zic_dotnet;
 using zic_dotnet.Repositories;
 
 namespace zkdao.Repositories.EF {
@@ -41,10 +42,10 @@ namespace zkdao.Repositories.EF {
                                 EFvaliError.AppendFormat("- Property: \"{0}\", Error: \"{1}\" \n", ve.PropertyName, ve.ErrorMessage);
                             }
                         }
-                        EFLogProvider.Log.Error(MethodBase.GetCurrentMethod().DeclaringType, ex);
+                        LogProvider.Log.Error(MethodBase.GetCurrentMethod().DeclaringType, ex);
                         throw ex;
                     } catch (Exception ex) {
-                        EFLogProvider.Log.Error(MethodBase.GetCurrentMethod().DeclaringType, ex);
+                        LogProvider.Log.Error(MethodBase.GetCurrentMethod().DeclaringType, ex);
                         throw ex;
                     }
                 }
