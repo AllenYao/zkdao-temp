@@ -1,5 +1,6 @@
 ﻿using System;
 using log4net;
+using zic_dotnet;
 using zkdao.Application;
 
 namespace zkdao.Wcf {
@@ -9,7 +10,7 @@ namespace zkdao.Wcf {
         protected void Application_Start(object sender, EventArgs e) {
             BaseApplication.Initialize();
             log4net.Config.XmlConfigurator.Configure();
-            Log = log4net.LogManager.GetLogger("ZKdao.Wcf");
+            ZicLog4Net.Instance.Config(new string[] { "SubByEF", "AppService" });
         }
 
         protected void Session_Start(object sender, EventArgs e) {

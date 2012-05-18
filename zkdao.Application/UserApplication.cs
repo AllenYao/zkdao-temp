@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using AutoMapper;
+using log4net;
 using zic_dotnet;
 using zic_dotnet.Domain;
 using zic_dotnet.Repositories;
@@ -53,7 +55,6 @@ namespace zkdao.Application {
         public Guid UserCreat(UserData dataObject) {
             if (dataObject == null)
                 throw new ArgumentNullException("userDataObject");
-
             using (IRepositoryContext context = IocLocator.Instance.GetService<IRepositoryContext>()) {
                 IRepository<User> userRepository = context.GetRepository<User>();
                 if (userRepository.Exists(Specification<User>.Eval(c => c.Email == dataObject.Email)))
