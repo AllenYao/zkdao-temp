@@ -42,10 +42,12 @@ namespace zkdao.Repositories.EF {
                                 EFvaliError.AppendFormat("- Property: \"{0}\", Error: \"{1}\" \n", ve.PropertyName, ve.ErrorMessage);
                             }
                         }
-                        LogProvider.Log.Error(MethodBase.GetCurrentMethod().DeclaringType, ex);
+                        ILog log = log4net.LogManager.GetLogger("SubEF");
+                        log.Error(MethodBase.GetCurrentMethod().DeclaringType, ex);
                         throw ex;
                     } catch (Exception ex) {
-                        LogProvider.Log.Error(MethodBase.GetCurrentMethod().DeclaringType, ex);
+                        ILog log = log4net.LogManager.GetLogger("SubEF");
+                        log.Error(MethodBase.GetCurrentMethod().DeclaringType, ex);
                         throw ex;
                     }
                 }
