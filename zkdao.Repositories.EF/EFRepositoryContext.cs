@@ -47,6 +47,7 @@ namespace zkdao.Repositories.EF {
                         throw ex;
                     } catch (Exception ex) {
                         ILog Log = LogManager.GetLogger("SubByEF", MethodBase.GetCurrentMethod().DeclaringType);
+                        Log.Fatal("xxxxxxxxxxxxxxxxxxxxxxxx", ex);
                         Log.Error(ex);
                         throw ex;
                     }
