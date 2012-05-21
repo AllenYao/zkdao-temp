@@ -55,11 +55,14 @@ namespace zkdao.Application {
         public Guid UserCreat(UserData dataObject) {
             if (dataObject == null)
                 throw new ArgumentNullException("userDataObject");
+            ILog Log = LogManager.GetLogger("SubByEF", MethodBase.GetCurrentMethod().DeclaringType);
+            Log.Error("vvvvvvv", new Exception("xxxxxxxxxxxxxx"));
             using (IRepositoryContext context = IocLocator.Instance.GetService<IRepositoryContext>()) {
                 IRepository<User> userRepository = context.GetRepository<User>();
                 if (userRepository.Exists(Specification<User>.Eval(c => c.Email == dataObject.Email)))
                     throw new DomainException("Customer with the Email of '{0}' already exists.", dataObject.Email);
-                //dataObject.DateCreated = DateTime.Now;
+                dataObject.ID = Guid.NewGuid().ToString();
+                dataObject.DateCreated = DateTime.Now;
                 User user = Mapper.Map<UserData, User>(dataObject);
                 userRepository.Add(user);
                 context.Commit();
