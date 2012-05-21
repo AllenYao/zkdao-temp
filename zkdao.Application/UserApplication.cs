@@ -59,7 +59,8 @@ namespace zkdao.Application {
                 IRepository<User> userRepository = context.GetRepository<User>();
                 if (userRepository.Exists(Specification<User>.Eval(c => c.Email == dataObject.Email)))
                     throw new DomainException("Customer with the Email of '{0}' already exists.", dataObject.Email);
-                //dataObject.DateCreated = DateTime.Now;
+                dataObject.ID = Guid.NewGuid().ToString();
+                dataObject.DateCreated = DateTime.Now;
                 User user = Mapper.Map<UserData, User>(dataObject);
                 userRepository.Add(user);
                 context.Commit();

@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Net;
+using System.Net.Mail;
+using System.Reflection;
 using log4net;
 using zic_dotnet;
 using zkdao.Application;
