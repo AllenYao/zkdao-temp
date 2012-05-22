@@ -1,4 +1,4 @@
-﻿@model zkdao.Web.Models.LogOnModel
+﻿@model zkdao.Web.UserServiceReference.UserData
 @using zic_dotnet;
 @{
     ViewBag.Title = "ZKdao - 登录";
@@ -18,11 +18,11 @@ test
             @Html.TextBoxFor(m => m.Email)
             @Html.ValidationMessageFor(m => m.Email)
         </div>
-        @Html.LabelFor(m => m.Password)
+        @Html.LabelFor(m => m.LogOnPassword)
         <div class="input-prepend">
             <span class="add-on input-ico"><i class="icon-lock"></i></span>
-            @Html.PasswordFor(m => m.Password, new { @class = "submit" })
-            @Html.ValidationMessageFor(m => m.Password)
+            @Html.PasswordFor(m => m.LogOnPassword, new { @class = "submit" })
+            @Html.ValidationMessageFor(m => m.LogOnPassword)
         </div>
         <label class="checkbox" for="RememberMe">
             @Html.CheckBoxFor(m => m.RememberMe)

@@ -81,14 +81,14 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ControllerBase.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Extensions\ServicesEnum.cs" />
+    <Compile Include="Models\ServicesEnum.cs" />
+    <Compile Include="Models\WhiteInfo.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Extensions\zkdaoMembershipProvider.cs" />
-    <Compile Include="Extensions\UserData.Partial.cs" />
+    <Compile Include="Models\UserData.Partial.cs" />
     <Compile Include="Service References\UserServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -443,6 +443,9 @@
     <None Include="Service References\UserServiceReference\zkdao.Web.UserServiceReference.UserData.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <Content Include="Views\Shared\White.cshtml" />
+    <Content Include="Views\Shared\_LayoutSingle.cshtml" />
+    <Content Include="Views\Shared\_HeadPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

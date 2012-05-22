@@ -3,7 +3,7 @@ using System.Web.Security;
 using zic_dotnet;
 using zkdao.Web.UserServiceReference;
 
-namespace zkdao.Web.Extensions {
+namespace zkdao.Web.Models {
 
     public class zkdaoMembershipProvider : MembershipProvider {
         private string applicationName;

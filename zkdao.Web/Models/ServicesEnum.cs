@@ -1,4 +1,4 @@
-﻿namespace zkdao.Web.Extensions {
+﻿namespace zkdao.Web.Models {
 
     public enum eAct {
         Normal = 1,

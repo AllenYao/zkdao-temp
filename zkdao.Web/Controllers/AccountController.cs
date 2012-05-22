@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Security;
 using zkdao.Web.Models;
+using zkdao.Web.UserServiceReference;
 
 namespace zkdao.Web.Controllers {
 
@@ -11,9 +12,9 @@ namespace zkdao.Web.Controllers {
         }
 
         [HttpPost]
-        public ActionResult LogOn(LogOnModel model, string returnUrl) {
+        public ActionResult LogOn(UserData model, string returnUrl) {
             if (ModelState.IsValid) {
-                if (Membership.ValidateUser(model.Email, model.Password)) {
+                if (Membership.ValidateUser(model.Email, model.LogOnPassword)) {
                     FormsAuthentication.SetAuthCookie(model.Email, model.RememberMe);
                     if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
                         && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\")) {
@@ -39,7 +40,7 @@ namespace zkdao.Web.Controllers {
         }
 
         [HttpPost]
-        public ActionResult Register(RegisterModel model) {
+        public ActionResult Register(UserData model) {
             if (ModelState.IsValid) {
                 MembershipCreateStatus createStatus = MembershipCreateStatus.ProviderError;
                 Membership.CreateUser(model.Email, model.Password, model.Email, null, null, true, null, out createStatus);
@@ -94,7 +95,7 @@ namespace zkdao.Web.Controllers {
 
         [Authorize]
         [HttpPost]
-        public ActionResult ChangePassword(ChangePasswordModel model) {
+        public ActionResult ChangePassword(UserData model) {
             if (ModelState.IsValid) {
                 bool succeeded = false;
                 MembershipUser currentUser = Membership.GetUser(User.Identity.Name, true /* userIsOnline */);
@@ -102,7 +103,7 @@ namespace zkdao.Web.Controllers {
                     ModelState.AddModelError("", "用户验证失败。");
                     return View(model);
                 }
-                succeeded = currentUser.ChangePassword(model.OldPassword, model.NewPassword);
+                succeeded = currentUser.ChangePassword(model.Password, model.NewPassword);
                 if (!succeeded) {
                     ModelState.AddModelError("", "更改密码失败。");
                 } else {
