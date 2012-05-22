@@ -13,7 +13,7 @@ namespace zkdao.Wcf {
         protected void Application_Start(object sender, EventArgs e) {
             BaseApplication.Initialize();
             log4net.Config.XmlConfigurator.Configure();
-            ZicLog4Net.Instance.Config(new string[] { "SubByEF", "AppService" });
+            ZicLog4Net.Instance.Config(new string[] { "Domain", "AppService", "InfrasEmail", "InfrasEF", "InfrasWCF", "InfrasREST" });
         }
 
         protected void Session_Start(object sender, EventArgs e) {

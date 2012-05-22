@@ -29,7 +29,7 @@ using zic_dotnet;
 
 namespace zkdao.Wcf {
 	public class UserService : IUserService {
-		private readonly IUserService userService = IocLocator.Instance.GetService<IUserService>();
+		private readonly IUserService userService = IocLocator.Instance.GetImple<IUserService>();
 		<#foreach (MethodInfo method in typeof(IUserService).GetMethods()) {#>
 		public <#=GetMethodReturnType(method)#> <#=method.Name#>(<#=GetMethodParameterList(method)#>) {
 			try {

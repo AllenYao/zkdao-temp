@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using zic_dotnet;
 using zic_dotnet.Domain;
+using zkdao.Email;
 
 namespace zkdao.Domain {
 
@@ -54,6 +55,8 @@ namespace zkdao.Domain {
 
         public DateTime? DateLastPasswordChange { get; set; }
 
+        public string ApprovedID { get; set; }
+
         public virtual ICollection<Info> PostInfos { get; set; }
 
         public virtual ICollection<InfoReply> PostInfoReplys { get; set; }
@@ -67,6 +70,27 @@ namespace zkdao.Domain {
         public virtual ICollection<UserRelaProduct> UserRelaProducts { get; set; }
 
         public virtual ICollection<UserRelaReply> UserRelaReplys { get; set; }
+
+        public void Register() {
+            this.ID = Guid.NewGuid();
+            this.DateCreated = DateTime.Now;
+            this.ActEnum = (int)eAct.unApproved;
+            bool needApproved = this.RequestApproved();
+            if (!needApproved) {
+                this.ActEnum = (int)eAct.Normal;
+            }
+        }
+
+        public bool RequestApproved() {
+            IEmailService emalimple = IocLocator.Instance.GetImple<IEmailService>();
+            this.ApprovedID = Guid.NewGuid().ToString();
+            return emalimple.SendEmail(this.Email, "请激活您的邮箱", "<a href='www.zkdao.com/Approved/'" + this.ApprovedID + ">点击即可激活zkdao帐号 -></a>");
+        }
+
+        public void ValiApproved(string approvedID) {
+            if (approvedID == this.ApprovedID)
+                this.ActEnum = (int)eAct.Normal;
+        }
     }
 
     public class UserData {

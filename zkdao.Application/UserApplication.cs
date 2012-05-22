@@ -14,7 +14,7 @@ namespace zkdao.Application {
     public class UserApplication : BaseApplication, IUserService {
 
         public UserData UserGetByID(Guid ID) {
-            using (IRepositoryContext context = IocLocator.Instance.GetService<IRepositoryContext>()) {
+            using (IRepositoryContext context = IocLocator.Instance.GetImple<IRepositoryContext>()) {
                 var userRepository = context.GetRepository<User>();
                 var user = userRepository.GetByKey(ID);
                 if (user == null)
@@ -25,7 +25,7 @@ namespace zkdao.Application {
         }
 
         public UserData UserGetByKey(string userkey) {
-            using (IRepositoryContext context = IocLocator.Instance.GetService<IRepositoryContext>()) {
+            using (IRepositoryContext context = IocLocator.Instance.GetImple<IRepositoryContext>()) {
                 var userRepository = context.GetRepository<User>();
                 var customer = userRepository.Find(Specification<User>.Eval(c => c.Email == userkey));
                 if (customer == null)
@@ -36,7 +36,7 @@ namespace zkdao.Application {
         }
 
         public Pager<UserData> UserGetPager(int pageIndex, int pageSize) {
-            using (IRepositoryContext context = IocLocator.Instance.GetService<IRepositoryContext>()) {
+            using (IRepositoryContext context = IocLocator.Instance.GetImple<IRepositoryContext>()) {
                 var customerRepository = context.GetRepository<User>();
                 var users = customerRepository.FindAll(pageIndex, pageSize);
                 if (users == null)
@@ -52,19 +52,31 @@ namespace zkdao.Application {
             }
         }
 
-        public Guid UserCreat(UserData dataObject) {
+        public Guid UserRegister(UserData dataObject) {
             if (dataObject == null)
                 throw new ArgumentNullException("userDataObject");
-            using (IRepositoryContext context = IocLocator.Instance.GetService<IRepositoryContext>()) {
+            using (IRepositoryContext context = IocLocator.Instance.GetImple<IRepositoryContext>()) {
                 IRepository<User> userRepository = context.GetRepository<User>();
                 if (userRepository.Exists(Specification<User>.Eval(c => c.Email == dataObject.Email)))
                     throw new DomainException("Customer with the Email of '{0}' already exists.", dataObject.Email);
-                dataObject.ID = Guid.NewGuid().ToString();
-                dataObject.DateCreated = DateTime.Now;
                 User user = Mapper.Map<UserData, User>(dataObject);
+                user.Register();
                 userRepository.Add(user);
                 context.Commit();
                 return user.ID;
+            }
+        }
+
+        public bool UserApproved(string userkey, string approvedID) {
+            using (IRepositoryContext context = IocLocator.Instance.GetImple<IRepositoryContext>()) {
+                var userRepository = context.GetRepository<User>();
+                var user = userRepository.Find(Specification<User>.Eval(c => c.Email == userkey));
+                if (user == null)
+                    return false;
+                user.ValiApproved(approvedID);
+                if (user.ActEnum == (int)eAct.Normal)
+                    return true;
+                return false;
             }
         }
 
@@ -73,7 +85,7 @@ namespace zkdao.Application {
                 throw new ArgumentNullException("email");
             if (string.IsNullOrEmpty(password))
                 throw new ArgumentNullException("password");
-            using (IRepositoryContext context = IocLocator.Instance.GetService<IRepositoryContext>()) {
+            using (IRepositoryContext context = IocLocator.Instance.GetImple<IRepositoryContext>()) {
                 var userRepository = context.GetRepository<User>();
                 return userRepository.Exists(Specification<User>.Eval(c => c.Email == userkey && c.PasswordHash == password));
             }
@@ -85,7 +97,7 @@ namespace zkdao.Application {
             if (dataObject == null)
                 throw new ArgumentNullException("dataObject");
 
-            using (IRepositoryContext context = IocLocator.Instance.GetService<IRepositoryContext>()) {
+            using (IRepositoryContext context = IocLocator.Instance.GetImple<IRepositoryContext>()) {
                 var userRepository = context.GetRepository<User>();
                 var user = userRepository.Get(Specification<User>.Eval(c => c.Email == userkey));
                 if (!string.IsNullOrEmpty(dataObject.PasswordHash))

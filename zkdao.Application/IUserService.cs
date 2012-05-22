@@ -18,7 +18,7 @@ namespace zkdao.Application {
         Pager<UserData> UserGetPager(int pageIndex, int pageSize);
 
         [OperationContract]
-        Guid UserCreat(UserData dataObject);
+        Guid UserRegister(UserData dataObject);
 
         [OperationContract]
         bool UserValidate(string userkey, string password);

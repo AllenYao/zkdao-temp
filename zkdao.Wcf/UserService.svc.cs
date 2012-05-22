@@ -15,7 +15,7 @@ using zic_dotnet;
 
 namespace zkdao.Wcf {
 	public class UserService : IUserService {
-		private readonly IUserService userService = IocLocator.Instance.GetService<IUserService>();
+		private readonly IUserService userService = IocLocator.Instance.GetImple<IUserService>();
 				public UserData UserGetByID(Guid ID) {
 			try {
 				return userService.UserGetByID(ID);
@@ -40,9 +40,9 @@ namespace zkdao.Wcf {
 				throw new FaultException<FaultData>(FaultData.CreateFromException(ex), FaultData.CreateFaultReason(ex));
 			}
 		}
-		public Guid UserCreat(UserData dataObject) {
+		public Guid UserRegister(UserData dataObject) {
 			try {
-				return userService.UserCreat(dataObject);
+				return userService.UserRegister(dataObject);
 			}
 			catch(Exception ex) {
 				throw new FaultException<FaultData>(FaultData.CreateFromException(ex), FaultData.CreateFaultReason(ex));

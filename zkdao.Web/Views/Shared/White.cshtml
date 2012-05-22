@@ -1,8 +1,10 @@
-﻿@model System.Web.Mvc.HandleErrorInfo
+﻿@model zkdao.Web.Models.WhiteInfo
 @{
     ViewBag.Title = "ZKdao - 抱歉，刚刚开小差了！";
     Layout = "~/Views/Shared/_LayoutSingle.cshtml";
 }
 @section head{}
-
-<h2></h2>
+<h2 class="@Model.Color">@Model.Title</h2>
+<p>
+    @Model.Content
+</p>
