@@ -40,9 +40,25 @@ namespace zkdao.Wcf {
 				throw new FaultException<FaultData>(FaultData.CreateFromException(ex), FaultData.CreateFaultReason(ex));
 			}
 		}
-		public Guid UserRegister(UserData dataObject) {
+		public UserData UserRegister(UserData dataObject) {
 			try {
 				return userService.UserRegister(dataObject);
+			}
+			catch(Exception ex) {
+				throw new FaultException<FaultData>(FaultData.CreateFromException(ex), FaultData.CreateFaultReason(ex));
+			}
+		}
+		public Boolean UserApproved(String userkey, String approvedID) {
+			try {
+				return userService.UserApproved(userkey, approvedID);
+			}
+			catch(Exception ex) {
+				throw new FaultException<FaultData>(FaultData.CreateFromException(ex), FaultData.CreateFaultReason(ex));
+			}
+		}
+		public void UserRequestApproved(String userkey) {
+			try {
+				 userService.UserRequestApproved(userkey);
 			}
 			catch(Exception ex) {
 				throw new FaultException<FaultData>(FaultData.CreateFromException(ex), FaultData.CreateFaultReason(ex));
@@ -66,5 +82,3 @@ namespace zkdao.Wcf {
 		}
 	}
 }
-
-

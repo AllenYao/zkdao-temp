@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Web.Security;
 using zic_dotnet;
+using zkdao.Web.Models;
 using zkdao.Web.UserServiceReference;
 
-namespace zkdao.Web.Models {
+namespace zkdao.Web.Extensions {
 
     public class zkdaoMembershipProvider : MembershipProvider {
         private string applicationName;
@@ -111,21 +112,25 @@ namespace zkdao.Web.Models {
                 return null;
             }
             MembershipUser user = GetUser(username, true);
-            if (user == null) {
-                using (UserServiceClient svc = new UserServiceClient()) {
-                    UserData dataObject = new UserData {
-                        Name = email,
-                        PasswordHash = UserData.GetHashPassword(password),
-                        Email = email
-                    };
-                    svc.UserCreat(dataObject);
-                }
-                status = MembershipCreateStatus.Success;
-                return GetUser(username, true);
-            } else {
+            if (user != null) {
                 status = MembershipCreateStatus.DuplicateUserName;
                 return null;
             }
+            UserData newUser;
+            using (UserServiceClient svc = new UserServiceClient()) {
+                UserData dataObject = new UserData {
+                    Name = email,
+                    PasswordHash = UserData.GetHashPassword(password),
+                    Email = email
+                };
+                newUser = svc.UserRegister(dataObject);
+            }
+            if (newUser.ActEnum == (int)eAct.Normal) {
+                status = MembershipCreateStatus.Success;
+            } else {
+                status = MembershipCreateStatus.InvalidEmail;
+            }
+            return ConvertToMem(newUser);
         }
 
         public override bool DeleteUser(string username, bool deleteAllRelatedData) {

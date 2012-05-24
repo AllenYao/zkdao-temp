@@ -46,18 +46,45 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="UserCreat">
+  <xs:element name="UserRegister">
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/zkdao.Domain" minOccurs="0" name="dataObject" nillable="true" type="q5:UserData" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="UserCreatResponse">
+  <xs:element name="UserRegisterResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="UserCreatResult" type="q6:guid" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/zkdao.Domain" minOccurs="0" name="UserRegisterResult" nillable="true" type="q6:UserData" />
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UserApproved">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userkey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="approvedID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UserApprovedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UserApprovedResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UserRequestApproved">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userkey" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UserRequestApprovedResponse">
+    <xs:complexType>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
   <xs:element name="UserValidate">

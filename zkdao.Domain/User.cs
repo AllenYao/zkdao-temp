@@ -84,7 +84,7 @@ namespace zkdao.Domain {
         public bool RequestApproved() {
             IEmailService emalimple = IocLocator.Instance.GetImple<IEmailService>();
             this.ApprovedID = Guid.NewGuid().ToString();
-            return emalimple.SendEmail(this.Email, "请激活您的邮箱", "<a href='www.zkdao.com/Approved/'" + this.ApprovedID + ">点击即可激活zkdao帐号 -></a>");
+            return emalimple.SendEmail(this.Email, "请激活您的邮箱", "<a href='www.zkdao.com/Account/Approved/'" + this.ApprovedID + ">点击即可激活zkdao帐号 -></a>");
         }
 
         public void ValiApproved(string approvedID) {

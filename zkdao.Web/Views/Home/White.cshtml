@@ -1,0 +1,10 @@
+﻿@model zkdao.Web.Models.WhiteInfo
+@{
+    ViewBag.Title = "ZKdao - 请注意";
+    Layout = "~/Views/Shared/_LayoutSingle.cshtml";
+}
+@section head{}
+<h2 class="c_green @TempData["WhiteColor"]">@TempData["WhiteTitle"]</h2>
+<p>
+    @TempData["WhiteContent"]
+</p>

@@ -443,7 +443,7 @@
     <None Include="Service References\UserServiceReference\zkdao.Web.UserServiceReference.UserData.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <Content Include="Views\Shared\White.cshtml" />
+    <Content Include="Views\Home\White.cshtml" />
     <Content Include="Views\Shared\_LayoutSingle.cshtml" />
     <Content Include="Views\Shared\_HeadPartial.cshtml" />
   </ItemGroup>

@@ -12,7 +12,7 @@ namespace zkdao.Web.Controllers {
         }
 
         [HttpPost]
-        public ActionResult LogOn(UserData model, string returnUrl) {
+        public ActionResult LogOn(UserLogOn model, string returnUrl) {
             if (ModelState.IsValid) {
                 if (Membership.ValidateUser(model.Email, model.LogOnPassword)) {
                     FormsAuthentication.SetAuthCookie(model.Email, model.RememberMe);
@@ -40,18 +40,50 @@ namespace zkdao.Web.Controllers {
         }
 
         [HttpPost]
-        public ActionResult Register(UserData model) {
+        public ActionResult Register(UserRegister model) {
             if (ModelState.IsValid) {
                 MembershipCreateStatus createStatus = MembershipCreateStatus.ProviderError;
                 Membership.CreateUser(model.Email, model.Password, model.Email, null, null, true, null, out createStatus);
                 if (createStatus == MembershipCreateStatus.Success) {
                     FormsAuthentication.SetAuthCookie(model.Email, false /* createPersistentCookie */);
                     return RedirectToAction("Index", "Home");
+                } else if (createStatus == MembershipCreateStatus.InvalidEmail) {
+                    TempData["WhiteTitle"] = "请去注册邮箱获取验证邮件，用以激活帐号。";
+                    TempData["WhiteContent"] = "您的注册邮箱：<a href='mailto:" + model.Email + "'>" + model.Email + "</a>，如果长时间未收到激活邮件，请 <a href='/Account/ReSendApproved'>点击这里</a> 重新发送邮件。";
+                    return RedirectToAction("White", "Home");
                 } else {
                     ModelState.AddModelError("", ErrorCodeToString(createStatus));
                 }
             }
             return View(model);
+        }
+
+        public ActionResult Approved(string approvedID) {
+            bool ok;
+            if (string.IsNullOrEmpty(approvedID)) {
+                ok = false;
+            }
+            using (UserServiceClient svc = new UserServiceClient()) {
+                ok = svc.UserApproved(User.Identity.Name, approvedID);
+            }
+            if (ok) {
+                TempData["WhiteTitle"] = "验证成功！感谢注册！";
+            } else {
+                TempData["WhiteTitle"] = "验证失败。请 <a href='/Account/ReSendApproved'>点击这里</a> 重新申请验证邮件。";
+                TempData["WhiteContent"] = "您的注册邮箱：<a href='mailto:" + User.Identity.Name + "'></a>";
+                TempData["WhiteColor"] = "c_red";
+            }
+            return RedirectToAction("White", "Home");
+        }
+
+        [Authorize]
+        public ActionResult ReSendApproved() {
+            using (UserServiceClient svc = new UserServiceClient()) {
+                svc.UserRequestApproved(User.Identity.Name);
+            }
+            TempData["WhiteTitle"] = "请去注册邮箱获取验证邮件，用以激活帐号。";
+            TempData["WhiteContent"] = "您的注册邮箱：<a href='mailto:" + User.Identity.Name + "'>" + User.Identity.Name + "</a>，如果长时间未收到激活邮件，请 <a href='/Account/ReSendApproved'>点击这里</a> 重新发送邮件。";
+            return RedirectToAction("White", "Home");
         }
 
         private static string ErrorCodeToString(MembershipCreateStatus createStatus) {
@@ -95,7 +127,7 @@ namespace zkdao.Web.Controllers {
 
         [Authorize]
         [HttpPost]
-        public ActionResult ChangePassword(UserData model) {
+        public ActionResult ChangePassword(UserChangePassword model) {
             if (ModelState.IsValid) {
                 bool succeeded = false;
                 MembershipUser currentUser = Membership.GetUser(User.Identity.Name, true /* userIsOnline */);
@@ -107,8 +139,8 @@ namespace zkdao.Web.Controllers {
                 if (!succeeded) {
                     ModelState.AddModelError("", "更改密码失败。");
                 } else {
-                    //ToDo:构建独立的提示页面和错误页面
-                    return RedirectToAction("Index", "Home");
+                    TempData["WhiteTitle"] = "已成功更改密码。";
+                    return RedirectToAction("White", "Home");
                 }
             }
             return View(model);

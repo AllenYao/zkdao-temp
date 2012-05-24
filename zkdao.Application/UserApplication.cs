@@ -52,7 +52,7 @@ namespace zkdao.Application {
             }
         }
 
-        public Guid UserRegister(UserData dataObject) {
+        public UserData UserRegister(UserData dataObject) {
             if (dataObject == null)
                 throw new ArgumentNullException("userDataObject");
             using (IRepositoryContext context = IocLocator.Instance.GetImple<IRepositoryContext>()) {
@@ -63,7 +63,7 @@ namespace zkdao.Application {
                 user.Register();
                 userRepository.Add(user);
                 context.Commit();
-                return user.ID;
+                return Mapper.Map<User, UserData>(user);
             }
         }
 
@@ -74,9 +74,22 @@ namespace zkdao.Application {
                 if (user == null)
                     return false;
                 user.ValiApproved(approvedID);
-                if (user.ActEnum == (int)eAct.Normal)
+                if (user.ActEnum == (int)eAct.Normal) {
+                    userRepository.Update(user);
                     return true;
+                }
                 return false;
+            }
+        }
+
+        public void UserRequestApproved(string userkey) {
+            using (IRepositoryContext context = IocLocator.Instance.GetImple<IRepositoryContext>()) {
+                var userRepository = context.GetRepository<User>();
+                var user = userRepository.Find(Specification<User>.Eval(c => c.Email == userkey));
+                if (user == null)
+                    return;
+                user.RequestApproved();
+                userRepository.Update(user);
             }
         }
 

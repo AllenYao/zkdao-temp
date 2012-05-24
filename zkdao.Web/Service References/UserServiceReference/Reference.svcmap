@@ -21,13 +21,13 @@
     <MetadataSource Address="http://localhost:8668/UserService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="UserService.disco" MetadataType="Disco" ID="f5671cb3-d792-4083-9639-9a7254ed034a" SourceId="1" SourceUrl="http://localhost:8668/UserService.svc?disco" />
-    <MetadataFile FileName="UserService.xsd" MetadataType="Schema" ID="adce93d4-20fe-41d3-919c-647b4bfad9d3" SourceId="1" SourceUrl="http://localhost:8668/UserService.svc?xsd=xsd2" />
     <MetadataFile FileName="UserService.wsdl" MetadataType="Wsdl" ID="93e38d76-9a1b-4ec5-baca-8e486b3fd008" SourceId="1" SourceUrl="http://localhost:8668/UserService.svc?wsdl" />
-    <MetadataFile FileName="UserService1.wsdl" MetadataType="Wsdl" ID="9eeb4402-000c-4e07-bc19-da1411142f78" SourceId="1" SourceUrl="http://localhost:8668/UserService.svc?wsdl=wsdl0" />
     <MetadataFile FileName="UserService1.xsd" MetadataType="Schema" ID="e167c08d-e6cc-4675-a890-f45f4bd29f2c" SourceId="1" SourceUrl="http://localhost:8668/UserService.svc?xsd=xsd3" />
+    <MetadataFile FileName="UserService.xsd" MetadataType="Schema" ID="adce93d4-20fe-41d3-919c-647b4bfad9d3" SourceId="1" SourceUrl="http://localhost:8668/UserService.svc?xsd=xsd2" />
+    <MetadataFile FileName="UserService1.wsdl" MetadataType="Wsdl" ID="9eeb4402-000c-4e07-bc19-da1411142f78" SourceId="1" SourceUrl="http://localhost:8668/UserService.svc?wsdl=wsdl0" />
     <MetadataFile FileName="UserService2.xsd" MetadataType="Schema" ID="ea5838a6-9939-4a22-8243-01289bae9cc4" SourceId="1" SourceUrl="http://localhost:8668/UserService.svc?xsd=xsd0" />
     <MetadataFile FileName="UserService3.xsd" MetadataType="Schema" ID="9f6a8161-538d-4591-8e47-b93c28fdd079" SourceId="1" SourceUrl="http://localhost:8668/UserService.svc?xsd=xsd1" />
+    <MetadataFile FileName="UserService.disco" MetadataType="Disco" ID="f5671cb3-d792-4083-9639-9a7254ed034a" SourceId="1" SourceUrl="http://localhost:8668/UserService.svc?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -1,4 +1,6 @@
-﻿using System.Data.Entity;
+﻿using System.Configuration;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using zkdao.Domain;
 
@@ -7,8 +9,7 @@ namespace zkdao.Repositories.EF {
     public sealed class EFDbContext : DbContext {
 
         public EFDbContext()
-            : base("zkdao") {
-            Database.SetInitializer<EFDbContext>(new EFDbContextInitializer());
+            : base(System.Configuration.ConfigurationManager.AppSettings["EFdatabase"]) {
         }
 
         public DbSet<User> Users { get; set; }

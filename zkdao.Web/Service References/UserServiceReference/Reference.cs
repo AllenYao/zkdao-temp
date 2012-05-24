@@ -9,73 +9,76 @@
 //------------------------------------------------------------------------------
 
 namespace zkdao.Web.UserServiceReference {
-
+    using System.Runtime.Serialization;
+    using System;
+    
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "UserData", Namespace = "http://schemas.datacontract.org/2004/07/zkdao.Domain")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UserData", Namespace="http://schemas.datacontract.org/2004/07/zkdao.Domain")]
     [System.SerializableAttribute()]
     public partial class UserData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-
+        
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ActEnumField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime DateCreatedField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<System.DateTime> DateLastLoginField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<System.DateTime> DateLastPasswordChangeField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string EmailField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string IDField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string LinkField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PasswordHashField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private zkdao.Web.UserServiceReference.InfoReplyData[] PostInfoReplysField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private zkdao.Web.UserServiceReference.InfoData[] PostInfosField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private zkdao.Web.UserServiceReference.ProductReplyData[] PostProductReplysField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private zkdao.Web.UserServiceReference.ReplyChildData[] PostReplyChildsField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string QQField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int RoleEnumField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private zkdao.Web.UserServiceReference.UserRelaInfoData[] UserRelaInfosField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private zkdao.Web.UserServiceReference.UserRelaProductData[] UserRelaProductsField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private zkdao.Web.UserServiceReference.UserRelaReplyData[] UserRelaReplysField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string WeiboField;
-
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -85,7 +88,7 @@ namespace zkdao.Web.UserServiceReference {
                 this.extensionDataField = value;
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int ActEnum {
             get {
@@ -98,7 +101,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.DateTime DateCreated {
             get {
@@ -111,7 +114,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<System.DateTime> DateLastLogin {
             get {
@@ -124,7 +127,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<System.DateTime> DateLastPasswordChange {
             get {
@@ -137,7 +140,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Email {
             get {
@@ -150,7 +153,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ID {
             get {
@@ -163,7 +166,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Link {
             get {
@@ -176,7 +179,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Name {
             get {
@@ -189,7 +192,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string PasswordHash {
             get {
@@ -202,7 +205,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public zkdao.Web.UserServiceReference.InfoReplyData[] PostInfoReplys {
             get {
@@ -215,7 +218,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public zkdao.Web.UserServiceReference.InfoData[] PostInfos {
             get {
@@ -228,7 +231,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public zkdao.Web.UserServiceReference.ProductReplyData[] PostProductReplys {
             get {
@@ -241,7 +244,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public zkdao.Web.UserServiceReference.ReplyChildData[] PostReplyChilds {
             get {
@@ -254,7 +257,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string QQ {
             get {
@@ -267,7 +270,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int RoleEnum {
             get {
@@ -280,7 +283,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public zkdao.Web.UserServiceReference.UserRelaInfoData[] UserRelaInfos {
             get {
@@ -293,7 +296,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public zkdao.Web.UserServiceReference.UserRelaProductData[] UserRelaProducts {
             get {
@@ -306,7 +309,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public zkdao.Web.UserServiceReference.UserRelaReplyData[] UserRelaReplys {
             get {
@@ -319,7 +322,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Weibo {
             get {
@@ -332,9 +335,9 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-
+        
         protected void RaisePropertyChanged(string propertyName) {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
             if ((propertyChanged != null)) {
@@ -342,40 +345,40 @@ namespace zkdao.Web.UserServiceReference {
             }
         }
     }
-
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "InfoReplyData", Namespace = "http://schemas.datacontract.org/2004/07/zkdao.Domain")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="InfoReplyData", Namespace="http://schemas.datacontract.org/2004/07/zkdao.Domain")]
     [System.SerializableAttribute()]
     public partial class InfoReplyData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-
+        
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ActEnumField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ContentRichField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime CreatTimeField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string IDField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private zkdao.Web.UserServiceReference.InfoData InfoField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int MinusAmountField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int PlusAmountField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private zkdao.Web.UserServiceReference.UserData PosterField;
-
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -385,7 +388,7 @@ namespace zkdao.Web.UserServiceReference {
                 this.extensionDataField = value;
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int ActEnum {
             get {
@@ -398,7 +401,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ContentRich {
             get {
@@ -411,7 +414,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.DateTime CreatTime {
             get {
@@ -424,7 +427,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ID {
             get {
@@ -437,7 +440,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public zkdao.Web.UserServiceReference.InfoData Info {
             get {
@@ -450,7 +453,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int MinusAmount {
             get {
@@ -463,7 +466,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int PlusAmount {
             get {
@@ -476,7 +479,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public zkdao.Web.UserServiceReference.UserData Poster {
             get {
@@ -489,9 +492,9 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-
+        
         protected void RaisePropertyChanged(string propertyName) {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
             if ((propertyChanged != null)) {
@@ -499,55 +502,55 @@ namespace zkdao.Web.UserServiceReference {
             }
         }
     }
-
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "InfoData", Namespace = "http://schemas.datacontract.org/2004/07/zkdao.Domain")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="InfoData", Namespace="http://schemas.datacontract.org/2004/07/zkdao.Domain")]
     [System.SerializableAttribute()]
     public partial class InfoData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-
+        
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ActEnumField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ContentRichField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<System.DateTime> EndTimeField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int GradeAverageField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string IDField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string LinkImageField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string LinkUrlField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private zkdao.Web.UserServiceReference.UserData PosterField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private zkdao.Web.UserServiceReference.ProductData ProductField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private zkdao.Web.UserServiceReference.InfoReplyData[] ReplysField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime StartTimeField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private zkdao.Web.UserServiceReference.InfoRelaTagData[] TagsField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TitleField;
-
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -557,7 +560,7 @@ namespace zkdao.Web.UserServiceReference {
                 this.extensionDataField = value;
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int ActEnum {
             get {
@@ -570,7 +573,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ContentRich {
             get {
@@ -583,7 +586,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<System.DateTime> EndTime {
             get {
@@ -596,7 +599,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int GradeAverage {
             get {
@@ -609,7 +612,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ID {
             get {
@@ -622,7 +625,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string LinkImage {
             get {
@@ -635,7 +638,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string LinkUrl {
             get {
@@ -648,7 +651,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public zkdao.Web.UserServiceReference.UserData Poster {
             get {
@@ -661,7 +664,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public zkdao.Web.UserServiceReference.ProductData Product {
             get {
@@ -674,7 +677,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public zkdao.Web.UserServiceReference.InfoReplyData[] Replys {
             get {
@@ -687,7 +690,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.DateTime StartTime {
             get {
@@ -700,7 +703,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public zkdao.Web.UserServiceReference.InfoRelaTagData[] Tags {
             get {
@@ -713,7 +716,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Title {
             get {
@@ -726,9 +729,9 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-
+        
         protected void RaisePropertyChanged(string propertyName) {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
             if ((propertyChanged != null)) {
@@ -736,43 +739,43 @@ namespace zkdao.Web.UserServiceReference {
             }
         }
     }
-
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "ProductReplyData", Namespace = "http://schemas.datacontract.org/2004/07/zkdao.Domain")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ProductReplyData", Namespace="http://schemas.datacontract.org/2004/07/zkdao.Domain")]
     [System.SerializableAttribute()]
     public partial class ProductReplyData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-
+        
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ActEnumField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string AdvContentRicjField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime CreatTimeField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string IDField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int MinusAmountField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int PlusAmountField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private zkdao.Web.UserServiceReference.UserData PosterField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private zkdao.Web.UserServiceReference.ProductData ProductField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ShortContentRichField;
-
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -782,7 +785,7 @@ namespace zkdao.Web.UserServiceReference {
                 this.extensionDataField = value;
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int ActEnum {
             get {
@@ -795,7 +798,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string AdvContentRicj {
             get {
@@ -808,7 +811,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.DateTime CreatTime {
             get {
@@ -821,7 +824,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ID {
             get {
@@ -834,7 +837,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int MinusAmount {
             get {
@@ -847,7 +850,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int PlusAmount {
             get {
@@ -860,7 +863,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public zkdao.Web.UserServiceReference.UserData Poster {
             get {
@@ -873,7 +876,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public zkdao.Web.UserServiceReference.ProductData Product {
             get {
@@ -886,7 +889,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ShortContentRich {
             get {
@@ -899,9 +902,9 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-
+        
         protected void RaisePropertyChanged(string propertyName) {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
             if ((propertyChanged != null)) {
@@ -909,34 +912,34 @@ namespace zkdao.Web.UserServiceReference {
             }
         }
     }
-
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "ReplyChildData", Namespace = "http://schemas.datacontract.org/2004/07/zkdao.Domain")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ReplyChildData", Namespace="http://schemas.datacontract.org/2004/07/zkdao.Domain")]
     [System.SerializableAttribute()]
     public partial class ReplyChildData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-
+        
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ActEnumField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ContentField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime CreatTimeField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string IDField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private zkdao.Web.UserServiceReference.UserData PosterField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TargetIDField;
-
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -946,7 +949,7 @@ namespace zkdao.Web.UserServiceReference {
                 this.extensionDataField = value;
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int ActEnum {
             get {
@@ -959,7 +962,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Content {
             get {
@@ -972,7 +975,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.DateTime CreatTime {
             get {
@@ -985,7 +988,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ID {
             get {
@@ -998,7 +1001,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public zkdao.Web.UserServiceReference.UserData Poster {
             get {
@@ -1011,7 +1014,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TargetID {
             get {
@@ -1024,9 +1027,9 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-
+        
         protected void RaisePropertyChanged(string propertyName) {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
             if ((propertyChanged != null)) {
@@ -1034,28 +1037,28 @@ namespace zkdao.Web.UserServiceReference {
             }
         }
     }
-
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "UserRelaInfoData", Namespace = "http://schemas.datacontract.org/2004/07/zkdao.Domain")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UserRelaInfoData", Namespace="http://schemas.datacontract.org/2004/07/zkdao.Domain")]
     [System.SerializableAttribute()]
     public partial class UserRelaInfoData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-
+        
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int GiveGradeField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string IDField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string InfoIDField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private zkdao.Web.UserServiceReference.UserData UserField;
-
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -1065,7 +1068,7 @@ namespace zkdao.Web.UserServiceReference {
                 this.extensionDataField = value;
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int GiveGrade {
             get {
@@ -1078,7 +1081,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ID {
             get {
@@ -1091,7 +1094,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string InfoID {
             get {
@@ -1104,7 +1107,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public zkdao.Web.UserServiceReference.UserData User {
             get {
@@ -1117,9 +1120,9 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-
+        
         protected void RaisePropertyChanged(string propertyName) {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
             if ((propertyChanged != null)) {
@@ -1127,34 +1130,34 @@ namespace zkdao.Web.UserServiceReference {
             }
         }
     }
-
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "UserRelaProductData", Namespace = "http://schemas.datacontract.org/2004/07/zkdao.Domain")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UserRelaProductData", Namespace="http://schemas.datacontract.org/2004/07/zkdao.Domain")]
     [System.SerializableAttribute()]
     public partial class UserRelaProductData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-
+        
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int GiveGradeField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string IDField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool IsEagerField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ProductIDField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private zkdao.Web.UserServiceReference.UserData UserField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int UserToGoodsEnumField;
-
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -1164,7 +1167,7 @@ namespace zkdao.Web.UserServiceReference {
                 this.extensionDataField = value;
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int GiveGrade {
             get {
@@ -1177,7 +1180,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ID {
             get {
@@ -1190,7 +1193,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public bool IsEager {
             get {
@@ -1203,7 +1206,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ProductID {
             get {
@@ -1216,7 +1219,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public zkdao.Web.UserServiceReference.UserData User {
             get {
@@ -1229,7 +1232,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int UserToGoodsEnum {
             get {
@@ -1242,9 +1245,9 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-
+        
         protected void RaisePropertyChanged(string propertyName) {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
             if ((propertyChanged != null)) {
@@ -1252,28 +1255,28 @@ namespace zkdao.Web.UserServiceReference {
             }
         }
     }
-
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "UserRelaReplyData", Namespace = "http://schemas.datacontract.org/2004/07/zkdao.Domain")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UserRelaReplyData", Namespace="http://schemas.datacontract.org/2004/07/zkdao.Domain")]
     [System.SerializableAttribute()]
     public partial class UserRelaReplyData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-
+        
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string IDField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool PlusOrMinusField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TargetIDField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private zkdao.Web.UserServiceReference.UserData UserField;
-
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -1283,7 +1286,7 @@ namespace zkdao.Web.UserServiceReference {
                 this.extensionDataField = value;
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ID {
             get {
@@ -1296,7 +1299,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public bool PlusOrMinus {
             get {
@@ -1309,7 +1312,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TargetID {
             get {
@@ -1322,7 +1325,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public zkdao.Web.UserServiceReference.UserData User {
             get {
@@ -1335,9 +1338,9 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-
+        
         protected void RaisePropertyChanged(string propertyName) {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
             if ((propertyChanged != null)) {
@@ -1345,49 +1348,49 @@ namespace zkdao.Web.UserServiceReference {
             }
         }
     }
-
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "ProductData", Namespace = "http://schemas.datacontract.org/2004/07/zkdao.Domain")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ProductData", Namespace="http://schemas.datacontract.org/2004/07/zkdao.Domain")]
     [System.SerializableAttribute()]
     public partial class ProductData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-
+        
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ActEnumField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int EagerAmountField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string EagerHistoryField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int GradeAverageField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string GradeHistoryField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string IDField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ImageField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string LinkField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PriceHistoryLinkField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private zkdao.Web.UserServiceReference.ProductReplyData[] ReplysField;
-
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -1397,7 +1400,7 @@ namespace zkdao.Web.UserServiceReference {
                 this.extensionDataField = value;
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int ActEnum {
             get {
@@ -1410,7 +1413,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int EagerAmount {
             get {
@@ -1423,7 +1426,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string EagerHistory {
             get {
@@ -1436,7 +1439,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int GradeAverage {
             get {
@@ -1449,7 +1452,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string GradeHistory {
             get {
@@ -1462,7 +1465,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ID {
             get {
@@ -1475,7 +1478,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Image {
             get {
@@ -1488,7 +1491,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Link {
             get {
@@ -1501,7 +1504,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Name {
             get {
@@ -1514,7 +1517,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string PriceHistoryLink {
             get {
@@ -1527,7 +1530,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public zkdao.Web.UserServiceReference.ProductReplyData[] Replys {
             get {
@@ -1540,9 +1543,9 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-
+        
         protected void RaisePropertyChanged(string propertyName) {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
             if ((propertyChanged != null)) {
@@ -1550,22 +1553,22 @@ namespace zkdao.Web.UserServiceReference {
             }
         }
     }
-
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "InfoRelaTagData", Namespace = "http://schemas.datacontract.org/2004/07/zkdao.Domain")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="InfoRelaTagData", Namespace="http://schemas.datacontract.org/2004/07/zkdao.Domain")]
     [System.SerializableAttribute()]
     public partial class InfoRelaTagData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-
+        
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string InfoIDField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TagIDField;
-
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -1575,7 +1578,7 @@ namespace zkdao.Web.UserServiceReference {
                 this.extensionDataField = value;
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string InfoID {
             get {
@@ -1588,7 +1591,7 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TagID {
             get {
@@ -1601,9 +1604,9 @@ namespace zkdao.Web.UserServiceReference {
                 }
             }
         }
-
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-
+        
         protected void RaisePropertyChanged(string propertyName) {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
             if ((propertyChanged != null)) {
@@ -1611,77 +1614,91 @@ namespace zkdao.Web.UserServiceReference {
             }
         }
     }
-
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace = "http://www.zkdao.com", ConfigurationName = "UserServiceReference.IUserService")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.zkdao.com", ConfigurationName="UserServiceReference.IUserService")]
     public interface IUserService {
-
-        [System.ServiceModel.OperationContractAttribute(Action = "http://www.zkdao.com/IUserService/UserGetByID", ReplyAction = "http://www.zkdao.com/IUserService/UserGetByIDResponse")]
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.zkdao.com/IUserService/UserGetByID", ReplyAction="http://www.zkdao.com/IUserService/UserGetByIDResponse")]
         zkdao.Web.UserServiceReference.UserData UserGetByID(System.Guid ID);
-
-        [System.ServiceModel.OperationContractAttribute(Action = "http://www.zkdao.com/IUserService/UserGetByKey", ReplyAction = "http://www.zkdao.com/IUserService/UserGetByKeyResponse")]
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.zkdao.com/IUserService/UserGetByKey", ReplyAction="http://www.zkdao.com/IUserService/UserGetByKeyResponse")]
         zkdao.Web.UserServiceReference.UserData UserGetByKey(string userkey);
-
-        [System.ServiceModel.OperationContractAttribute(Action = "http://www.zkdao.com/IUserService/UserGetPager", ReplyAction = "http://www.zkdao.com/IUserService/UserGetPagerResponse")]
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.zkdao.com/IUserService/UserGetPager", ReplyAction="http://www.zkdao.com/IUserService/UserGetPagerResponse")]
         zic_dotnet.Pager<zkdao.Web.UserServiceReference.UserData> UserGetPager(int pageIndex, int pageSize);
-
-        [System.ServiceModel.OperationContractAttribute(Action = "http://www.zkdao.com/IUserService/UserCreat", ReplyAction = "http://www.zkdao.com/IUserService/UserCreatResponse")]
-        System.Guid UserCreat(zkdao.Web.UserServiceReference.UserData dataObject);
-
-        [System.ServiceModel.OperationContractAttribute(Action = "http://www.zkdao.com/IUserService/UserValidate", ReplyAction = "http://www.zkdao.com/IUserService/UserValidateResponse")]
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.zkdao.com/IUserService/UserRegister", ReplyAction="http://www.zkdao.com/IUserService/UserRegisterResponse")]
+        zkdao.Web.UserServiceReference.UserData UserRegister(zkdao.Web.UserServiceReference.UserData dataObject);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.zkdao.com/IUserService/UserApproved", ReplyAction="http://www.zkdao.com/IUserService/UserApprovedResponse")]
+        bool UserApproved(string userkey, string approvedID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.zkdao.com/IUserService/UserRequestApproved", ReplyAction="http://www.zkdao.com/IUserService/UserRequestApprovedResponse")]
+        void UserRequestApproved(string userkey);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.zkdao.com/IUserService/UserValidate", ReplyAction="http://www.zkdao.com/IUserService/UserValidateResponse")]
         bool UserValidate(string userkey, string password);
-
-        [System.ServiceModel.OperationContractAttribute(Action = "http://www.zkdao.com/IUserService/UserUpdate", ReplyAction = "http://www.zkdao.com/IUserService/UserUpdateResponse")]
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.zkdao.com/IUserService/UserUpdate", ReplyAction="http://www.zkdao.com/IUserService/UserUpdateResponse")]
         void UserUpdate(string userkey, zkdao.Web.UserServiceReference.UserData dataObject);
     }
-
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IUserServiceChannel : zkdao.Web.UserServiceReference.IUserService, System.ServiceModel.IClientChannel {
     }
-
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class UserServiceClient : System.ServiceModel.ClientBase<zkdao.Web.UserServiceReference.IUserService>, zkdao.Web.UserServiceReference.IUserService {
-
+        
         public UserServiceClient() {
         }
-
-        public UserServiceClient(string endpointConfigurationName) :
-            base(endpointConfigurationName) {
+        
+        public UserServiceClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
         }
-
-        public UserServiceClient(string endpointConfigurationName, string remoteAddress) :
-            base(endpointConfigurationName, remoteAddress) {
+        
+        public UserServiceClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
         }
-
-        public UserServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) :
-            base(endpointConfigurationName, remoteAddress) {
+        
+        public UserServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
         }
-
-        public UserServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) :
-            base(binding, remoteAddress) {
+        
+        public UserServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
         }
-
+        
         public zkdao.Web.UserServiceReference.UserData UserGetByID(System.Guid ID) {
             return base.Channel.UserGetByID(ID);
         }
-
+        
         public zkdao.Web.UserServiceReference.UserData UserGetByKey(string userkey) {
             return base.Channel.UserGetByKey(userkey);
         }
-
+        
         public zic_dotnet.Pager<zkdao.Web.UserServiceReference.UserData> UserGetPager(int pageIndex, int pageSize) {
             return base.Channel.UserGetPager(pageIndex, pageSize);
         }
-
-        public System.Guid UserCreat(zkdao.Web.UserServiceReference.UserData dataObject) {
-            return base.Channel.UserCreat(dataObject);
+        
+        public zkdao.Web.UserServiceReference.UserData UserRegister(zkdao.Web.UserServiceReference.UserData dataObject) {
+            return base.Channel.UserRegister(dataObject);
         }
-
+        
+        public bool UserApproved(string userkey, string approvedID) {
+            return base.Channel.UserApproved(userkey, approvedID);
+        }
+        
+        public void UserRequestApproved(string userkey) {
+            base.Channel.UserRequestApproved(userkey);
+        }
+        
         public bool UserValidate(string userkey, string password) {
             return base.Channel.UserValidate(userkey, password);
         }
-
+        
         public void UserUpdate(string userkey, zkdao.Web.UserServiceReference.UserData dataObject) {
             base.Channel.UserUpdate(userkey, dataObject);
         }
