@@ -85,6 +85,10 @@
       <Project>{3251CF20-191C-4F54-B070-9C342227E358}</Project>
       <Name>zic-dotnet</Name>
     </ProjectReference>
+    <ProjectReference Include="..\zkdao.Email\zkdao.Email.csproj">
+      <Project>{402609CD-4772-482E-A3A2-E7D0BD7BCEAE}</Project>
+      <Name>zkdao.Email</Name>
+    </ProjectReference>
     <ProjectReference Include="..\zkdao.Repositories.EF\zkdao.Repositories.EF.csproj">
       <Project>{DB7E0E14-24AE-4D91-953B-41FABD2A363A}</Project>
       <Name>zkdao.Repositories.EF</Name>

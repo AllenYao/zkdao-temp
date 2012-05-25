@@ -5,6 +5,7 @@ using zic_dotnet.Domain;
 using zic_dotnet.Repositories;
 using zkdao.Domain;
 using zkdao.Repositories.EF;
+using zkdao.Email;
 
 namespace zkdao.Application {
 
@@ -22,6 +23,7 @@ namespace zkdao.Application {
             IocLocator.Container.RegisterType<IRepository<Info>, EntityFrameworkRepository<Info>>();
             IocLocator.Container.RegisterType<IRepository<Product>, EntityFrameworkRepository<Product>>();
             IocLocator.Container.RegisterType<IRepository<ReplyChild>, EntityFrameworkRepository<ReplyChild>>();
+            IocLocator.Container.RegisterType<IEmailService, EmailServiceByTX>();
 
             Mapper.CreateMap<UserData, User>();
             Mapper.CreateMap<User, UserData>();

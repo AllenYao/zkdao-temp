@@ -9,7 +9,7 @@ namespace zkdao.Repositories.EF {
     public sealed class EFDbContext : DbContext {
 
         public EFDbContext()
-            : base(System.Configuration.ConfigurationManager.AppSettings["EFdatabase"]) {
+            : base(ConfigurationManager.AppSettings["EFdatabase"]) {
         }
 
         public DbSet<User> Users { get; set; }
