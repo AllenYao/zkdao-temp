@@ -9,7 +9,7 @@ namespace zkdao.Repositories.EF.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(zkdao.Repositories.EF.EFDbContext context)

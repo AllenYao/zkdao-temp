@@ -2,6 +2,7 @@
 using System.Net;
 using System.Net.Mail;
 using System.Reflection;
+using System.Data.Entity;
 using log4net;
 using zic_dotnet;
 using zkdao.Application;
@@ -13,8 +14,7 @@ namespace zkdao.Wcf {
 
         protected void Application_Start(object sender, EventArgs e) {
             BaseApplication.Initialize();
-            EFDbContextInitializer.Initialize();
-            log4net.Config.XmlConfigurator.Configure();
+            Database.SetInitializer<EFDbContext>(new EFDbContextInitializer());
             ZicLog4Net.Instance.Config(new string[] { "Domain", "AppService", "InfrasEmail", "InfrasEF", "InfrasWCF", "InfrasREST" });
         }
 

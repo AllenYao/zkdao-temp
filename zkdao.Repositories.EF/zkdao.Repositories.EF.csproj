@@ -77,6 +77,10 @@
     <Compile Include="EFDbContextInitailizer.cs" />
     <Compile Include="EFRepository.cs" />
     <Compile Include="EFRepositoryContext.cs" />
+    <Compile Include="Migrations\201205270312268_Init.cs" />
+    <Compile Include="Migrations\201205270312268_Init.Designer.cs">
+      <DependentUpon>201205270312268_Init.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
