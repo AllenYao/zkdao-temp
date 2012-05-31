@@ -18,12 +18,16 @@ namespace zkdao.Application {
 
         public static void Initialize() {
             IocLocator.Container.RegisterType<IUserService, UserApplication>();
+            IocLocator.Container.RegisterType<IInfoService, InfoApplication>();
+            IocLocator.Container.RegisterType<IProductService, ProductApplication>();
+            IocLocator.Container.RegisterType<ITagService, TagApplication>();
+            IocLocator.Container.RegisterType<IReplyChildService, ReplyChildApplication>();
+            IocLocator.Container.RegisterType<IEmailService, EmailServiceByTX>();
             IocLocator.Container.RegisterType<IRepositoryContext, EFRepositoryContext>();
             IocLocator.Container.RegisterType<IRepository<User>, EntityFrameworkRepository<User>>();
             IocLocator.Container.RegisterType<IRepository<Info>, EntityFrameworkRepository<Info>>();
             IocLocator.Container.RegisterType<IRepository<Product>, EntityFrameworkRepository<Product>>();
             IocLocator.Container.RegisterType<IRepository<ReplyChild>, EntityFrameworkRepository<ReplyChild>>();
-            IocLocator.Container.RegisterType<IEmailService, EmailServiceByTX>();
 
             Mapper.CreateMap<UserData, User>();
             Mapper.CreateMap<User, UserData>();

@@ -69,6 +69,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseApplication.cs" />
+    <Compile Include="IInfoService.cs" />
+    <Compile Include="InfoApplication.cs" />
+    <Compile Include="IProductService.cs" />
+    <Compile Include="IReplyChildService.cs" />
+    <Compile Include="ITagService.cs" />
+    <Compile Include="ProductApplication.cs" />
+    <Compile Include="ReplyChildApplication.cs" />
+    <Compile Include="TagApplication.cs" />
     <Compile Include="UserApplication.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IUserService.cs" />

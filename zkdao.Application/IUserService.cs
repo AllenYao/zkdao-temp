@@ -5,7 +5,7 @@ using zkdao.Domain;
 
 namespace zkdao.Application {
 
-    [ServiceContract(Namespace = "http://www.zkdao.com")]
+    [ServiceContract(Namespace = "www.zkdao.com")]
     public interface IUserService {
 
         [OperationContract]

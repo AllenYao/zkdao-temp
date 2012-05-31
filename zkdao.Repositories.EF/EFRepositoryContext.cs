@@ -47,7 +47,7 @@ namespace zkdao.Repositories.EF {
                         throw ex;
                     } catch (Exception ex) {
                         ILog Log = LogManager.GetLogger("InfrasEF", MethodBase.GetCurrentMethod().DeclaringType);
-                        Log.Error(ex);
+                        Log.Fatal(ex);
                         throw ex;
                     }
                 }
@@ -64,12 +64,8 @@ namespace zkdao.Repositories.EF {
             ctx.Dispose();
         }
 
-        #region IEntityFrameworkRepositoryContext Members
-
         public DbContext Context {
             get { return ctx; }
         }
-
-        #endregion IEntityFrameworkRepositoryContext Members
     }
 }
