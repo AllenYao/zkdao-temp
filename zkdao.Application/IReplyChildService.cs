@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 namespace zkdao.Application {
-    class IReplyChildService {
+
+    public interface IReplyChildService {
     }
 }

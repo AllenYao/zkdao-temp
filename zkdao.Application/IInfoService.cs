@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.ServiceModel;
-using zkdao.Domain;
+using System.Text;
 using zic_dotnet;
+using zkdao.Domain;
 
 namespace zkdao.Application {
+
     [ServiceContract(Namespace = "www.zkdao.com")]
     public interface IInfoService {
+
         [OperationContract]
         InfoData InfoGetByID(Guid ID);
 
@@ -22,6 +24,6 @@ namespace zkdao.Application {
         void InfoApproved(Guid ID);
 
         [OperationContract]
-        void InfoUpdate(UserData dataObject);
+        void InfoUpdate(InfoData dataObject);
     }
 }

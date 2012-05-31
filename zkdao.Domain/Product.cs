@@ -57,6 +57,8 @@ namespace zkdao.Domain {
 
         public string PriceHistoryLink { get; set; }
 
+        public string PriceHistory { get; set; }
+
         public string Image { get; set; }
 
         public int EagerAmount { get; set; }

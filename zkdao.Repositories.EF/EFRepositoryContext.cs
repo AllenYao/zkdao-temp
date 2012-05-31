@@ -44,11 +44,9 @@ namespace zkdao.Repositories.EF {
                         }
                         ILog Log = LogManager.GetLogger("InfrasEF", MethodBase.GetCurrentMethod().DeclaringType);
                         Log.Error(ex);
-                        throw ex;
                     } catch (Exception ex) {
                         ILog Log = LogManager.GetLogger("InfrasEF", MethodBase.GetCurrentMethod().DeclaringType);
                         Log.Fatal(ex);
-                        throw ex;
                     }
                 }
             }

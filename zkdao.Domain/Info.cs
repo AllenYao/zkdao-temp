@@ -16,6 +16,8 @@ namespace zkdao.Domain {
             get { return (eAct)ActEnum; }
         }
 
+        public DateTime CreatTime { get; set; }
+
         public Guid PosterID { get; set; }
 
         [Required]
@@ -30,7 +32,7 @@ namespace zkdao.Domain {
         [MaxLength(200)]
         public string LinkImage { get; set; }
 
-        public DateTime StartTime { get; set; }
+        public DateTime? StartTime { get; set; }
 
         public DateTime? EndTime { get; set; }
 
@@ -49,6 +51,8 @@ namespace zkdao.Domain {
 
         public int ActEnum { get; set; }
 
+        public DateTime CreatTime { get; set; }
+
         public UserData Poster { get; set; }
 
         public string Title { get; set; }
@@ -59,7 +63,7 @@ namespace zkdao.Domain {
 
         public string LinkImage { get; set; }
 
-        public DateTime StartTime { get; set; }
+        public DateTime? StartTime { get; set; }
 
         public DateTime? EndTime { get; set; }
 

@@ -16,11 +16,11 @@ using zic_dotnet;
 using log4net;
 
 namespace zkdao.Wcf {
-	public class UserService : IUserService {
-		private readonly IUserService userService = IocLocator.Instance.GetImple<IUserService>();
-				public UserData UserGetByID(Guid ID) {
+	public class InfoService : IUserService {
+		private readonly IInfoService infoService = IocLocator.Instance.GetImple<IInfoService>();
+				public InfoData InfoGetByID(Guid ID) {
 			try {
-				return userService.UserGetByID(ID);
+				return infoService.InfoGetByID(ID);
 			}
 			catch(Exception ex) {
 				ILog Log = LogManager.GetLogger("AppService", MethodBase.GetCurrentMethod().DeclaringType);
@@ -28,9 +28,9 @@ namespace zkdao.Wcf {
 				throw new FaultException<FaultData>(FaultData.CreateFromException(ex), FaultData.CreateFaultReason(ex));
 			}
 		}
-				public UserData UserGetByKey(String userkey) {
+				public Pager<InfoData> InfoGetPager(Int32 pageIndex, Int32 pageSize) {
 			try {
-				return userService.UserGetByKey(userkey);
+				return infoService.InfoGetPager(pageIndex, pageSize);
 			}
 			catch(Exception ex) {
 				ILog Log = LogManager.GetLogger("AppService", MethodBase.GetCurrentMethod().DeclaringType);
@@ -38,9 +38,9 @@ namespace zkdao.Wcf {
 				throw new FaultException<FaultData>(FaultData.CreateFromException(ex), FaultData.CreateFaultReason(ex));
 			}
 		}
-				public Pager<UserData> UserGetPager(Int32 pageIndex, Int32 pageSize) {
+				public InfoData InfoSubmit(InfoData subInfo, Boolean force) {
 			try {
-				return userService.UserGetPager(pageIndex, pageSize);
+				return infoService.InfoSubmit(subInfo, force);
 			}
 			catch(Exception ex) {
 				ILog Log = LogManager.GetLogger("AppService", MethodBase.GetCurrentMethod().DeclaringType);
@@ -48,9 +48,9 @@ namespace zkdao.Wcf {
 				throw new FaultException<FaultData>(FaultData.CreateFromException(ex), FaultData.CreateFaultReason(ex));
 			}
 		}
-				public UserData UserRegister(UserData dataObject) {
+				public void InfoApproved(Guid ID) {
 			try {
-				return userService.UserRegister(dataObject);
+				 infoService.InfoApproved(ID);
 			}
 			catch(Exception ex) {
 				ILog Log = LogManager.GetLogger("AppService", MethodBase.GetCurrentMethod().DeclaringType);
@@ -58,39 +58,9 @@ namespace zkdao.Wcf {
 				throw new FaultException<FaultData>(FaultData.CreateFromException(ex), FaultData.CreateFaultReason(ex));
 			}
 		}
-				public Boolean UserApproved(String userkey, String approvedID) {
+				public void InfoUpdate(InfoData dataObject) {
 			try {
-				return userService.UserApproved(userkey, approvedID);
-			}
-			catch(Exception ex) {
-				ILog Log = LogManager.GetLogger("AppService", MethodBase.GetCurrentMethod().DeclaringType);
-				Log.Error(ex);
-				throw new FaultException<FaultData>(FaultData.CreateFromException(ex), FaultData.CreateFaultReason(ex));
-			}
-		}
-				public void UserRequestApproved(String userkey) {
-			try {
-				 userService.UserRequestApproved(userkey);
-			}
-			catch(Exception ex) {
-				ILog Log = LogManager.GetLogger("AppService", MethodBase.GetCurrentMethod().DeclaringType);
-				Log.Error(ex);
-				throw new FaultException<FaultData>(FaultData.CreateFromException(ex), FaultData.CreateFaultReason(ex));
-			}
-		}
-				public Boolean UserValidate(String userkey, String password) {
-			try {
-				return userService.UserValidate(userkey, password);
-			}
-			catch(Exception ex) {
-				ILog Log = LogManager.GetLogger("AppService", MethodBase.GetCurrentMethod().DeclaringType);
-				Log.Error(ex);
-				throw new FaultException<FaultData>(FaultData.CreateFromException(ex), FaultData.CreateFaultReason(ex));
-			}
-		}
-				public void UserUpdate(String userkey, UserData dataObject) {
-			try {
-				 userService.UserUpdate(userkey, dataObject);
+				 infoService.InfoUpdate(dataObject);
 			}
 			catch(Exception ex) {
 				ILog Log = LogManager.GetLogger("AppService", MethodBase.GetCurrentMethod().DeclaringType);

@@ -31,12 +31,12 @@ using zic_dotnet;
 using log4net;
 
 namespace zkdao.Wcf {
-	public class UserService : IUserService {
-		private readonly IUserService userService = IocLocator.Instance.GetImple<IUserService>();
-		<#foreach (MethodInfo method in typeof(IUserService).GetMethods()) {#>
+	public class InfoService : IUserService {
+		private readonly IInfoService infoService = IocLocator.Instance.GetImple<IInfoService>();
+		<#foreach (MethodInfo method in typeof(IInfoService).GetMethods()) {#>
 		public <#=GetMethodReturnType(method)#> <#=method.Name#>(<#=GetMethodParameterList(method)#>) {
 			try {
-				<#if(method.ReturnType != typeof(void)){#>return<#}#> userService.<#=method.Name#>(<#=GetMethodParameterValueList(method)#>);
+				<#if(method.ReturnType != typeof(void)){#>return<#}#> infoService.<#=method.Name#>(<#=GetMethodParameterValueList(method)#>);
 			}
 			catch(Exception ex) {
 				ILog Log = LogManager.GetLogger("AppService", MethodBase.GetCurrentMethod().DeclaringType);

@@ -24,6 +24,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -92,6 +93,8 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="InfoService.svc" />
+    <Content Include="ProductService.svc" />
     <Content Include="UserService.svc" />
     <Content Include="Global.asax" />
     <Content Include="Web.config">
@@ -109,6 +112,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Common.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductService.svc.cs">
+      <DependentUpon>ProductService.svc.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="InfoService.svc.cs">
+      <DependentUpon>InfoService.svc.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -147,6 +160,16 @@
       <LastGenOutput>Common.cs</LastGenOutput>
     </None>
     <Content Include="packages.config" />
+    <None Include="ProductService.svc.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ProductService.svc.cs</LastGenOutput>
+      <CustomToolNamespace>ByteartRetail.Services</CustomToolNamespace>
+    </None>
+    <None Include="InfoService.svc.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>InfoService.svc.cs</LastGenOutput>
+      <CustomToolNamespace>ByteartRetail.Services</CustomToolNamespace>
+    </None>
     <None Include="UserService.svc.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>UserService.svc.cs</LastGenOutput>
