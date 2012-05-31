@@ -8,6 +8,6 @@ namespace zkdao.Email {
 
     public interface IEmailService {
 
-        bool SendEmail(string ToAddress, string subject, string content);
+        void SendEmail(string toAddress, string subject, string content, bool isRich);
     }
 }

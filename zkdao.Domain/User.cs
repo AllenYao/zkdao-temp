@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using zic_dotnet;
 using zic_dotnet.Domain;
 using zkdao.Email;
+using System.Configuration;
 
 namespace zkdao.Domain {
 
@@ -75,16 +76,14 @@ namespace zkdao.Domain {
             this.ID = Guid.NewGuid();
             this.DateCreated = DateTime.Now;
             this.ActEnum = (int)eAct.unApproved;
-            bool needApproved = this.RequestApproved();
-            if (!needApproved) {
-                this.ActEnum = (int)eAct.Normal;
-            }
+            this.RequestApproved();
         }
 
-        public bool RequestApproved() {
+        public void RequestApproved() {
             IEmailService emalimple = IocLocator.Instance.GetImple<IEmailService>();
             this.ApprovedID = Guid.NewGuid().ToString();
-            return emalimple.SendEmail(this.Email, "请激活您的邮箱", "<a href='www.zkdao.com/Account/Approved/'" + this.ApprovedID + ">点击即可激活zkdao帐号 -></a>");
+            emalimple.SendEmail(this.Email, "激活您的邮箱 - ZKDAO",
+                "<a href='" + ConfigurationManager.AppSettings["WebDomain"] + "Account/Approved/" + this.Email + "?approvedID=" + this.ApprovedID + "' >点击即可激活zkdao帐号 -></a>", true);
         }
 
         public void ValiApproved(string approvedID) {

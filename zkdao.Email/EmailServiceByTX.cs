@@ -7,26 +7,32 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using log4net;
+using System.Net.Mime;
 
 namespace zkdao.Email {
 
     public class EmailServiceByTX : IEmailService {
+        public void SendEmail(string ToAddress, string subject, string content, bool isRich) {
+            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+            smtpClient.EnableSsl = true; //QQ不支持
+            smtpClient.Credentials = new NetworkCredential("zicjin@gmail.com", "rWcsarpi2#gm");
 
-        public bool SendEmail(string ToAddress, string subject, string content) {
+            //If need support outlook http://goo.gl/Wbjiv
+            //MailMessage mailMessage = new MailMessage("zicjin@gmail.com", ToAddress, subject, content);
+            //mailMessage.IsBodyHtml = false;
+            //AlternateView altView = AlternateView.CreateAlternateViewFromString(richContent, new ContentType(MediaTypeNames.Text.Html));
+            //mailMessage.AlternateViews.Add(altView);
+
+            MailMessage mailMessage = new MailMessage("zicjin@gmail.com", ToAddress, subject, content);
+            mailMessage.IsBodyHtml = isRich;
+
             try {
-                SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 25);
-                smtpClient.EnableSsl = true; ;
-
-                smtpClient.Credentials = new NetworkCredential("zicjin@qq.com", "rWcsarpi2#qq");
-
-                MailMessage mailMessage = new MailMessage("zicjin@qq.com", ToAddress, subject, content);
                 smtpClient.Send(mailMessage);
-                return true;
             } catch (Exception ex) {
                 ILog Log = LogManager.GetLogger("InfrasEmail", MethodBase.GetCurrentMethod().DeclaringType);
                 Log.Warn(ex);
-                return false;
             }
+            //altView.Dispose();
         }
     }
 }

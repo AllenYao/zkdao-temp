@@ -125,10 +125,10 @@ namespace zkdao.Web.Extensions {
                 };
                 newUser = svc.UserRegister(dataObject);
             }
-            if (newUser.ActEnum == (int)eAct.Normal) {
-                status = MembershipCreateStatus.Success;
-            } else {
+            if (newUser.ActEnum == (int)eAct.unApproved) {
                 status = MembershipCreateStatus.InvalidEmail;
+            } else {
+                status = MembershipCreateStatus.Success;
             }
             return ConvertToMem(newUser);
         }

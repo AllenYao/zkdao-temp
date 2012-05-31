@@ -11,5 +11,9 @@ namespace zkdao.Web.Controllers {
         public ActionResult About() {
             return View();
         }
+
+        public ActionResult White() {
+            return View();
+        }
     }
 }

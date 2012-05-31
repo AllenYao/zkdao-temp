@@ -2,6 +2,7 @@
 using System.Web.Security;
 using zkdao.Web.Models;
 using zkdao.Web.UserServiceReference;
+using zic_dotnet;
 
 namespace zkdao.Web.Controllers {
 
@@ -45,11 +46,12 @@ namespace zkdao.Web.Controllers {
                 MembershipCreateStatus createStatus = MembershipCreateStatus.ProviderError;
                 Membership.CreateUser(model.Email, model.Password, model.Email, null, null, true, null, out createStatus);
                 if (createStatus == MembershipCreateStatus.Success) {
-                    FormsAuthentication.SetAuthCookie(model.Email, false /* createPersistentCookie */);
+                    FormsAuthentication.SetAuthCookie(model.Email, false);
                     return RedirectToAction("Index", "Home");
                 } else if (createStatus == MembershipCreateStatus.InvalidEmail) {
+                    FormsAuthentication.SetAuthCookie(model.Email, false);
                     TempData["WhiteTitle"] = "请去注册邮箱获取验证邮件，用以激活帐号。";
-                    TempData["WhiteContent"] = "您的注册邮箱：<a href='mailto:" + model.Email + "'>" + model.Email + "</a>，如果长时间未收到激活邮件，请 <a href='/Account/ReSendApproved'>点击这里</a> 重新发送邮件。";
+                    TempData["WhiteContent"] = MvcHtmlString.Create("您的注册邮箱：" + model.Email.EmailLinkBtn() + "，如果长时间未收到激活邮件，请 <a href='/Account/ReSendApproved'>点击这里</a> 重新发送邮件。");
                     return RedirectToAction("White", "Home");
                 } else {
                     ModelState.AddModelError("", ErrorCodeToString(createStatus));
@@ -58,19 +60,16 @@ namespace zkdao.Web.Controllers {
             return View(model);
         }
 
-        public ActionResult Approved(string approvedID) {
+        public ActionResult Approved(string id, string approvedID) {
             bool ok;
-            if (string.IsNullOrEmpty(approvedID)) {
-                ok = false;
-            }
             using (UserServiceClient svc = new UserServiceClient()) {
-                ok = svc.UserApproved(User.Identity.Name, approvedID);
+                ok = svc.UserApproved(id, approvedID);
             }
             if (ok) {
                 TempData["WhiteTitle"] = "验证成功！感谢注册！";
             } else {
-                TempData["WhiteTitle"] = "验证失败。请 <a href='/Account/ReSendApproved'>点击这里</a> 重新申请验证邮件。";
-                TempData["WhiteContent"] = "您的注册邮箱：<a href='mailto:" + User.Identity.Name + "'></a>";
+                TempData["WhiteTitle"] = MvcHtmlString.Create("验证失败。请 <a href='/Account/ReSendApproved'>点击这里</a> 重新申请验证邮件。");
+                TempData["WhiteContent"] = MvcHtmlString.Create("您的注册邮箱：" + id.EmailLinkBtn());
                 TempData["WhiteColor"] = "c_red";
             }
             return RedirectToAction("White", "Home");
@@ -82,7 +81,8 @@ namespace zkdao.Web.Controllers {
                 svc.UserRequestApproved(User.Identity.Name);
             }
             TempData["WhiteTitle"] = "请去注册邮箱获取验证邮件，用以激活帐号。";
-            TempData["WhiteContent"] = "您的注册邮箱：<a href='mailto:" + User.Identity.Name + "'>" + User.Identity.Name + "</a>，如果长时间未收到激活邮件，请 <a href='/Account/ReSendApproved'>点击这里</a> 重新发送邮件。";
+            TempData["WhiteContent"] = MvcHtmlString.Create(
+                "您的注册邮箱：" + User.Identity.Name.EmailLinkBtn() + "，如果长时间未收到激活邮件，请 <a href='/Account/ReSendApproved'>点击这里</a> 重新发送邮件。");
             return RedirectToAction("White", "Home");
         }
 

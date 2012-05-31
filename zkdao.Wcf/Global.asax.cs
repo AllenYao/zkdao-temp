@@ -15,7 +15,7 @@ namespace zkdao.Wcf {
         protected void Application_Start(object sender, EventArgs e) {
             BaseApplication.Initialize();
             Database.SetInitializer<EFDbContext>(new EFDbContextInitializer());
-            ZicLog4Net.Instance.Config(new string[] { "Domain", "AppService", "InfrasEmail", "InfrasEF", "InfrasWCF", "InfrasREST" });
+            ZicLog4Net.Instance.Config(new string[] { "Domain", "AppService", "InfrasEmail", "InfrasEF", "InfrasWCF", "InfrasREST" }, new ZicGmailConfig());
         }
 
         protected void Session_Start(object sender, EventArgs e) {
