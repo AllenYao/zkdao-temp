@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/zic_dotnet" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/zic_dotnet" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8668/InfoService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/zkdao.Domain" />
+  <xs:complexType name="PagerOfInfoDatav3jGNzue">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="PagerOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/zic_dotnet" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="InfoData" Namespace="http://schemas.datacontract.org/2004/07/zkdao.Domain" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Count" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/zkdao.Domain" minOccurs="0" name="Result" nillable="true" type="q1:ArrayOfInfoData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagerOfInfoDatav3jGNzue" nillable="true" type="tns:PagerOfInfoDatav3jGNzue" />
+</xs:schema>

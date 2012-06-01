@@ -69,17 +69,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseApplication.cs" />
-    <Compile Include="IInfoService.cs" />
+    <Compile Include="Interface\IInfoService.cs" />
     <Compile Include="InfoApplication.cs" />
-    <Compile Include="IProductService.cs" />
-    <Compile Include="IReplyChildService.cs" />
-    <Compile Include="ITagService.cs" />
+    <Compile Include="Interface\IProductService.cs" />
+    <Compile Include="Interface\IReplyChildService.cs" />
+    <Compile Include="Interface\ITagService.cs" />
     <Compile Include="ProductApplication.cs" />
     <Compile Include="ReplyChildApplication.cs" />
     <Compile Include="TagApplication.cs" />
     <Compile Include="UserApplication.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="IUserService.cs" />
+    <Compile Include="Interface\IUserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -80,6 +80,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ControllerBase.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InfoController.cs" />
     <Compile Include="Models\ServicesEnum.cs" />
     <Compile Include="Models\WhiteInfo.cs" />
     <Compile Include="Global.asax.cs">
@@ -88,6 +89,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Extensions\zkdaoMembershipProvider.cs" />
     <Compile Include="Models\UserData.Partial.cs" />
+    <Compile Include="Service References\InfoServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ProductServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\UserServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -297,6 +308,40 @@
     <None Include="Content\zic-css\_zic_mixin.scss" />
     <None Include="Content\zic-css\_zic_rest.scss" />
     <None Include="Content\_cus_mixin.scss" />
+    <Content Include="Service References\InfoServiceReference\InfoService.wsdl" />
+    <Content Include="Service References\InfoServiceReference\InfoService.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Service References\InfoServiceReference\InfoService1.wsdl" />
+    <Content Include="Service References\InfoServiceReference\InfoService1.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Service References\InfoServiceReference\InfoService2.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Service References\InfoServiceReference\InfoService3.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Service References\InfoServiceReference\zkdao.Web.InfoServiceReference.InfoData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ProductServiceReference\ProductService.wsdl" />
+    <Content Include="Service References\ProductServiceReference\ProductService.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Service References\ProductServiceReference\ProductService1.wsdl" />
+    <Content Include="Service References\ProductServiceReference\ProductService1.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Service References\ProductServiceReference\ProductService2.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Service References\ProductServiceReference\ProductService3.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Service References\ProductServiceReference\zkdao.Web.ProductServiceReference.ProductData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\UserServiceReference\UserService.disco" />
     <None Include="Service References\UserServiceReference\configuration91.svcinfo" />
     <None Include="Service References\UserServiceReference\configuration.svcinfo" />
@@ -406,6 +451,20 @@
     <Content Include="Scripts\zic-js\qunit\test.js" />
     <Content Include="Scripts\zic-js\sea.js" />
     <Content Include="Scripts\zic-js\underscore.js" />
+    <Content Include="Service References\InfoServiceReference\InfoService.disco" />
+    <Content Include="Service References\InfoServiceReference\configuration91.svcinfo" />
+    <Content Include="Service References\InfoServiceReference\configuration.svcinfo" />
+    <Content Include="Service References\InfoServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Service References\ProductServiceReference\ProductService.disco" />
+    <Content Include="Service References\ProductServiceReference\configuration91.svcinfo" />
+    <Content Include="Service References\ProductServiceReference\configuration.svcinfo" />
+    <Content Include="Service References\ProductServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -446,6 +505,7 @@
     <Content Include="Views\Shared\_LayoutSingle.cshtml" />
     <Content Include="Views\Shared\_HeadPartial.cshtml" />
     <Content Include="Views\Info\Submit.cshtml" />
+    <Content Include="Views\Info\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -472,6 +532,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Service References\InfoServiceReference\" />
+    <WCFMetadataStorage Include="Service References\ProductServiceReference\" />
     <WCFMetadataStorage Include="Service References\UserServiceReference\" />
   </ItemGroup>
   <PropertyGroup>

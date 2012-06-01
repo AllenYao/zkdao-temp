@@ -1,10 +1,10 @@
 ﻿namespace zkdao.Domain {
 
     public enum eAct {
-        Normal = 1,
-        Delete = 2,
-        Freeze = 3,
-        unApproved = 4,
-        Reported = 5
+        Normal = 0,
+        Delete = 1,
+        Freeze = 2,
+        unApproved = 3,
+        Reported = 4
     }
 }

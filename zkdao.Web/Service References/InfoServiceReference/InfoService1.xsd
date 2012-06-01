@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="www.zkdao.com" elementFormDefault="qualified" targetNamespace="www.zkdao.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8668/InfoService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:8668/InfoService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/zkdao.Domain" />
+  <xs:import schemaLocation="http://localhost:8668/InfoService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/zic_dotnet" />
+  <xs:element name="InfoGetByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="ID" type="q1:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InfoGetByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/zkdao.Domain" minOccurs="0" name="InfoGetByIDResult" nillable="true" type="q2:InfoData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InfoGetPager">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InfoGetPagerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/zic_dotnet" minOccurs="0" name="InfoGetPagerResult" nillable="true" type="q3:PagerOfInfoDatav3jGNzue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InfoSubmit">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/zkdao.Domain" minOccurs="0" name="subInfo" nillable="true" type="q4:InfoData" />
+        <xs:element minOccurs="0" name="force" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InfoSubmitResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/zkdao.Domain" minOccurs="0" name="InfoSubmitResult" nillable="true" type="q5:InfoData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InfoApproved">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="ID" type="q6:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InfoApprovedResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InfoUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/zkdao.Domain" minOccurs="0" name="dataObject" nillable="true" type="q7:InfoData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InfoUpdateResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

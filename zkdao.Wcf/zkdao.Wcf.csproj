@@ -113,13 +113,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Common.tt</DependentUpon>
     </Compile>
-    <Compile Include="ProductService.svc.cs">
-      <DependentUpon>ProductService.svc.tt</DependentUpon>
+    <Compile Include="InfoService.svc.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="InfoService.svc.cs">
       <DependentUpon>InfoService.svc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductService.svc.cs">
+      <DependentUpon>ProductService.svc.tt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>

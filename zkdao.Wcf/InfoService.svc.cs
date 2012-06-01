@@ -16,7 +16,7 @@ using zic_dotnet;
 using log4net;
 
 namespace zkdao.Wcf {
-	public class InfoService : IUserService {
+	public class InfoService : IInfoService {
 		private readonly IInfoService infoService = IocLocator.Instance.GetImple<IInfoService>();
 				public InfoData InfoGetByID(Guid ID) {
 			try {

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="www.zkdao.com" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="www.zkdao.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="www.zkdao.com/Imports">
+      <xsd:import schemaLocation="http://localhost:8668/InfoService.svc?xsd=xsd0" namespace="www.zkdao.com" />
+      <xsd:import schemaLocation="http://localhost:8668/InfoService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8668/InfoService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/zkdao.Domain" />
+      <xsd:import schemaLocation="http://localhost:8668/InfoService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/zic_dotnet" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IInfoService_InfoGetByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:InfoGetByID" />
+  </wsdl:message>
+  <wsdl:message name="IInfoService_InfoGetByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InfoGetByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoService_InfoGetPager_InputMessage">
+    <wsdl:part name="parameters" element="tns:InfoGetPager" />
+  </wsdl:message>
+  <wsdl:message name="IInfoService_InfoGetPager_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InfoGetPagerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoService_InfoSubmit_InputMessage">
+    <wsdl:part name="parameters" element="tns:InfoSubmit" />
+  </wsdl:message>
+  <wsdl:message name="IInfoService_InfoSubmit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InfoSubmitResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoService_InfoApproved_InputMessage">
+    <wsdl:part name="parameters" element="tns:InfoApproved" />
+  </wsdl:message>
+  <wsdl:message name="IInfoService_InfoApproved_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InfoApprovedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInfoService_InfoUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:InfoUpdate" />
+  </wsdl:message>
+  <wsdl:message name="IInfoService_InfoUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InfoUpdateResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IInfoService">
+    <wsdl:operation name="InfoGetByID">
+      <wsdl:input wsaw:Action="www.zkdao.com/IInfoService/InfoGetByID" message="tns:IInfoService_InfoGetByID_InputMessage" />
+      <wsdl:output wsaw:Action="www.zkdao.com/IInfoService/InfoGetByIDResponse" message="tns:IInfoService_InfoGetByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InfoGetPager">
+      <wsdl:input wsaw:Action="www.zkdao.com/IInfoService/InfoGetPager" message="tns:IInfoService_InfoGetPager_InputMessage" />
+      <wsdl:output wsaw:Action="www.zkdao.com/IInfoService/InfoGetPagerResponse" message="tns:IInfoService_InfoGetPager_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InfoSubmit">
+      <wsdl:input wsaw:Action="www.zkdao.com/IInfoService/InfoSubmit" message="tns:IInfoService_InfoSubmit_InputMessage" />
+      <wsdl:output wsaw:Action="www.zkdao.com/IInfoService/InfoSubmitResponse" message="tns:IInfoService_InfoSubmit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InfoApproved">
+      <wsdl:input wsaw:Action="www.zkdao.com/IInfoService/InfoApproved" message="tns:IInfoService_InfoApproved_InputMessage" />
+      <wsdl:output wsaw:Action="www.zkdao.com/IInfoService/InfoApprovedResponse" message="tns:IInfoService_InfoApproved_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InfoUpdate">
+      <wsdl:input wsaw:Action="www.zkdao.com/IInfoService/InfoUpdate" message="tns:IInfoService_InfoUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="www.zkdao.com/IInfoService/InfoUpdateResponse" message="tns:IInfoService_InfoUpdate_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

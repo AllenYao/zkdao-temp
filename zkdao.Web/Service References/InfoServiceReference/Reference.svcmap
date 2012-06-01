@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="022c3c8a-98a5-4620-b3b7-7ef95645e4d7" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8668/InfoService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="InfoService.wsdl" MetadataType="Wsdl" ID="5d62f5ad-d9fd-4155-baeb-7fd86576d087" SourceId="1" SourceUrl="http://localhost:8668/InfoService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="InfoService.xsd" MetadataType="Schema" ID="a089be97-86a0-44cd-ad2a-cf82ceca48b6" SourceId="1" SourceUrl="http://localhost:8668/InfoService.svc?xsd=xsd1" />
+    <MetadataFile FileName="InfoService1.xsd" MetadataType="Schema" ID="fe358eea-f1d0-4cd3-b657-bf9b4c194b0a" SourceId="1" SourceUrl="http://localhost:8668/InfoService.svc?xsd=xsd0" />
+    <MetadataFile FileName="InfoService2.xsd" MetadataType="Schema" ID="1be9553a-a2ee-4e7d-8ae3-cd83a5a4bb4d" SourceId="1" SourceUrl="http://localhost:8668/InfoService.svc?xsd=xsd3" />
+    <MetadataFile FileName="InfoService3.xsd" MetadataType="Schema" ID="a075443e-c867-4c94-8dbb-61777ab69de4" SourceId="1" SourceUrl="http://localhost:8668/InfoService.svc?xsd=xsd2" />
+    <MetadataFile FileName="InfoService1.wsdl" MetadataType="Wsdl" ID="931ff07a-3eb0-4863-b0cb-a5be3f7dd92a" SourceId="1" SourceUrl="http://localhost:8668/InfoService.svc?wsdl" />
+    <MetadataFile FileName="InfoService.disco" MetadataType="Disco" ID="dd6d047c-c197-49e3-ba9e-4e6901c5febb" SourceId="1" SourceUrl="http://localhost:8668/InfoService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

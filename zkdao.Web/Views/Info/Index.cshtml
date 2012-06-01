@@ -1,0 +1,82 @@
+﻿@model IEnumerable<zkdao.Web.InfoServiceReference.InfoData>
+
+@{
+    ViewBag.Title = "InfoList";
+    Layout = "~/Views/Shared/_LayoutSingle.cshtml";
+}
+
+<h2>InfoList</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            ActEnum
+        </th>
+        <th>
+            ContentRich
+        </th>
+        <th>
+            CreatTime
+        </th>
+        <th>
+            EndTime
+        </th>
+        <th>
+            GradeAverage
+        </th>
+        <th>
+            LinkImage
+        </th>
+        <th>
+            LinkUrl
+        </th>
+        <th>
+            StartTime
+        </th>
+        <th>
+            Title
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActEnum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContentRich)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GradeAverage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LinkImage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LinkUrl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
